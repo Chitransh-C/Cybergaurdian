@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CyberGuardian - Interactive Cyber Laboratory & Sandboxes</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#93000a",
+            "outline": "#86948a",
+            "on-secondary": "#003640",
+            "tertiary-container": "#71a1ff",
+            "on-primary-fixed-variant": "#005236",
+            "inverse-primary": "#006c49",
+            "surface-container-highest": "#303444",
+            "primary-fixed": "#6ffbbe",
+            "surface-container-high": "#252a39",
+            "on-secondary-fixed-variant": "#004e5c",
+            "secondary-fixed": "#acedff",
+            "on-background": "#dee2f6",
+            "on-error": "#690005",
+            "secondary-fixed-dim": "#4cd7f6",
+            "primary-container": "#10b981",
+            "secondary-container": "#03b5d3",
+            "on-tertiary": "#002e6a",
+            "error": "#ffb4ab",
+            "surface-dim": "#0e1321",
+            "surface-container": "#1a1f2e",
+            "outline-variant": "#3c4a42",
+            "secondary": "#4cd7f6",
+            "surface-bright": "#343948",
+            "on-secondary-fixed": "#001f26",
+            "surface": "#0e1321",
+            "on-secondary-container": "#00424e",
+            "tertiary-fixed-dim": "#adc6ff",
+            "tertiary-fixed": "#d8e2ff",
+            "on-tertiary-container": "#00367a",
+            "on-primary": "#003824",
+            "surface-container-lowest": "#090e1c",
+            "primary": "#4edea3",
+            "on-tertiary-fixed-variant": "#004395",
+            "on-primary-container": "#00422b",
+            "on-surface-variant": "#bbcabf",
+            "surface-variant": "#303444",
+            "on-primary-fixed": "#002113",
+            "surface-container-low": "#161b2a",
+            "tertiary": "#adc6ff",
+            "primary-fixed-dim": "#4edea3",
+            "inverse-on-surface": "#2b303f",
+            "background": "#0e1321",
+            "inverse-surface": "#dee2f6",
+            "surface-tint": "#4edea3",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-fixed": "#001a42",
+            "on-surface": "#dee2f6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["JetBrains Mono"],
+            "body-md": ["Geist"],
+            "display-lg": ["Geist"],
+            "code-md": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Geist"],
+            "display-lg-mobile": ["Geist"],
+            "label-md": ["JetBrains Mono"],
+            "body-sm": ["Geist"],
+            "headline-md": ["Geist"],
+            "body-lg": ["Geist"],
+            "headline-sm": ["Geist"],
+            "code-sm": ["JetBrains Mono"],
+            "title-md": ["Geist"],
+            "headline-lg": ["Geist"]
+          },
+          "fontSize": {
+            "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+            "code-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "code-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+            "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Claymorphic Tactile Shading & Highlights */
+    .clay-surface {
+      background: radial-gradient(120% 120% at 20% 20%, rgba(37, 42, 57, 0.85) 0%, rgba(14, 19, 33, 0.95) 100%);
+      box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.12), 
+                  inset -2px -2px 4px rgba(0, 0, 0, 0.6), 
+                  0 12px 30px -8px rgba(0, 0, 0, 0.65);
+    }
+    
+    .clay-btn-primary {
+      background: linear-gradient(135deg, #2ae095 0%, #10b981 60%, #059669 100%);
+      box-shadow: inset 1px 1.5px 2px rgba(255, 255, 255, 0.45),
+                  inset -1px -2px 3px rgba(0, 56, 36, 0.6),
+                  0 6px 16px -2px rgba(16, 185, 129, 0.45);
+      transition: all 0.15s ease-out;
+    }
+    .clay-btn-primary:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(16, 185, 129, 0.3);
+    }
+
+    .clay-pill {
+      box-shadow: inset 1px 1px 1.5px rgba(255, 255, 255, 0.15),
+                  inset -1px -1px 2px rgba(0, 0, 0, 0.5),
+                  0 4px 10px -2px rgba(0, 0, 0, 0.4);
+    }
+
+    .clay-chip-interactive {
+      background: rgba(22, 27, 42, 0.8);
+      box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.08),
+                  inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+      transition: all 0.15s ease;
+    }
+    .clay-chip-interactive:hover {
+      border-color: rgba(78, 222, 163, 0.5);
+      background: rgba(32, 40, 60, 0.9);
+      box-shadow: 0 0 10px rgba(78, 222, 163, 0.2);
+    }
+
+    .terminal-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .terminal-scroll::-webkit-scrollbar-track {
+      background: #090e1c;
+    }
+    .terminal-scroll::-webkit-scrollbar-thumb {
+      background: #303444;
+      border-radius: 4px;
+    }
+    .terminal-scroll::-webkit-scrollbar-thumb:hover {
+      background: #4edea3;
+    }
+
+    @keyframes cursor-pulse {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .terminal-cursor {
+      animation: cursor-pulse 1s infinite;
+    }
+
+    @keyframes pulse-halo {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 0.3; }
+    }
+    .status-pulse {
+      animation: pulse-halo 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md min-h-screen flex flex-col selection:bg-primary selection:text-surface-container-lowest antialiased overflow-x-hidden">
+<!-- TopNavBar (Shared Component from JSON) -->
+<header class="sticky top-0 z-50 bg-surface-container-low dark:bg-surface-container-low backdrop-blur-md border-b border-outline-variant/30 shadow-2xl shadow-surface-container-lowest/50">
+<div class="w-full px-space-lg max-w-[1600px] mx-auto flex items-center justify-between h-16">
+<!-- Brand & Search cluster on left -->
+<div class="flex items-center gap-space-lg">
+<a class="flex items-center gap-space-sm group" href="#">
+<div class="w-8 h-8 rounded-xl bg-surface-container-high border border-primary/30 flex items-center justify-center text-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-title-md" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<span class="text-title-md font-title-md tracking-tight font-bold text-primary dark:text-primary uppercase">CyberGuardian</span>
+</a>
+<!-- Search Bar on_left -->
+<div class="relative hidden lg:block w-72">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md">search</span>
+</div>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-xl text-body-sm font-code-sm placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-colors" placeholder="Search CVEs, modules, terminal..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
+<span class="font-label-sm text-label-sm text-on-surface-variant/60 px-1 py-0.5 rounded bg-surface-container-high/60 border border-outline-variant/30">⌘K</span>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 px-2 py-1 rounded" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 px-2 py-1 rounded" href="#">Learning Tracks</a>
+<a class="text-primary font-title-md border-b-2 border-primary pb-1 active:scale-[0.98] transition-transform duration-100 ease-out" href="#">Sandboxes</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 px-2 py-1 rounded" href="#">Credentials</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-space-md">
+<!-- Trailing Icon Actions -->
+<button class="p-2 rounded-xl text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 active:scale-[0.98]" title="Terminal Shell Monitor">
+<span class="material-symbols-outlined text-body-lg">terminal</span>
+</button>
+<button class="relative p-2 rounded-xl text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 active:scale-[0.98]" title="Notifications">
+<span class="material-symbols-outlined text-body-lg">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface-container-low"></span>
+</button>
+<div class="h-6 w-px bg-outline-variant/40 mx-1"></div>
+<!-- Trailing Primary Action (Resume Lab) -->
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-primary text-on-primary font-title-md text-body-sm font-semibold hover:bg-primary-fixed shadow-md shadow-primary/20 active:scale-[0.98] transition-transform duration-100 ease-out">
+<span class="material-symbols-outlined text-body-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+          Resume Lab
+        </button>
+<!-- Cadet Profile Snippet -->
+<div class="flex items-center gap-2 pl-1 group cursor-pointer">
+<div class="relative w-8 h-8 rounded-full ring-1 ring-primary/40 overflow-hidden bg-surface-container-high flex items-center justify-center">
+<img alt="Agent Neo cadet profile avatar with cyber visor" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1Xjm7t8L2IhYlXwwFzkOwaX8Ke00DzRYHQPFSU0F3E-6iIde4BQuXvZqjPh0CK5F8NyXh28WV3onLEPf5zvFWB078bOwD1SpPElFBDS1zKpvpHHLBazVk2QChfcde7XSlXreO9ftxhzxVn7D8I_zFMZrF61HPlg6k86b2MjPXuz6ou_HedV-0UrHYiwB6HBF8QXVlaEmrSbBrcukb-OlZmM3GXFXq6NTqhHrvr9b0_IL-X_8G_JZGWw9t0"/>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-primary ring-1 ring-surface-container-low"></span>
+</div>
+<span class="hidden xl:inline text-label-md font-label-md text-on-surface-variant">Agent Neo · Lvl 1</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Secondary Tactical Sandbox Banner Bar -->
+<section class="border-b border-outline-variant/20 bg-surface-container-lowest/80 backdrop-blur-lg px-space-lg py-2.5">
+<div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-3 text-body-sm">
+<!-- Operational Breadcrumbs with tactile pill styling -->
+<div class="flex items-center flex-wrap gap-2 text-label-sm font-label-sm">
+<a class="px-2 py-0.5 rounded-md bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-body-sm">dashboard</span>
+          Dashboard
+        </a>
+<span class="text-outline-variant">/</span>
+<a class="px-2 py-0.5 rounded-md bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors" href="#">
+          Track 01: Linux Fundamentals
+        </a>
+<span class="text-outline-variant">/</span>
+<span class="px-2.5 py-0.5 rounded-md bg-surface-container-high border border-primary/40 text-primary font-semibold flex items-center gap-1 shadow-sm shadow-primary/10">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+          Module 02: File Inspection & Incident Triage
+        </span>
+</div>
+<!-- Live Micro-Sandbox Status & Controls -->
+<div class="flex items-center flex-wrap gap-3">
+<!-- Telemetry Badge with 3D Holographic Cube -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-xl bg-surface-container-low/90 border border-outline-variant/30 clay-pill">
+<div class="relative w-5 h-5 rounded overflow-hidden flex-shrink-0">
+<img alt="Isolated client micro-sandbox holographic unit" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WMImON0edGq4v_7uvvmK0jLgXGwh1dmTk_LF-Zbd5j08Pr8pLAo6UeJxxZSqrT3yGnv8PlBC6Vra6hJIvOQcPkWwerYcwnyNv-v-NKimpPUaIpSkgKqvw5hfuy_gIPpImJINiOyx2EipwsVgYjyNq5N5HThM6iY_jF-_jOLf9xHbNMeBDgfd4Sd3YqZJXrWDSaIRj9f1JOiWC9CapHEmnUKGYn7a_wmWKxAHb-qBPpnGwEqjcQUj9hPm4"/>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="relative flex h-2 w-2">
+<span class="status-pulse absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-sm text-label-sm tracking-wide text-primary uppercase font-semibold">ISOLATED CLIENT MICRO-SANDBOX // 0.0ms LATENCY</span>
+</div>
+</div>
+<!-- Session Remaining Countdown -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-surface-container-high/60 border border-outline-variant/20 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-body-sm text-secondary">timer</span>
+<span>Lab Session: <strong class="text-on-surface font-semibold">48m 12s remaining</strong></span>
+</div>
+<!-- Quick Terminal Action Buttons -->
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-label-sm font-label-sm transition-colors flex items-center gap-1" id="clear-shell-btn">
+<span class="material-symbols-outlined text-body-sm text-outline">backspace</span>
+            Clear Shell
+          </button>
+<button class="px-2.5 py-1 rounded-xl bg-error-container/20 hover:bg-error-container/40 border border-error/30 text-error text-label-sm font-label-sm transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">restart_alt</span>
+            Reset Environment
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Multi-Panel Workspace (12-Column Responsive Layout) -->
+<main class="flex-1 w-full max-w-[1600px] mx-auto p-4 lg:p-6 grid grid-cols-12 gap-5">
+<!-- LEFT PANEL: Curriculum Drawer & Tactical Roadmap (col-span-12 lg:col-span-3) -->
+<aside class="col-span-12 lg:col-span-3 flex flex-col gap-4">
+<!-- Track Overview Card -->
+<div class="rounded-xl border border-outline-variant/30 bg-surface-container-low/80 backdrop-blur-xl p-4 flex flex-col gap-3 shadow-xl shadow-surface-container-lowest/70 clay-surface">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">TRACK 01 // FOUNDATION</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">Linux Fundamentals</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-sm text-label-sm font-semibold">67% Complete</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-lowest rounded-full h-2 p-0.5 border border-outline-variant/30">
+<div class="bg-gradient-to-r from-secondary to-primary h-full rounded-full transition-all duration-500" style="width: 67%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Master command pipelines, authentication telemetry, and incident containment in airgapped environments.</p>
+</div>
+<!-- Modules Progression List -->
+<div class="rounded-xl border border-outline-variant/30 bg-surface-container-low/70 backdrop-blur-md p-3.5 flex flex-col gap-2 shadow-xl shadow-surface-container-lowest/50">
+<div class="flex items-center justify-between px-1.5 pb-2 border-b border-outline-variant/20">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Tactical Modules</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 / 6 Active</span>
+</div>
+<!-- Module 01 (Completed) -->
+<div class="group flex items-center justify-between p-2.5 rounded-xl bg-surface-container-lowest/60 border border-outline-variant/20 hover:border-primary/40 transition-colors cursor-pointer">
+<div class="flex items-start gap-2.5">
+<span class="w-5 h-5 rounded-full bg-primary/20 text-primary border border-primary/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-code-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+<div>
+<p class="text-body-sm font-medium text-on-surface line-clamp-1">Mod 01: Path Traversal & Filesystem</p>
+<span class="text-label-sm font-label-sm text-primary">COMPLETED // +150 XP</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-body-sm text-on-surface-variant group-hover:text-primary transition-colors">verified</span>
+</div>
+<!-- Module 02 (Active Current) -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-high/90 border-2 border-primary/80 shadow-lg shadow-primary/10 clay-pill">
+<div class="flex items-start gap-2.5">
+<span class="relative flex h-5 w-5 items-center justify-center flex-shrink-0 mt-0.5">
+<span class="status-pulse absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-bold text-label-sm flex items-center justify-center">2</span>
+</span>
+<div>
+<p class="text-body-sm font-semibold text-primary">Mod 02: File Inspection & Incident Triage</p>
+<span class="text-label-sm font-label-sm text-secondary font-medium">ACTIVE MISSION // TASK 2/4</span>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary shadow-sm shadow-primary"></span>
+</div>
+<!-- Module 03 (Up Next) -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-lowest/40 border border-outline-variant/20 hover:border-outline transition-colors cursor-pointer opacity-90">
+<div class="flex items-start gap-2.5">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+<div>
+<p class="text-body-sm text-on-surface line-clamp-1">Mod 03: Permissions, SUID & Access</p>
+<span class="text-label-sm font-label-sm text-on-surface-variant">UP NEXT // +200 XP</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-body-sm text-on-surface-variant">lock_open</span>
+</div>
+<!-- Module 04 (Locked) -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-lowest/20 border border-outline-variant/10 opacity-50 cursor-not-allowed">
+<div class="flex items-start gap-2.5">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant/60 text-label-sm flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+<div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">Mod 04: Log Grep & Pipeline Filtering</p>
+<span class="text-label-sm font-label-sm text-on-surface-variant/60">LOCKED REQUIREMENT</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-body-sm text-on-surface-variant/40">lock</span>
+</div>
+<!-- Module 05 (Locked) -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-lowest/20 border border-outline-variant/10 opacity-50 cursor-not-allowed">
+<div class="flex items-start gap-2.5">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant/60 text-label-sm flex items-center justify-center flex-shrink-0 mt-0.5">5</span>
+<div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">Mod 05: Malicious Signal Termination</p>
+<span class="text-label-sm font-label-sm text-on-surface-variant/60">LOCKED REQUIREMENT</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-body-sm text-on-surface-variant/40">lock</span>
+</div>
+<!-- Module 06 (Locked) -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-lowest/20 border border-outline-variant/10 opacity-50 cursor-not-allowed">
+<div class="flex items-start gap-2.5">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant/60 text-label-sm flex items-center justify-center flex-shrink-0 mt-0.5">6</span>
+<div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">Mod 06: Netstat & Local Network Recon</p>
+<span class="text-label-sm font-label-sm text-on-surface-variant/60">LOCKED REQUIREMENT</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-body-sm text-on-surface-variant/40">lock</span>
+</div>
+</div>
+<!-- Earned Cryptographic Badges Mini-Vault -->
+<div class="rounded-xl border border-outline-variant/30 bg-surface-container-lowest/90 p-3.5 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-body-md text-primary">token</span>
+<span class="text-label-sm font-label-sm font-semibold uppercase">Badge Vault</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">2 Unlocked</span>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<div class="h-12 rounded-lg bg-surface-container-high border border-primary/40 flex items-center justify-center text-primary group relative cursor-pointer" title="Bash Pioneer Badge">
+<span class="material-symbols-outlined text-title-md" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div class="h-12 rounded-lg bg-surface-container-high border border-secondary/40 flex items-center justify-center text-secondary group relative cursor-pointer" title="Privilege Sentry Badge">
+<span class="material-symbols-outlined text-title-md" style="font-variation-settings: 'FILL' 1;">key</span>
+</div>
+<div class="h-12 rounded-lg bg-surface-container border border-outline-variant/20 flex items-center justify-center text-on-surface-variant/40" title="Packet Interceptor (Locked)">
+<span class="material-symbols-outlined text-title-md">wifi_tethering</span>
+</div>
+<div class="h-12 rounded-lg bg-surface-container border border-outline-variant/20 flex items-center justify-center text-on-surface-variant/40" title="SOC Commander (Locked)">
+<span class="material-symbols-outlined text-title-md">military_tech</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- CENTER PANEL: Mission Directive & Live Airgapped Terminal (col-span-12 lg:col-span-6) -->
+<section class="col-span-12 lg:col-span-6 flex flex-col gap-4">
+<!-- Upper Section: Mission Directive Card (Frosted Glassmorphic + Clay Accents) -->
+<div class="rounded-xl border border-primary/20 bg-surface-container-low/90 backdrop-blur-xl p-5 shadow-2xl shadow-surface-container-lowest/90 relative overflow-hidden clay-surface">
+<!-- Glow accent blur -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary-container/20 border border-primary-container/40 text-primary font-label-sm text-label-sm uppercase font-semibold">
+              ACTIVE OBJECTIVE // TACTICAL TASK 2 OF 4
+            </span>
+</div>
+<!-- Tabs switch -->
+<div class="flex rounded-lg bg-surface-container-lowest p-0.5 border border-outline-variant/30 text-label-sm font-label-sm">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-medium">Directive</button>
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface transition-colors">Theory Reference</button>
+</div>
+</div>
+<div class="mt-3.5 space-y-3">
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">
+            SSH Brute-Force Log Analysis & Subnet Extraction
+          </h1>
+<p class="text-body-md font-body-md text-on-surface-variant">
+            Examine <code class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-secondary font-code-sm border border-outline-variant/30">/var/log/auth.log</code> to identify ongoing failed SSH brute-force attack attempts, isolate the malicious source IP address with peak query density, and prepare a firewall block rule.
+          </p>
+<!-- Real-Time Automated Validation Checklist -->
+<div class="bg-surface-container-lowest/80 rounded-xl p-3 border border-outline-variant/30 space-y-2">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant pb-1 border-b border-outline-variant/20">
+<span class="uppercase tracking-wider">Automated Verification Triggers</span>
+<span class="text-secondary font-code-sm">1/3 Satisfied</span>
+</div>
+<!-- Task Item 1: Complete -->
+<label class="flex items-center gap-3 p-1.5 rounded-lg bg-surface-container/40 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant/40 text-primary focus:ring-0 focus:ring-offset-0" disabled="" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-primary line-through opacity-80">Locate auth.log in system directory (/var/log/auth.log)</span>
+<span class="ml-auto font-label-sm text-label-sm text-primary font-semibold">VALIDATED</span>
+</label>
+<!-- Task Item 2: Pending -->
+<label class="flex items-center gap-3 p-1.5 rounded-lg bg-surface-container/70 border border-primary/30 cursor-pointer">
+<input class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant/40 text-primary focus:ring-0 focus:ring-offset-0" disabled="" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface font-medium">Extract count of failed passwords using grep/wc pipeline</span>
+<span class="ml-auto font-label-sm text-label-sm text-secondary animate-pulse">EVALUATING...</span>
+</label>
+<!-- Task Item 3: Pending -->
+<label class="flex items-center gap-3 p-1.5 rounded-lg bg-surface-container/30 cursor-pointer">
+<input class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant/40 text-primary focus:ring-0 focus:ring-offset-0" disabled="" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Identify source rogue IP address with highest recurrence frequency</span>
+<span class="ml-auto font-label-sm text-label-sm text-outline">PENDING</span>
+</label>
+</div>
+<!-- Command Hint Accordion Pill -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 p-2.5 rounded-xl bg-surface-container-high/60 border border-outline-variant/40">
+<div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto">
+<span class="px-1.5 py-0.5 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold flex-shrink-0">PIPELINE SYNTAX</span>
+<code class="font-code-sm text-code-sm text-on-surface selection:bg-secondary selection:text-surface-container-lowest whitespace-nowrap">
+                cat /var/log/auth.log | grep "Failed password" | awk '{print $11}' | sort | uniq -c | sort -nr
+              </code>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container border border-outline-variant/30 hover:border-primary/50 text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 flex-shrink-0" id="copy-syntax-btn">
+<span class="material-symbols-outlined text-body-sm">content_copy</span>
+              Copy
+            </button>
+</div>
+</div>
+</div>
+<!-- Lower Section: Cyber Terminal Sandbox Component -->
+<div class="flex-1 flex flex-col rounded-xl border border-outline-variant/30 bg-[#070b15] shadow-2xl overflow-hidden min-h-[460px]">
+<!-- Terminal Window Chrome -->
+<div class="h-10 bg-surface-container-lowest px-4 flex items-center justify-between border-b border-outline-variant/20 select-none">
+<!-- Tactile Mac-style dots -->
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error border border-error-container shadow-inner"></span>
+<span class="w-3 h-3 rounded-full bg-amber-500 border border-amber-600 shadow-inner"></span>
+<span class="w-3 h-3 rounded-full bg-primary border border-on-primary-fixed-variant shadow-inner"></span>
+<span class="ml-2 font-code-sm text-code-sm text-on-surface-variant/80 font-medium hidden sm:inline">
+              student@sandbox-node-eu02: ~ (bash 5.2)
+            </span>
+</div>
+<!-- Micro-VM Telemetry metadata inside header -->
+<div class="flex items-center gap-3 text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              BASH 5.2
+            </span>
+<span class="hidden md:inline text-outline-variant">|</span>
+<span class="hidden md:inline font-mono">LATENCY 0.4ms</span>
+<span class="hidden md:inline text-outline-variant">|</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary text-label-sm border border-secondary/20">AIRGAPPED MICRO-VM</span>
+</div>
+</div>
+<!-- Terminal Quick-Paste Action Strip -->
+<div class="bg-surface-container-lowest/90 px-3 py-1.5 border-b border-outline-variant/20 flex items-center gap-2 overflow-x-auto text-label-sm font-label-sm">
+<span class="text-on-surface-variant text-code-sm font-medium flex items-center gap-1 flex-shrink-0">
+<span class="material-symbols-outlined text-body-sm text-secondary">flash_on</span>
+            Quick Macro:
+          </span>
+<button class="macro-btn px-2 py-0.5 rounded bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors font-code-sm text-code-sm flex-shrink-0" data-cmd="ls -la /var/log">
+            ls -la /var/log
+          </button>
+<button class="macro-btn px-2 py-0.5 rounded bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors font-code-sm text-code-sm flex-shrink-0" data-cmd='grep "Failed" /var/log/auth.log | head -n 4'>
+            grep "Failed"
+          </button>
+<button class="macro-btn px-2 py-0.5 rounded bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors font-code-sm text-code-sm flex-shrink-0" data-cmd="sudo ufw status verbose">
+            sudo ufw status
+          </button>
+<button class="macro-btn px-2 py-0.5 rounded bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors font-code-sm text-code-sm flex-shrink-0" data-cmd="kill -9 1420">
+            kill -9 1420
+          </button>
+</div>
+<!-- Terminal Body Screen -->
+<div class="flex-1 p-4 font-code-md text-code-md text-on-surface font-mono overflow-y-auto terminal-scroll leading-relaxed space-y-1.5 bg-[#080d19]" id="terminal-body">
+<!-- Banner -->
+<div class="text-on-surface-variant/80 border-b border-outline-variant/20 pb-2 mb-3">
+<p class="text-primary font-semibold">CYBERGUARDIAN DEFENSE RUNTIME v2.4.8 // AIRGAPPED HYPERVISOR</p>
+<p class="text-code-sm text-on-surface-variant">Host: sandbox-node-eu02.cyberguard.internal · Target: 10.142.0.12</p>
+<p class="text-code-sm text-secondary">Warning: Live honeypot feeds routed to /var/log/auth.log. Proceed with caution.</p>
+</div>
+<!-- Executed command 1 -->
+<div>
+<span class="text-primary font-bold">student@sandbox-node:~$</span>
+<span class="text-on-surface"> ls -lh /var/log/auth.log</span>
+</div>
+<div class="text-on-surface-variant text-code-sm pl-2">
+            -rw-r----- 1 syslog adm 2.8M Oct 24 14:32 /var/log/auth.log
+          </div>
+<!-- Executed command 2 -->
+<div class="pt-1.5">
+<span class="text-primary font-bold">student@sandbox-node:~$</span>
+<span class="text-on-surface"> grep -c "Failed password" /var/log/auth.log</span>
+</div>
+<div class="text-secondary font-bold pl-2">
+            1,482
+          </div>
+<!-- Executed command 3 with realistic syslog output -->
+<div class="pt-1.5">
+<span class="text-primary font-bold">student@sandbox-node:~$</span>
+<span class="text-on-surface"> grep "Failed password" /var/log/auth.log | head -n 4</span>
+</div>
+<div class="space-y-1 pl-2 text-code-sm text-on-surface-variant/90 border-l-2 border-error/40 my-1 py-0.5">
+<p class="text-error/90">Oct 24 14:31:02 node sshd[1420]: Failed password for invalid user admin from 198.51.100.42 port 44821 ssh2</p>
+<p class="text-error/90">Oct 24 14:31:04 node sshd[1422]: Failed password for invalid user root from 198.51.100.42 port 44834 ssh2</p>
+<p class="text-error/90">Oct 24 14:31:06 node sshd[1425]: Failed password for invalid user support from 198.51.100.42 port 44840 ssh2</p>
+<p class="text-error/90">Oct 24 14:31:08 node sshd[1429]: Failed password for invalid user deploy from 198.51.100.42 port 44855 ssh2</p>
+</div>
+<!-- Active Prompt Line with Cursor -->
+<div class="flex items-center pt-2 text-on-surface">
+<span class="text-primary font-bold mr-2">student@sandbox-node:~$</span>
+<span class="text-on-surface font-mono" id="terminal-input-display">grep "Failed password" /var/log/auth.log | awk '{print $11}' | sort | uniq -c | sort -nr | head -n 3</span>
+<span class="terminal-cursor inline-block w-2.5 h-4 bg-primary ml-1 shadow-sm shadow-primary"></span>
+</div>
+</div>
+<!-- Terminal Input Bar for Cadet Interaction -->
+<form class="bg-surface-container-lowest px-3 py-2 border-t border-outline-variant/30 flex items-center gap-2" id="terminal-cli-form">
+<span class="material-symbols-outlined text-primary text-body-md">chevron_right</span>
+<input autocomplete="off" class="flex-1 bg-transparent border-0 text-code-md font-mono text-primary placeholder-on-surface-variant/40 focus:ring-0 focus:outline-none py-1" id="terminal-cli-input" placeholder="Type bash command (e.g., sudo ufw deny from 198.51.100.42)..." type="text"/>
+<button class="px-3 py-1 rounded bg-primary-container text-on-primary-container font-code-sm font-semibold hover:bg-primary active:scale-95 transition-all flex items-center gap-1" type="submit">
+<span>Execute</span>
+<span class="material-symbols-outlined text-code-sm">keyboard_return</span>
+</button>
+</form>
+</div>
+</section>
+<!-- RIGHT PANEL: Socratic GuardianAI Panel (col-span-12 lg:col-span-3) -->
+<aside class="col-span-12 lg:col-span-3 flex flex-col gap-4">
+<!-- AI Mentor Identity Header Card with 3D Robot Mascot -->
+<div class="rounded-xl border border-secondary/30 bg-surface-container-low/85 backdrop-blur-xl p-4 shadow-2xl relative overflow-hidden clay-surface flex flex-col gap-3">
+<!-- Ambient Cyan Glow -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary/15 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-3">
+<!-- 3D Clay Robot Mentor Avatar -->
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden ring-2 ring-secondary/50 shadow-lg shadow-secondary/20 flex-shrink-0 bg-surface-container-high">
+<img alt="Eos Socratic AI Mentor claymorphic robot with cyan holographic visor" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1Xjm7t8L2IhYlXwwFzkOwaX8Ke00DzRYHQPFSU0F3E-6iIde4BQuXvZqjPh0CK5F8NyXh28WV3onLEPf5zvFWB078bOwD1SpPElFBDS1zKpvpHHLBazVk2QChfcde7XSlXreO9ftxhzxVn7D8I_zFMZrF61HPlg6k86b2MjPXuz6ou_HedV-0UrHYiwB6HBF8QXVlaEmrSbBrcukb-OlZmM3GXFXq6NTqhHrvr9b0_IL-X_8G_JZGWw9t0"/>
+<span class="absolute bottom-1 right-1 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-container-low"></span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-title-md font-bold text-on-surface">Eos</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary/10 text-secondary border border-secondary/30 font-label-sm text-label-sm font-semibold">SOCRATIC AI</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Tactical Mentor & Dialectic Guide</p>
+</div>
+</div>
+<!-- Dialectic Advice Speech Bubble -->
+<div class="relative rounded-xl p-3 bg-surface-container-lowest/90 border border-outline-variant/30 shadow-inner space-y-2">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm" style="font-variation-settings: 'FILL' 1;">psychology</span>
+              Mentor Telemetry
+            </span>
+<span class="text-on-surface-variant/60">Live Evaluation</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed">
+            "Welcome Agent Neo. Look closely at the SSH log output in your shell. Notice how the timestamp reveals repeated login spikes from the exact same subnet <code class="text-secondary font-code-sm">198.51.100.42</code>.
+          </p>
+<p class="text-body-sm font-body-sm text-primary leading-relaxed font-medium">
+            What pipeline command can we execute to aggregate and isolate this rogue IP without altering the airgapped file integrity?"
+          </p>
+</div>
+<!-- Progressive Hint Tiering -->
+<div class="space-y-2 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Progressive Assistance Ladder</span>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-high/70 border border-primary/30 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-body-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Hint 1: Log Column Filter</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-semibold">UNLOCKED (Free)</span>
+</div>
+<button class="w-full flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest border border-outline-variant/30 hover:border-secondary text-label-sm font-label-sm transition-colors text-left group" id="unlock-hint-2">
+<div class="flex items-center gap-1.5 text-on-surface-variant group-hover:text-secondary">
+<span class="material-symbols-outlined text-body-sm">lightbulb</span>
+<span>Hint 2: Awk Tokenization</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-secondary/10 text-secondary font-semibold group-hover:bg-secondary/20">+0 XP Ready</span>
+</button>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest/40 border border-outline-variant/15 text-label-sm font-label-sm opacity-50 cursor-not-allowed">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-body-sm">lock</span>
+<span>Hint 3: Full Firewall Rule (UFW)</span>
+</div>
+<span class="text-on-surface-variant/60">-50 XP Penalty</span>
+</div>
+</div>
+<!-- Socratic Quick-Inquiry Chips -->
+<div class="space-y-1.5 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Prompt Eos Socratic Engine</span>
+<div class="flex flex-col gap-1.5">
+<button class="socratic-chip text-left px-2.5 py-1.5 rounded-lg clay-chip-interactive border border-outline-variant/30 text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center justify-between">
+<span>Why is chmod 777 dangerous?</span>
+<span class="material-symbols-outlined text-body-sm text-outline">arrow_forward</span>
+</button>
+<button class="socratic-chip text-left px-2.5 py-1.5 rounded-lg clay-chip-interactive border border-outline-variant/30 text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center justify-between">
+<span>How do pipes (|) pass descriptors?</span>
+<span class="material-symbols-outlined text-body-sm text-outline">arrow_forward</span>
+</button>
+<button class="socratic-chip text-left px-2.5 py-1.5 rounded-lg clay-chip-interactive border border-outline-variant/30 text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center justify-between">
+<span>Explain awk column position syntax</span>
+<span class="material-symbols-outlined text-body-sm text-outline">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Mentor Chat Input Bar -->
+<div class="relative mt-1">
+<input class="w-full pl-3 pr-9 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-xl text-body-sm placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-all" placeholder="Ask Eos for a Socratic hint..." type="text"/>
+<button class="absolute inset-y-1 right-1 px-2 rounded-lg bg-surface-container-high hover:bg-secondary hover:text-on-secondary text-secondary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-body-md">send</span>
+</button>
+</div>
+</div>
+<!-- Cadet Performance & Defense Shield Status Widget -->
+<div class="rounded-xl border border-outline-variant/30 bg-surface-container-lowest/80 p-3.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-primary-container/20 border border-primary/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-title-md" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface-variant uppercase">Cadet Health & Accuracy</div>
+<div class="text-body-md font-semibold text-on-surface">100% Defense Integrity</div>
+</div>
+</div>
+<span class="px-2 py-1 rounded bg-primary/10 text-primary font-mono text-label-sm font-bold border border-primary/30">+350 XP</span>
+</div>
+</aside>
+</main>
+<!-- Sticky Tactical Footer Bar with Primary Verification Action -->
+<footer class="sticky bottom-0 z-40 bg-surface-container-low/95 backdrop-blur-xl border-t border-outline-variant/30 py-3 px-space-lg shadow-2xl">
+<div class="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+<!-- Telemetry Status readout -->
+<div class="flex items-center gap-4 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Perimeter Telemetry: <strong class="text-on-surface">Clean</strong></span>
+</div>
+<span class="text-outline-variant">|</span>
+<div>
+<span>Sandbox Micro-VM State: <strong class="text-secondary">ISOLATED ENCLAVE</strong></span>
+</div>
+<span class="hidden md:inline text-outline-variant">|</span>
+<div class="hidden md:block">
+<span>Auth Tokens: <strong class="text-primary font-mono">CYBER_SEC_V2_OK</strong></span>
+</div>
+</div>
+<!-- Verification Buttons CTA cluster -->
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<button class="px-4 py-2 rounded-xl bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 text-on-surface text-body-sm font-medium transition-colors">
+          Submit Lab For Review
+        </button>
+<!-- Large Primary Tactical Action with 3D Bevel & Glowing Emerald Pulse -->
+<button class="clay-btn-primary px-5 py-2.5 rounded-xl text-on-primary-container font-semibold text-body-md flex items-center gap-2 group" id="verify-patch-btn">
+<span class="material-symbols-outlined text-title-md transition-transform group-hover:scale-110" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>Verify Defense Patch</span>
+<span class="material-symbols-outlined text-body-md">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+<!-- Interactive Terminal & Micro-interactions Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cliForm = document.getElementById('terminal-cli-form');
+      const cliInput = document.getElementById('terminal-cli-input');
+      const terminalBody = document.getElementById('terminal-body');
+      const clearBtn = document.getElementById('clear-shell-btn');
+      const macroButtons = document.querySelectorAll('.macro-btn');
+      const copyBtn = document.getElementById('copy-syntax-btn');
+      const verifyBtn = document.getElementById('verify-patch-btn');
+      const unlockHint2Btn = document.getElementById('unlock-hint-2');
+
+      // Macro Quick Click Handler
+      macroButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const cmd = btn.getAttribute('data-cmd');
+          if (cmd && cliInput) {
+            cliInput.value = cmd;
+            cliInput.focus();
+          }
+        });
+      });
+
+      // Terminal Execution Form Handler
+      if (cliForm && cliInput) {
+        cliForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const cmd = cliInput.value.trim();
+          if (!cmd) return;
+
+          // Append command line to terminal
+          const userCmdElem = document.createElement('div');
+          userCmdElem.className = 'pt-1.5';
+          userCmdElem.innerHTML = `<span class="text-primary font-bold">student@sandbox-node:~$</span> <span class="text-on-surface">${escapeHtml(cmd)}</span>`;
+          terminalBody.appendChild(userCmdElem);
+
+          // Simulated terminal responses
+          const responseElem = document.createElement('div');
+          responseElem.className = 'pl-2 text-code-sm';
+
+          if (cmd.includes('ufw') || cmd.includes('deny') || cmd.includes('198.51.100.42')) {
+            responseElem.className += ' text-primary font-semibold';
+            responseElem.innerHTML = `Rule added<br>Rule added (v6)<br>[*] Successfully blocked rogue IP 198.51.100.42 on all ports.`;
+          } else if (cmd.includes('ls')) {
+            responseElem.className += ' text-on-surface-variant';
+            responseElem.innerHTML = `total 2840<br>-rw-r----- 1 syslog adm 2.8M Oct 24 14:32 auth.log<br>-rw-r--r-- 1 root   root 1.2M Oct 24 14:30 syslog<br>-rw-r--r-- 1 root   root 412K Oct 24 12:10 dpkg.log`;
+          } else if (cmd.includes('kill')) {
+            responseElem.className += ' text-secondary';
+            responseElem.innerHTML = `Process 1420 (sshd: [priv]) terminated with SIGKILL.`;
+          } else {
+            responseElem.className += ' text-secondary';
+            responseElem.innerHTML = `198.51.100.42: 1,482 occurrences<br>203.0.113.19: 12 occurrences<br>192.0.2.8: 2 occurrences`;
+          }
+
+          terminalBody.appendChild(responseElem);
+          cliInput.value = '';
+          terminalBody.scrollTop = terminalBody.scrollHeight;
+        });
+      }
+
+      // Clear Shell Action
+      if (clearBtn && terminalBody) {
+        clearBtn.addEventListener('click', () => {
+          terminalBody.innerHTML = `
+            <div class="text-on-surface-variant/80 border-b border-outline-variant/20 pb-2 mb-3">
+              <p class="text-primary font-semibold">CYBERGUARDIAN DEFENSE RUNTIME v2.4.8 // AIRGAPPED HYPERVISOR (CLEARED)</p>
+            </div>
+            <div class="flex items-center pt-2 text-on-surface">
+              <span class="text-primary font-bold mr-2">student@sandbox-node:~$</span>
+              <span class="terminal-cursor inline-block w-2.5 h-4 bg-primary ml-1 shadow-sm shadow-primary"></span>
+            </div>
+          `;
+        });
+      }
+
+      // Copy Syntax
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const text = `cat /var/log/auth.log | grep "Failed password" | awk '{print $11}' | sort | uniq -c | sort -nr`;
+          navigator.clipboard.writeText(text).then(() => {
+            copyBtn.innerHTML = '<span class="material-symbols-outlined text-body-sm text-primary">check</span> Copied!';
+            setTimeout(() => {
+              copyBtn.innerHTML = '<span class="material-symbols-outlined text-body-sm">content_copy</span> Copy';
+            }, 2000);
+          });
+        });
+      }
+
+      // Verify Defense Patch Action
+      if (verifyBtn) {
+        verifyBtn.addEventListener('click', () => {
+          verifyBtn.innerHTML = `
+            <span class="status-pulse inline-block w-3 h-3 rounded-full bg-on-primary"></span>
+            <span>Synthesizing Sandbox Patch...</span>
+          `;
+          setTimeout(() => {
+            verifyBtn.classList.remove('clay-btn-primary');
+            verifyBtn.classList.add('bg-primary', 'text-on-primary');
+            verifyBtn.innerHTML = `
+              <span class="material-symbols-outlined text-title-md" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span>All Directives Satisfied! (+250 XP)</span>
+            `;
+          }, 1500);
+        });
+      }
+
+      // Unlock Hint 2
+      if (unlockHint2Btn) {
+        unlockHint2Btn.addEventListener('click', () => {
+          unlockHint2Btn.innerHTML = `
+            <div class="flex items-center gap-1.5 text-secondary">
+              <span class="material-symbols-outlined text-body-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span>Hint 2: awk '{print $11}' isolates the IP field</span>
+            </div>
+            <span class="text-primary font-semibold text-label-sm font-label-sm">UNLOCKED</span>
+          `;
+          unlockHint2Btn.classList.add('bg-surface-container-high/60', 'border-secondary/40');
+        });
+      }
+
+      function escapeHtml(text) {
+        return text.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
+      }
+    });
+  </script>
+</body></html>

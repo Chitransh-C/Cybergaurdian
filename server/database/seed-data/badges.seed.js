@@ -1,0 +1,122 @@
+export const INITIAL_BADGES = [
+  {
+    id: 'root-sentinel',
+    title: 'Root Sentinel',
+    category: 'UNLOCKED',
+    status: 'UNLOCKED',
+    mitre: 'T1068',
+    hashCode: 'ed8f342ec09b441a',
+    icon: 'Compass',
+    description: 'Mastered Linux Kernel permissions, SUID privilege escalation vectors, and root boundary defense.',
+    reqText: null,
+    progress: '100%'
+  },
+  {
+    id: 'packet-warden',
+    title: 'Packet Warden',
+    category: 'UNLOCKED',
+    status: 'UNLOCKED',
+    mitre: 'T1040',
+    hashCode: '91ae4b21c7a8852e',
+    icon: 'Radio',
+    description: 'Dissected Wireshark PCAP binaries and neutralized rogue ARP cache poisoning vectors in live replay.',
+    reqText: null,
+    progress: '100%'
+  },
+  {
+    id: 'firewall-architect',
+    title: 'Firewall Architect',
+    category: 'UNLOCKED',
+    status: 'UNLOCKED',
+    mitre: 'T1562',
+    hashCode: '77bf182d03914a2c',
+    icon: 'Shield',
+    description: 'Engineered granular IPTables and nftables stateful rulesets to seal unauthorized ingress ports.',
+    reqText: null,
+    progress: '100%'
+  },
+  {
+    id: 'sqli-shield',
+    title: 'SQLi Shield',
+    category: 'UNLOCKED',
+    status: 'UNLOCKED',
+    mitre: 'T1190',
+    hashCode: 'b7194ad9f012aa44',
+    icon: 'ShieldAlert',
+    description: 'Analyzed dynamic string SQL injection vectors and implemented secure parameterized prepared statements.',
+    reqText: null,
+    progress: '100%'
+  },
+  {
+    id: 'xss-neutralizer',
+    title: 'XSS Neutralizer',
+    category: 'UNLOCKED',
+    status: 'UNLOCKED',
+    mitre: 'T1059.007',
+    hashCode: '34a19cbf8120e54d',
+    icon: 'FileCode',
+    description: 'Neutralized reflected and stored Cross-Site Scripting vulnerabilities using context-aware DOMPurify sanitization.',
+    reqText: null,
+    progress: '100%'
+  },
+  {
+    id: 'handshake-warden',
+    title: 'Handshake Warden',
+    category: 'UNLOCKED',
+    status: 'UNLOCKED',
+    mitre: 'T1498',
+    hashCode: '8910cae7419b22a0',
+    icon: 'Radio',
+    description: 'Dissected TCP 3-way handshake transmission backlogs and neutralized half-open SYN flood attacks.',
+    reqText: null,
+    progress: '100%'
+  },
+  {
+    id: 'alert-triager',
+    title: 'Alert Triager',
+    category: 'UNLOCKED',
+    status: 'UNLOCKED',
+    mitre: 'T1078',
+    hashCode: '6543bda98101ee22',
+    icon: 'Search',
+    description: 'Correlated SIEM telemetry streams, eliminated false positive alerts, and escalated critical intrusions.',
+    reqText: null,
+    progress: '100%'
+  },
+  {
+    id: 'web-citadel',
+    title: 'Web Citadel',
+    category: 'PROGRESS',
+    status: 'IN PROGRESS',
+    mitre: 'T1190',
+    hashCode: 'PENDING VALIDATION',
+    icon: 'Layers',
+    description: 'Defusing OWASP Top 10 vulnerabilities: parameterized SQL injection and SSRF cloud metadata filters.',
+    reqText: null,
+    progress: '85%'
+  },
+  {
+    id: 'zero-day-shield',
+    title: 'Zero-Day Shield',
+    category: 'LOCKED',
+    status: 'LOCKED',
+    mitre: 'T1212',
+    hashCode: '0x0000000000000000',
+    icon: 'Cpu',
+    description: 'Kernel heap exploit mitigation, ASLR bypass detection, and hardware enclave memory shielding.',
+    reqText: 'Requires 4,000 XP',
+    progress: '0%'
+  },
+  {
+    id: 'vault-master',
+    title: 'Vault Master',
+    category: 'LOCKED',
+    status: 'LOCKED',
+    mitre: 'T1552',
+    hashCode: '0x0000000000000000',
+    icon: 'Binary',
+    description: 'Post-quantum lattice cryptography, ED25519 public key infrastructure, and zero-knowledge verification.',
+    reqText: 'Requires Level 3 Clearance',
+    progress: '0%'
+  }
+];

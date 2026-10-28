@@ -1,0 +1,342 @@
+@import '@xterm/xterm/css/xterm.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   CyberGuardian Design System
+   Synthesized from .agents/skills:
+   - glass-dark-ui (Frosted surfaces, mask-composite border gradients)
+   - mesh-gradient-dark-blue-clean (Near-black navy foundation, ambient atmosphere)
+   - framed-grid-layout (L-shaped corner brackets, 1px rails, strict alignment)
+   - corner-diagonals (Technical chamfered tags & markers)
+   - beam-glow-states (Subtle traveling glow for current states)
+   ========================================================================== */
+
+:root {
+  /* Foundations */
+  --mesh-bg: #030712;
+  --mesh-bg-blue: #07111f;
+  --bg-surface: rgba(9, 16, 32, 0.78);
+  --bg-surface-elevated: rgba(14, 25, 48, 0.88);
+  
+  /* Glass tokens */
+  --glass-fill: rgba(11, 20, 38, 0.55);
+  --glass-fill-strong: rgba(15, 27, 52, 0.78);
+  --glass-border: rgba(147, 197, 253, 0.14);
+  --glass-border-hover: rgba(0, 240, 255, 0.35);
+
+  /* Cyber & Accent Colors */
+  --cyber-cyan: #00f0ff;
+  --cyber-emerald: #00ff9d;
+  --cyber-amber: #f59e0b;
+  --cyber-rose: #ff3366;
+  --cyber-blue: #3b82f6;
+  --cyber-indigo: #6366f1;
+
+  /* Typography Colors */
+  --text-main: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+
+  /* Typography Scales */
+  --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+
+  /* Framed lines */
+  --fg-line: rgba(147, 197, 253, 0.12);
+  --fg-line-strong: rgba(0, 240, 255, 0.45);
+  --fg-corner: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  background-color: var(--mesh-bg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Atmospheric Navy Foundation */
+body {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(29, 78, 216, 0.14), transparent 42rem),
+    radial-gradient(circle at 90% 80%, rgba(0, 255, 157, 0.05), transparent 30rem),
+    linear-gradient(180deg, var(--mesh-bg-blue), var(--mesh-bg) 50%, #01030a);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(0, 240, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(147, 197, 253, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.5);
+}
+
+/* Glass Panels with masked gradient border (glass-dark-ui) */
+.glass-panel {
+  position: relative;
+  background: var(--glass-fill);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), 0 0 20px rgba(0, 240, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Masked Gradient Border (glass-dark-ui skill) */
+.border-gradient {
+  position: relative;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(0, 240, 255, 0.45) 40%,
+    rgba(99, 102, 241, 0.35) 75%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Framed corner brackets (framed-grid-layout skill) */
+.frame-brackets {
+  position: relative;
+  background:
+    linear-gradient(var(--fg-line-strong), var(--fg-line-strong)) left top / var(--fg-corner) 1px no-repeat,
+    linear-gradient(var(--fg-line-strong), var(--fg-line-strong)) left top / 1px var(--fg-corner) no-repeat,
+    linear-gradient(var(--fg-line-strong), var(--fg-line-strong)) right top / var(--fg-corner) 1px no-repeat,
+    linear-gradient(var(--fg-line-strong), var(--fg-line-strong)) right top / 1px var(--fg-corner) no-repeat,
+    linear-gradient(var(--fg-line-strong), var(--fg-line-strong)) left bottom / var(--fg-corner) 1px no-repeat,
+    linear-gradient(var(--fg-line-strong), var(--fg-line-strong)) left bottom / 1px var(--fg-corner) no-repeat,
+    linear-gradient(var(--fg-line-strong), var(--fg-line-strong)) right bottom / var(--fg-corner) 1px no-repeat,
+    linear-gradient(var(--fg-line-strong), var(--fg-line-strong)) right bottom / 1px var(--fg-corner) no-repeat,
+    var(--glass-fill);
+}
+
+/* Technical Chamfered Corner Tags (corner-diagonals skill) */
+.chamfer-tag {
+  clip-path: polygon(
+    8px 0%,
+    100% 0%,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0% 100%,
+    0% 8px
+  );
+}
+
+/* Cyber Status Dot with ambient glow */
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot-active {
+  background-color: var(--cyber-emerald);
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.8);
+  animation: statusPulse 2s infinite ease-in-out;
+}
+
+.status-dot-cyan {
+  background-color: var(--cyber-cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Beam glow state on active cards */
+.beam-glow-active {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.18), inset 0 1px 0 rgba(0, 240, 255, 0.4);
+  border-color: rgba(0, 240, 255, 0.5) !important;
+}
+
+/* Button & Control styling */
+.cyber-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.cyber-button-primary {
+  background: linear-gradient(135deg, #00f0ff, #0284c7);
+  color: #030712;
+  box-shadow: 0 8px 24px rgba(0, 240, 255, 0.25);
+  font-weight: 700;
+}
+
+.cyber-button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(0, 240, 255, 0.4);
+  filter: brightness(1.1);
+}
+
+.cyber-button-secondary {
+  background: rgba(15, 27, 52, 0.65);
+  color: var(--text-main);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.cyber-button-secondary:hover {
+  background: rgba(23, 37, 84, 0.8);
+  border-color: rgba(0, 240, 255, 0.4);
+  color: #ffffff;
+}
+
+/* Terminal Window Styles */
+.terminal-shell {
+  background: #02050e;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 240, 255, 0.08);
+}
+
+.xterm {
+  padding: 12px;
+}
+
+.xterm-viewport {
+  background-color: transparent !important;
+}
+
+.xterm-rows {
+  font-family: var(--font-mono) !important;
+}
+
+/* ==========================================================================
+   Claymorphism & Tactile Depth Utilities (Fused with Glassmorphism)
+   ========================================================================== */
+.clay-card {
+  background: linear-gradient(135deg, rgba(26, 34, 56, 0.75) 0%, rgba(14, 20, 36, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.12), inset 0 -2px 6px rgba(0, 0, 0, 0.4), 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.clay-card-glow {
+  background: linear-gradient(135deg, rgba(22, 32, 54, 0.85) 0%, rgba(12, 18, 32, 0.95) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.15), inset 0 -3px 8px rgba(0, 0, 0, 0.5), 0 20px 40px rgba(16, 185, 129, 0.12);
+}
+
+.clay-pill-btn {
+  background: linear-gradient(180deg, #34d399 0%, #059669 100%);
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(16, 185, 129, 0.38);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #003824;
+  font-weight: 700;
+}
+.clay-pill-btn:hover {
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5), inset 0 -2px 4px rgba(0, 0, 0, 0.25), 0 12px 32px rgba(16, 185, 129, 0.55);
+  transform: translateY(-2px);
+}
+.clay-pill-btn:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.clay-secondary-btn {
+  background: linear-gradient(180deg, rgba(38, 48, 74, 0.9) 0%, rgba(20, 26, 44, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1.5px 2px rgba(255, 255, 255, 0.18), inset 0 -2px 4px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+  color: #ffffff;
+}
+.clay-secondary-btn:hover {
+  background: linear-gradient(180deg, rgba(46, 58, 88, 0.95) 0%, rgba(24, 32, 54, 0.98) 100%);
+  border-color: rgba(76, 215, 246, 0.35);
+  box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.25), 0 10px 24px rgba(6, 182, 212, 0.2);
+  transform: translateY(-2px);
+}
+
+.clay-tag {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.clay-inset-panel {
+  background: rgba(9, 14, 28, 0.7);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(255, 255, 255, 0.05), 0 1px 2px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideRight {
+  animation: slideRight 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

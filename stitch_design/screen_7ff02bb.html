@@ -1,0 +1,1343 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<title>CyberGuardian — Tactile &amp; AI-Powered Cyber Defense Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    
+    /* Claymorphic and Glassmorphic Custom Depth Utilities */
+    .clay-card {
+      background: linear-gradient(135deg, rgba(26, 34, 56, 0.75) 0%, rgba(14, 20, 36, 0.9) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.12), inset 0 -2px 6px rgba(0, 0, 0, 0.4), 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+    
+    .clay-card-glow {
+      background: linear-gradient(135deg, rgba(22, 32, 54, 0.85) 0%, rgba(12, 18, 32, 0.95) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.15), inset 0 -3px 8px rgba(0, 0, 0, 0.5), 0 20px 40px rgba(16, 185, 129, 0.12);
+    }
+
+    .clay-pill-btn {
+      background: linear-gradient(180deg, #34d399 0%, #059669 100%);
+      box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(16, 185, 129, 0.38);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .clay-pill-btn:hover {
+      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5), inset 0 -2px 4px rgba(0, 0, 0, 0.25), 0 12px 32px rgba(16, 185, 129, 0.55);
+      transform: translateY(-2px);
+    }
+    .clay-pill-btn:active {
+      transform: translateY(1px);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .clay-secondary-btn {
+      background: linear-gradient(180deg, rgba(38, 48, 74, 0.9) 0%, rgba(20, 26, 44, 0.95) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1.5px 2px rgba(255, 255, 255, 0.18), inset 0 -2px 4px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.35);
+      transition: all 0.2s ease;
+    }
+    .clay-secondary-btn:hover {
+      background: linear-gradient(180deg, rgba(46, 58, 88, 0.95) 0%, rgba(24, 32, 54, 0.98) 100%);
+      border-color: rgba(76, 215, 246, 0.35);
+      box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.25), 0 10px 24px rgba(6, 182, 212, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .clay-tag {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .clay-inset-panel {
+      background: rgba(9, 14, 28, 0.7);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(255, 255, 255, 0.05), 0 1px 2px rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#10b981",
+            "primary-fixed": "#34d399",
+            "primary-fixed-dim": "#4edea3",
+            "primary-container": "#059669",
+            "on-primary": "#003824",
+            "on-primary-container": "#e6fffa",
+            secondary: "#06b6d4",
+            "secondary-container": "#0891b2",
+            "secondary-fixed": "#67e8f9",
+            tertiary: "#818cf8",
+            "tertiary-container": "#6366f1",
+            surface: "#0a0f1d",
+            "surface-dim": "#060913",
+            "surface-bright": "#1a233d",
+            "surface-variant": "#222c48",
+            "surface-container-lowest": "#060a14",
+            "surface-container-low": "#0f1629",
+            "surface-container": "#151e36",
+            "surface-container-high": "#1c2847",
+            "surface-container-highest": "#243258",
+            "on-surface": "#f1f5f9",
+            "on-surface-variant": "#94a3b8",
+            outline: "#475569",
+            "outline-variant": "#334155",
+            error: "#f87171",
+            "error-container": "#991b1b"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            gutter: "1.5rem",
+            "gutter-sm": "1rem"
+          },
+          fontFamily: {
+            "code-md": ["JetBrains Mono", "monospace"],
+            "code-sm": ["JetBrains Mono", "monospace"],
+            "body-md": ["Geist", "sans-serif"],
+            "body-lg": ["Geist", "sans-serif"],
+            "body-sm": ["Geist", "sans-serif"],
+            "title-md": ["Geist", "sans-serif"],
+            "headline-sm": ["Geist", "sans-serif"],
+            "headline-md": ["Geist", "sans-serif"],
+            "headline-lg": ["Geist", "sans-serif"],
+            "display-lg": ["Geist", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary/30 selection:text-primary-fixed">
+<!-- TOP HEADER WITH FROSTED GLASS & CLAY ELEMENTS -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/75 backdrop-blur-2xl border-b border-white/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
+<div class="h-16 w-full max-w-[1520px] mx-auto px-gutter flex items-center justify-between">
+<div class="flex items-center gap-space-lg">
+<a class="flex items-center gap-space-sm group" data-path="learning-tracks" href="#">
+<div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-primary to-secondary p-[1.5px] shadow-[0_4px_12px_rgba(16,185,129,0.35)]">
+<div class="w-full h-full bg-surface-container rounded-[14px] flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[22px]">shield</span>
+</div>
+</div>
+<span class="font-title-md text-[17px] font-bold tracking-tight text-white group-hover:text-primary transition-colors">CyberGuardian</span>
+<span class="clay-tag inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-primary font-code-sm text-[11px] font-semibold tracking-wider uppercase ml-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+            AI DEFENSE
+          </span>
+</a>
+<!-- Desktop Navigation -->
+<nav class="hidden xl:flex items-center gap-1" data-active-classes="bg-surface-container-high text-white font-semibold shadow-inner">
+<a aria-current="page" class="px-3.5 py-1.5 rounded-xl transition-all clay-tag text-white font-semibold text-sm" data-path="learning-tracks" href="#">Learning Tracks</a>
+<a class="px-3 py-1.5 rounded-xl text-sm text-on-surface-variant hover:text-white hover:bg-white/[0.05] transition-all" data-path="isolated-labs" href="#lab-simulation">Isolated Labs</a>
+<a class="px-3 py-1.5 rounded-xl text-sm text-on-surface-variant hover:text-white hover:bg-white/[0.05] transition-all" data-path="ai-socratic-tutor" href="#socratic-section">AI Socratic Tutor</a>
+<a class="px-3 py-1.5 rounded-xl text-sm text-on-surface-variant hover:text-white hover:bg-white/[0.05] transition-all" data-path="ethical-creed" href="#vault-creed">Ethical Creed</a>
+<a class="px-3 py-1.5 rounded-xl text-sm text-on-surface-variant hover:text-white hover:bg-white/[0.05] transition-all" data-path="institutions" href="#personas">Institutions</a>
+<a class="px-3 py-1.5 rounded-xl text-sm text-on-surface-variant hover:text-white hover:bg-white/[0.05] transition-all" data-path="documentation" href="#challenge-section">Live Challenge</a>
+</nav>
+</div>
+<!-- Header CTAs -->
+<div class="flex items-center gap-space-md">
+<a class="hidden sm:inline-flex px-3.5 py-1.5 text-sm text-on-surface-variant hover:text-white transition-colors font-medium" data-path="sign-in" href="#">Sign In</a>
+<a class="clay-pill-btn inline-flex items-center justify-center px-4.5 py-2 rounded-full text-on-primary font-title-md text-sm font-bold tracking-tight" data-path="isolated-labs" href="#lab-simulation">
+<span class="material-symbols-outlined text-[18px] mr-1.5">rocket_launch</span>
+          Start Defending Free
+        </a>
+</div>
+</div>
+</header>
+<main class="w-full pt-16 bg-surface overflow-x-hidden">
+<div class="flex flex-col w-full text-on-surface">
+<!-- ========================================================================= -->
+<!-- HERO SECTION WITH CLAYMORPHIC & GLASSMORPHIC 3D FUSION                    -->
+<!-- ========================================================================= -->
+<section class="relative w-full pt-space-xl pb-28 overflow-hidden">
+<!-- Deep Ambient Cyber Backlights -->
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[1100px] h-[550px] bg-gradient-to-b from-primary/15 via-secondary/10 to-transparent blur-[140px] rounded-full pointer-events-none"></div>
+<div class="absolute top-96 -left-32 w-[480px] h-[480px] bg-emerald-500/10 blur-[150px] rounded-full pointer-events-none"></div>
+<div class="absolute top-80 -right-32 w-[520px] h-[520px] bg-secondary/15 blur-[160px] rounded-full pointer-events-none"></div>
+<div class="max-w-[1520px] mx-auto px-gutter relative z-10 flex flex-col items-center text-center">
+<!-- Tactile Eyebrow Clay Pill -->
+<div class="clay-tag inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full mb-space-lg">
+<span class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_#10b981] animate-ping"></span>
+<span class="font-code-sm text-xs text-primary font-semibold tracking-wider uppercase">⚡ SAFE, AIRGAPPED SANDBOX LABS • SOCRATIC AI TUTOR</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary-fixed font-code-sm text-[11px] font-bold">NIST SP 800-181</span>
+</div>
+<!-- Main Hero Headline -->
+<h1 class="font-display-lg text-4xl sm:text-5xl md:text-[62px] md:leading-[70px] font-extrabold max-w-5xl tracking-tight text-white mb-space-md">
+            Stop Memorizing Definitions. <br class="hidden sm:inline">
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary-fixed drop-shadow-[0_4px_16px_rgba(16,185,129,0.3)]">
+              Master Real-World Cyber Defense
+            </span> 
+            in Zero-Risk Sandboxes.
+          </h1>
+<!-- Hero Subtitle -->
+<p class="font-body-lg text-lg md:text-xl text-on-surface-variant max-w-3xl mb-space-xl leading-relaxed">
+            CyberGuardian bridges the gap between passive textbook theory and practical cyber resilience. Witness live exploit mechanics firsthand in ephemeral microVM enclaves and write verifiable production defenses guided by our dialectic AI mentor.
+          </p>
+<!-- Tactile CTAs -->
+<div class="flex flex-wrap items-center justify-center gap-space-md mb-space-xl">
+<a class="clay-pill-btn inline-flex items-center gap-2 px-7 py-4 rounded-full text-on-primary font-title-md text-base font-bold tracking-tight shadow-[0_12px_32px_rgba(16,185,129,0.4)]" href="#lab-simulation">
+<span class="material-symbols-outlined text-[22px]">terminal</span>
+              Launch Practice Sandbox (Free)
+            </a>
+<a class="clay-secondary-btn inline-flex items-center gap-2 px-6 py-4 rounded-full text-white font-title-md text-base font-semibold" href="#tracks">
+<span class="material-symbols-outlined text-[22px] text-secondary">explore</span>
+              Explore Defense Curriculum
+            </a>
+<button class="inline-flex items-center gap-2 px-5 py-4 rounded-full text-on-surface-variant hover:text-primary font-body-md text-sm font-medium transition-colors" onclick="document.getElementById('demo-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[20px] text-secondary">play_circle</span>
+              Watch 2-Min Demo
+            </button>
+</div>
+<!-- Frosted Glass Metrics Banner -->
+<div class="w-full max-w-5xl grid grid-cols-2 lg:grid-cols-4 gap-3 p-2.5 rounded-3xl clay-card mb-space-xl">
+<div class="flex flex-col items-center justify-center p-space-md bg-surface-container/60 rounded-2xl border border-white/[0.04]">
+<div class="text-3xl font-extrabold text-primary drop-shadow-[0_0_12px_rgba(16,185,129,0.4)]">100%</div>
+<div class="font-code-sm text-[11px] text-on-surface-variant uppercase tracking-wider mt-1 text-center font-medium">Airgapped MicroVMs</div>
+</div>
+<div class="flex flex-col items-center justify-center p-space-md bg-surface-container/60 rounded-2xl border border-white/[0.04]">
+<div class="text-3xl font-extrabold text-secondary drop-shadow-[0_0_12px_rgba(6,182,212,0.4)]">45,000+</div>
+<div class="font-code-sm text-[11px] text-on-surface-variant uppercase tracking-wider mt-1 text-center font-medium">Defended Exploits</div>
+</div>
+<div class="flex flex-col items-center justify-center p-space-md bg-surface-container/60 rounded-2xl border border-white/[0.04]">
+<div class="text-3xl font-extrabold text-primary font-bold drop-shadow-[0_0_12px_rgba(16,185,129,0.4)]">85+</div>
+<div class="font-code-sm text-[11px] text-on-surface-variant uppercase tracking-wider mt-1 text-center font-medium">Academies &amp; Higher Ed</div>
+</div>
+<div class="flex flex-col items-center justify-center p-space-md bg-surface-container/60 rounded-2xl border border-white/[0.04]">
+<div class="text-3xl font-extrabold text-tertiary font-bold drop-shadow-[0_0_12px_rgba(129,140,248,0.4)]">0.0 ms</div>
+<div class="font-code-sm text-[11px] text-on-surface-variant uppercase tracking-wider mt-1 text-center font-medium">Host Exposure Boundary</div>
+</div>
+</div>
+<!-- HERO 3D SHOWCASE: IMAGE_6 INTEGRATION WITH TACTILE PODS -->
+<div class="w-full max-w-6xl mb-12">
+<div class="clay-card-glow rounded-3xl p-3 md:p-5 relative overflow-hidden group">
+<!-- Glow reflection overlay -->
+<div class="absolute -top-24 left-1/3 w-80 h-80 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+<img alt="CyberGuardian AI Cyber Defense Citadel in 3D Claymorphism and Glassmorphism" class="w-full h-auto object-cover max-h-[560px] transform group-hover:scale-[1.01] transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe8QEb36FmuRcDNVXcT-7uIQu3TpPLn-5ITEztWcTnS62Vz_ouE0wcsWlwdvYibuMGrBTlHUN5mLaMVz-pAKwnRmpi3eo3TTL-zrL1Fn2B3aUH97cfVytvdCTNvB1J60xfqw4x-oFWjrCO2Xg6t4Ve-BUIXD4hc8Fzgwb_3b1xNQRb_RLsEJuzhIplyuR7uPAgvjxATKe8dsS1qrV6PIo8ijLLbOWOq0L0OX_kQGyjdwiZy4KZWWDOEw">
+<!-- Floating Glass Overlay Badges -->
+<div class="absolute top-4 left-4 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full clay-tag bg-surface-container/80 text-white font-code-sm text-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="">ISOMETRIC REFRACTIVE PRISM ARCHITECTURE</span>
+</div>
+<div class="absolute bottom-4 right-4 hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full clay-card bg-surface-container-high/90 text-primary-fixed font-code-sm text-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span class="">AIRGAP LEVEL 4 VERIFIED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- DUAL 3D FEATURE PODS: IMAGE_3 & IMAGE_2 INTEGRATION -->
+<div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-space-lg mb-space-xl text-left">
+<!-- Pod 1: Defense Shield (IMAGE_3) -->
+<div class="clay-card rounded-3xl p-6 relative flex flex-col sm:flex-row items-center gap-6 overflow-hidden group hover:border-primary/40 transition-all">
+<div class="absolute -top-16 -left-16 w-40 h-40 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative flex-shrink-0 w-32 h-32 md:w-36 md:h-36 rounded-2xl clay-inset-panel p-2 flex items-center justify-center">
+<img alt="Tactile clay cyber defense shield emblem with frosted glass rings" class="w-full h-full object-contain rounded-xl drop-shadow-[0_8px_20px_rgba(16,185,129,0.4)] group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1W2b0HC19D5HKpYndproChyL-KdmfZdqZiZk0V8lfOToaD1qT4G2w5kYrhDzUIxV1vpKsRq6Eg7k6V6L6YFl-WluZGfbypnJWms-Jcfsx1K1QWm93KPFm0p6ZGni2VSex_YU7FsTM6wciVnGx-kZ7DzMRiH2oGXXT1nlphVb-gWj1WuTPpb6aAIaPivnU53d5gMtXAovbKh8fIUAeD8mPt7UnQiMYAlyFO4dXDtoXlDkHN9alZpzFWFPPHR">
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="clay-tag inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-primary font-code-sm text-xs w-fit mb-2 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                  ACTIVE TELEMETRY SHIELD
+                </div>
+<h3 class="font-headline-sm text-xl font-bold text-white mb-1.5">Tactile Shielding Core</h3>
+<p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">
+                  Dialectic real-time reasoning active inside every micro-enclave. Intercepts exploit payloads without blunt spoilered code answers.
+                </p>
+<div class="flex items-center gap-3 mt-3 font-code-sm text-xs text-on-surface-variant">
+<span class="text-primary font-semibold">DIALECTIC LATENCY &lt; 40ms</span>
+<span class="">•</span>
+<span class="">SOCRATIC AGENT v2.8</span>
+</div>
+</div>
+</div>
+<!-- Pod 2: Sandbox Cube (IMAGE_2) -->
+<div class="clay-card rounded-3xl p-6 relative flex flex-col sm:flex-row items-center gap-6 overflow-hidden group hover:border-secondary/40 transition-all">
+<div class="absolute -bottom-16 -right-16 w-40 h-40 bg-secondary/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative flex-shrink-0 w-32 h-32 md:w-36 md:h-36 rounded-2xl clay-inset-panel p-2 flex items-center justify-center">
+<img alt="3D claymorphic isolated sandbox cube with glowing defensive firewall layers" class="w-full h-full object-contain rounded-xl drop-shadow-[0_8px_20px_rgba(6,182,212,0.4)] group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1WC0RoEJVfttcZWepPk77nP_xIAPBCVqcTNTBUzLYlCucxg2FZH7pPU6XZuRMrT--OAplmC4PaZU2aWlqOhjScKCm9wAj-Mv2LA0g-i-CdOfaBwmim3-mDWMWwQer67jKuAb4a4e28OdVvmwm1YvbAYgc8dsNH1tF2KiApEThWowyYdfCfV9vbdPkNY6rSqxYMAaTygi6nz1Bjn1If5Q01tPRCa3gyPD9pAZKYRyshGtAlrDkyFGX9VGAM">
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="clay-tag inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-secondary font-code-sm text-xs w-fit mb-2 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                  ZERO-BLAST AIRGAP SANDBOX
+                </div>
+<h3 class="font-headline-sm text-xl font-bold text-white mb-1.5">Zero-Blast Sandbox Cube</h3>
+<p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">
+                  Airgapped disposable microVM instantiated on demand. Execute adversarial malware and kernel exploits with absolute zero host exposure.
+                </p>
+<div class="flex items-center gap-3 mt-3 font-code-sm text-xs text-on-surface-variant">
+<span class="text-secondary font-semibold">ISOLATION: 100% AIRGAPPED</span>
+<span class="">•</span>
+<span class="">KERNEL INIT &lt; 800ms</span>
+</div>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE TERMINAL PREVIEW & ADVERSARY STREAM -->
+<div class="w-full max-w-6xl rounded-3xl clay-card p-3 shadow-2xl text-left relative" id="lab-simulation">
+<div class="w-full flex items-center justify-between px-5 py-3 rounded-2xl bg-surface-container-high/80 border border-white/[0.06]">
+<div class="flex items-center gap-space-sm">
+<div class="flex gap-2">
+<span class="w-3 h-3 rounded-full bg-error/90 shadow-[0_0_8px_rgba(248,113,113,0.6)]"></span>
+<span class="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.6)]"></span>
+<span class="w-3 h-3 rounded-full bg-primary shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
+</div>
+<span class="font-code-sm text-xs text-on-surface-variant ml-3">
+                  cyberguardian-sandbox // session: <span class="text-primary font-semibold">vm_x86_iso_#8921-prod</span>
+</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="clay-tag inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-code-sm text-xs text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                  FIREWALL: ACTIVE
+                </span>
+<span class="clay-tag inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-code-sm text-xs text-primary font-bold">
+                  SOCRATIC AI: ACTIVE
+                </span>
+</div>
+</div>
+<!-- Terminal Body Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-3 p-2 mt-2 rounded-2xl bg-surface-container-lowest/90">
+<!-- Left: Adversary Payload Telemetry -->
+<div class="lg:col-span-6 flex flex-col rounded-2xl clay-inset-panel p-space-md font-code-sm text-xs">
+<div class="flex items-center justify-between pb-2 mb-3 bg-surface-container px-3 py-2 rounded-xl border border-white/[0.04]">
+<span class="text-error font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+                    ADVERSARY INGRESS DETECTED
+                  </span>
+<span class="text-on-surface-variant text-[11px]">CVE-2023-38606 // SQLi+PrivEsc</span>
+</div>
+<div class="space-y-2 text-on-surface-variant">
+<p class="text-on-surface"><span class="text-secondary font-semibold">[02:14:19.402] INGRESS_TAP:</span> POST /api/v1/auth/session HTTP/1.1</p>
+<p class="text-error font-semibold">[02:14:19.418] PAYLOAD: <span class="bg-surface-container-high px-2 py-0.5 rounded text-error border border-error/20">' UNION SELECT 1, user_role, pass_hash FROM auth_users WHERE admin=1 -- -</span></p>
+<p class="text-on-surface-variant">[02:14:19.422] Target Node: <span class="text-on-surface font-mono">microvm://svc-backend-auth:3000</span></p>
+<div class="p-3 my-2 rounded-xl bg-surface-container-low border border-white/[0.04] text-on-surface">
+<span class="text-secondary font-code-sm">// auth.ts:42 vulnerable query formulation</span><br>
+<span class="text-error line-through">const query = `SELECT * FROM users WHERE email = '${req.body.email}'`;</span>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-on-surface-variant pt-1">
+<span class="px-2 py-0.5 rounded-full clay-tag text-secondary">EPHEMERAL RUNTIME</span>
+<span class="">SANDBOX ISOLATED DAEMON 0.9.1</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs bg-surface-container/60 p-2.5 rounded-xl border border-white/[0.04]">
+<span class="text-on-surface-variant">Isolated Memory Sandbox Heap:</span>
+<span class="text-primary font-bold">14.2 MB / 128 MB</span>
+</div>
+</div>
+<!-- Right: Socratic AI Defense Advice & Live Patch -->
+<div class="lg:col-span-6 flex flex-col justify-between rounded-2xl clay-inset-panel p-space-md">
+<div>
+<div class="flex items-center justify-between pb-2 mb-3 bg-surface-container px-3 py-2 rounded-xl border border-white/[0.04]">
+<span class="text-primary font-semibold flex items-center gap-1.5 text-xs">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+                      SOCRATIC DEFENSE ADVISOR
+                    </span>
+<span class="text-on-surface-variant font-code-sm text-[11px]">DIALECTIC ENGINE</span>
+</div>
+<!-- Prompt -->
+<div class="p-3.5 rounded-xl bg-surface-container text-on-surface mb-3 flex gap-3 items-start border border-primary/20 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[22px] mt-0.5">help</span>
+<div>
+<p class="font-body-md text-sm font-medium text-white leading-relaxed">
+                        "Notice the string concatenation in <code class="font-code-sm text-secondary bg-surface-container-high px-1.5 py-0.5 rounded">auth.ts:42</code>. What happens to the SQL lexical parser when <code class="text-error font-code-sm bg-surface-container-high px-1 py-0.5 rounded">' UNION SELECT</code> is parsed as grammar instead of scalar data?"
+                      </p>
+<p class="font-body-sm text-xs text-on-surface-variant mt-2">
+                        💡 Hint: Use parameterized query bindings to force the driver to isolate execution instructions from untrusted arguments.
+                      </p>
+</div>
+</div>
+<!-- Patch Diff -->
+<div class="rounded-xl bg-surface-container-low p-3 font-code-sm text-xs text-on-surface mb-3 border border-white/[0.05]">
+<div class="flex justify-between items-center mb-1.5 text-on-surface-variant">
+<span class="uppercase tracking-wider text-[11px]">DEFENSE PROPOSED PATCH</span>
+<span class="text-primary font-semibold">DIFF +2 / -1</span>
+</div>
+<p class="text-primary font-code-sm leading-relaxed">
+                      + const query = 'SELECT id, email, role FROM users WHERE email = $1';<br>
+                      + const result = await pool.query(query, [req.body.email]);
+                    </p>
+</div>
+</div>
+<!-- Mitigation Bar -->
+<div class="p-3 rounded-xl bg-surface-container flex flex-col sm:flex-row items-center justify-between gap-3 border border-white/[0.06]">
+<div class="flex items-center gap-2.5">
+<span class="w-3 h-3 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#10b981]"></span>
+<div>
+<div class="font-title-md text-xs font-bold text-primary uppercase tracking-wide">SECURED: RE-TEST VERIFIED</div>
+<div class="font-code-sm text-[11px] text-on-surface-variant">0 rows leaked • Defense Invariant Holds</div>
+</div>
+</div>
+<button class="clay-pill-btn px-4 py-2 rounded-xl text-on-primary font-title-md text-xs font-bold shadow-md">
+                    Verify In MicroVM
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- PARADIGM SHIFT: SIDE-BY-SIDE CONTRAST                                     -->
+<!-- ========================================================================= -->
+<section class="w-full py-space-xl bg-surface-container-lowest/80 relative">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="clay-tag inline-block px-3.5 py-1 rounded-full text-secondary font-code-sm text-xs font-semibold uppercase tracking-widest mb-3">
+              Architectural Paradigm Shift
+            </span>
+<h2 class="font-headline-lg text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">
+              Why Traditional Cyber Education Leaves You Vulnerable
+            </h2>
+<p class="font-body-lg text-base md:text-lg text-on-surface-variant">
+              Memorizing CVE numbers and clicking through multiple-choice questions doesn't prepare you for an active threat. CyberGuardian replaces passive retention with reflexive, verified defense.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Traditional Card -->
+<div class="flex flex-col p-space-lg rounded-3xl clay-card border border-error/20 relative overflow-hidden">
+<div class="flex items-center gap-space-sm mb-space-md">
+<div class="w-12 h-12 rounded-2xl bg-error/15 border border-error/30 flex items-center justify-center text-error shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]">
+<span class="material-symbols-outlined text-[26px]">cancel</span>
+</div>
+<div>
+<span class="font-code-sm text-xs text-error uppercase font-semibold">The Passive Approach</span>
+<h3 class="font-headline-sm text-xl font-bold text-white">Textbook Theory &amp; Static Exams</h3>
+</div>
+</div>
+<div class="space-y-space-md font-body-md text-sm text-on-surface-variant flex-1">
+<div class="flex items-start gap-3 p-3.5 rounded-2xl clay-inset-panel">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">remove_circle_outline</span>
+<div class="">
+<strong class="text-white block font-medium">Rote Term Memorization</strong>
+                    Forced to recite the CIA Triad and ISO clauses without ever inspecting a corrupt TCP packet or memory heap.
+                  </div>
+</div>
+<div class="flex items-start gap-3 p-3.5 rounded-2xl clay-inset-panel">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">remove_circle_outline</span>
+<div class="">
+<strong class="text-white block font-medium">Multiple-Choice Delusion</strong>
+                    Scoring 95% on a static quiz delivers zero real-world ability to mitigate a live buffer overflow or CSRF attack.
+                  </div>
+</div>
+<div class="flex items-start gap-3 p-3.5 rounded-2xl clay-inset-panel">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">remove_circle_outline</span>
+<div class="">
+<strong class="text-white block font-medium">Paralyzing Blast-Radius Fear</strong>
+                    Schools restrict students from realistic networking labs out of constant dread of taking down campus infrastructure.
+                  </div>
+</div>
+<div class="flex items-start gap-3 p-3.5 rounded-2xl clay-inset-panel">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">remove_circle_outline</span>
+<div class="">
+<strong class="text-white block font-medium">Zero Verified Defense Proof</strong>
+                    Graduating with paper certificates that fail to prove technical hands-on acumen during rigorous engineering interviews.
+                  </div>
+</div>
+</div>
+</div>
+<!-- CyberGuardian Standard Card -->
+<div class="flex flex-col p-space-lg rounded-3xl clay-card-glow border border-primary/40 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-44 h-44 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center gap-space-sm mb-space-md">
+<div class="w-12 h-12 rounded-2xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary shadow-[inset_0_1px_2px_rgba(255,255,255,0.2)]">
+<span class="material-symbols-outlined text-[26px]">verified_user</span>
+</div>
+<div>
+<span class="font-code-sm text-xs text-primary uppercase font-bold">The CyberGuardian Standard</span>
+<h3 class="font-headline-sm text-xl font-bold text-white">Zero-Risk Empirical Mastery</h3>
+</div>
+</div>
+<div class="space-y-space-md font-body-md text-sm text-on-surface-variant flex-1">
+<div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container/70 border border-primary/20 shadow-inner">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check_circle</span>
+<div class="">
+<strong class="text-white block font-medium">Live Isolated MicroVM Execution</strong>
+                    Watch live memory corruption, packet tampering, and privilege escalation execute inside safe ephemeral sandboxes.
+                  </div>
+</div>
+<div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container/70 border border-primary/20 shadow-inner">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check_circle</span>
+<div class="">
+<strong class="text-white block font-medium">Socratic AI Dialectic Mentorship</strong>
+                    No spoiler hints or blunt solutions. The mentor guides your analytical deductive flow through precise contextual inquiries.
+                  </div>
+</div>
+<div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container/70 border border-primary/20 shadow-inner">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check_circle</span>
+<div class="">
+<strong class="text-white block font-medium">Defense-First Hardening Drills</strong>
+                    You don't just find vulnerabilities—you write production patches, update firewall rules, and verify remediation against repeat attacks.
+                  </div>
+</div>
+<div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container/70 border border-primary/20 shadow-inner">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check_circle</span>
+<div class="">
+<strong class="text-white block font-medium">Cryptographically Verifiable Portfolio</strong>
+                    Every lab generates signed tamper-proof telemetry proofs that validate your defensive acumen to recruiters and labs.
+                  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5 CORE PILLARS OF OUR PHILOSOPHY (TACTILE CLAY BENTO GRID)               -->
+<!-- ========================================================================= -->
+<section class="w-full py-space-xl">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-space-md">
+<div>
+<span class="clay-tag inline-block px-3.5 py-1 rounded-full text-primary font-code-sm text-xs font-semibold uppercase tracking-widest mb-3">
+                Doctrinal Foundations
+              </span>
+<h2 class="font-headline-lg text-3xl md:text-4xl font-extrabold text-white mt-1">
+                The 5 Core Pillars of Cyber Defense Mastery
+              </h2>
+</div>
+<p class="font-body-md text-base text-on-surface-variant max-w-md">
+              Built from the ground up to cultivate tactical instinct, systemic architectural awareness, and uncompromised ethical stewardship.
+            </p>
+</div>
+<!-- Tactile Clay Cards Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Pillar 1 -->
+<div class="p-space-lg rounded-3xl clay-card flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[28px]">deployed_code</span>
+</div>
+<span class="font-code-sm text-xs text-secondary font-semibold">PILLAR 01 // VIRTUALIZATION</span>
+<h3 class="font-headline-sm text-xl font-bold text-white mt-1.5 mb-space-sm">Safe, Isolated Experimentation</h3>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
+                  Every learner operates inside an ephemeral, airgapped microVM. Unleash aggressive malware simulations and kernel exploits without risking host operating systems or production networks.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 font-code-sm text-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+<span class="">&lt;800ms CONTAINER INITIALIZATION</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="p-space-lg rounded-3xl clay-card flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[28px]">shield_lock</span>
+</div>
+<span class="font-code-sm text-xs text-primary font-semibold">PILLAR 02 // HARDENING</span>
+<h3 class="font-headline-sm text-xl font-bold text-white mt-1.5 mb-space-sm">Defense-First Mindset</h3>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
+                  We reject the romanticization of reckless destruction. Every exploit taught is coupled with root-cause vulnerability analysis, defensive patch deployment, and automated validation tests.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 font-code-sm text-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span class="">100% REMEDIATION-ORIENTED</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="p-space-lg rounded-3xl clay-card flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-secondary/15 border border-secondary/30 flex items-center justify-center text-secondary mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[28px]">psychology_alt</span>
+</div>
+<span class="font-code-sm text-xs text-secondary font-semibold">PILLAR 03 // DIALECTIC AI</span>
+<h3 class="font-headline-sm text-xl font-bold text-white mt-1.5 mb-space-sm">AI Socratic Guidance</h3>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
+                  No rote cheat sheets or copy-paste resolutions. The CyberGuardian Socratic AI analyzes your terminal telemetry in real time and poses guiding questions to spur self-directed breakthrough insights.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 font-code-sm text-xs text-secondary">
+<span class="material-symbols-outlined text-[18px]">neurology</span>
+<span class="">CONTEXT-AWARE REASONING</span>
+</div>
+</div>
+<!-- Pillar 4 (2 Column span) -->
+<div class="lg:col-span-2 p-space-lg rounded-3xl clay-card flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-12 h-12 rounded-2xl bg-tertiary/15 border border-tertiary/30 flex items-center justify-center text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[28px]">account_tree</span>
+</div>
+<span class="clay-tag font-code-sm text-xs px-3 py-1 rounded-full text-tertiary font-semibold">
+                    NIST &amp; MITRE ATT&amp;CK MAPPED
+                  </span>
+</div>
+<span class="font-code-sm text-xs text-tertiary font-semibold">PILLAR 04 // PROGRESSION</span>
+<h3 class="font-headline-sm text-xl font-bold text-white mt-1.5 mb-space-sm">Structured Practical Growth</h3>
+<p class="font-body-md text-sm text-on-surface-variant max-w-2xl leading-relaxed">
+                  Advance across verifiable skill matrices designed alongside tier-1 SOC leads. From basic Wireshark PCAP triage to distributed microservices threat hunting, progression is strictly backed by measurable defensive output.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/[0.06] flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full clay-tag text-on-surface-variant font-code-sm text-xs">MITRE T1059: Command Interpreter</span>
+<span class="px-3 py-1 rounded-full clay-tag text-on-surface-variant font-code-sm text-xs">MITRE T1078: Valid Accounts</span>
+<span class="px-3 py-1 rounded-full clay-tag text-on-surface-variant font-code-sm text-xs">NICE Framework K0005</span>
+</div>
+</div>
+<!-- Pillar 5 -->
+<div class="p-space-lg rounded-3xl clay-card flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-primary-fixed/15 border border-primary-fixed/30 flex items-center justify-center text-primary-fixed mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[28px]">gavel</span>
+</div>
+<span class="font-code-sm text-xs text-primary-fixed font-semibold">PILLAR 05 // ETHICS</span>
+<h3 class="font-headline-sm text-xl font-bold text-white mt-1.5 mb-space-sm">Ethical &amp; Responsible Creed</h3>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
+                  Every sandbox user pledges adherence to the White-Hat Creed. Dual-use security skills are embedded with responsible disclosure etiquette, compliance readiness, and cyber legal boundaries.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 font-code-sm text-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="">INVIOLABLE WHITE-HAT OATH</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SOCRATIC AI SECTION WITH 3D ROBOT MENTOR (IMAGE_7)                       -->
+<!-- ========================================================================= -->
+<section class="w-full py-space-xl bg-surface-container-lowest relative overflow-hidden" id="socratic-section">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="clay-tag inline-block px-3.5 py-1 rounded-full text-secondary font-code-sm text-xs font-semibold uppercase tracking-widest mb-3">
+              Interactive Walkthrough
+            </span>
+<h2 class="font-headline-lg text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">
+              The Socratic AI Tutor In Action
+            </h2>
+<p class="font-body-lg text-base md:text-lg text-on-surface-variant">
+              Experience how our dialectic AI defense mentor turns an active breach into an empowering, step-by-step masterclass in real-time incident resolution.
+            </p>
+</div>
+<!-- 4-Step Interactive Flow Timeline -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-xl">
+<div class="p-space-md rounded-2xl clay-card flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="clay-tag font-code-sm text-xs px-2.5 py-0.5 rounded-full text-error font-semibold">PHASE 01</span>
+<span class="material-symbols-outlined text-error text-[20px]">radar</span>
+</div>
+<h4 class="font-title-md text-base font-bold text-white mb-2">Anomaly Detected</h4>
+<p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                  Unusual outbound TCP handshake originating from an isolated microVM on port <code class="font-code-sm text-secondary">4444</code>.
+                </p>
+</div>
+<div class="mt-4 p-2.5 rounded-xl clay-inset-panel text-[11px] font-code-sm text-error">
+                &gt; SYN_SENT 192.168.1.102:4444
+              </div>
+</div>
+<div class="p-space-md rounded-2xl clay-card flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="clay-tag font-code-sm text-xs px-2.5 py-0.5 rounded-full text-secondary font-semibold">PHASE 02</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">psychology</span>
+</div>
+<h4 class="font-title-md text-base font-bold text-white mb-2">Socratic Inquiry</h4>
+<p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                  Mentor intervenes: <span class="italic text-white">"Which process spawned this socket? Let's check PID before killing it."</span>
+</p>
+</div>
+<div class="mt-4 p-2.5 rounded-xl clay-inset-panel text-[11px] font-code-sm text-secondary">
+                &gt; ss -tulpn | grep 4444
+              </div>
+</div>
+<div class="p-space-md rounded-2xl clay-card flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="clay-tag font-code-sm text-xs px-2.5 py-0.5 rounded-full text-primary font-semibold">PHASE 03</span>
+<span class="material-symbols-outlined text-primary text-[20px]">build_circle</span>
+</div>
+<h4 class="font-title-md text-base font-bold text-white mb-2">Mitigation &amp; Patch</h4>
+<p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                  Learner implements egress firewall filtering and replaces unauthenticated reverse-shell hook in cron daemon.
+                </p>
+</div>
+<div class="mt-4 p-2.5 rounded-xl clay-inset-panel text-[11px] font-code-sm text-primary">
+                &gt; iptables -A OUTPUT -p tcp -j DROP
+              </div>
+</div>
+<div class="p-space-md rounded-2xl clay-card flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="clay-tag font-code-sm text-xs px-2.5 py-0.5 rounded-full text-tertiary font-semibold">PHASE 04</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">workspace_premium</span>
+</div>
+<h4 class="font-title-md text-base font-bold text-white mb-2">Defense Debrief</h4>
+<p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                  System verifies zero persistence, scores analytical deduction speed, and awards the <strong class="text-white">Socket Hardener</strong> badge.
+                </p>
+</div>
+<div class="mt-4 p-2.5 rounded-xl clay-inset-panel text-[11px] font-code-sm text-tertiary">
+                &gt; TELEMETRY PROOF #CG-9923 SIGNED
+              </div>
+</div>
+</div>
+<!-- Feature Pod with 3D Robot Mentor (IMAGE_7) & Live Socratic Dialogue -->
+<div class="w-full rounded-3xl clay-card p-space-lg md:p-space-xl shadow-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- 3D Avatar + Overview -->
+<div class="lg:col-span-5 flex flex-col items-center sm:items-start text-center sm:text-left">
+<div class="relative w-48 h-48 md:w-56 md:h-56 rounded-3xl clay-card-glow p-2 mb-space-md flex items-center justify-center overflow-hidden">
+<img alt="CyberGuardian AI Cyber Defense Citadel in 3D Claymorphism and Glassmorphism" class="w-full h-auto object-cover max-h-[560px] transform group-hover:scale-[1.01] transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe8QEb36FmuRcDNVXcT-7uIQu3TpPLn-5ITEztWcTnS62Vz_ouE0wcsWlwdvYibuMGrBTlHUN5mLaMVz-pAKwnRmpi3eo3TTL-zrL1Fn2B3aUH97cfVytvdCTNvB1J60xfqw4x-oFWjrCO2Xg6t4Ve-BUIXD4hc8Fzgwb_3b1xNQRb_RLsEJuzhIplyuR7uPAgvjxATKe8dsS1qrV6PIo8ijLLbOWOq0L0OX_kQGyjdwiZy4KZWWDOEw">
+<div class="absolute bottom-2 right-2 px-2.5 py-0.5 rounded-full clay-tag text-[10px] font-code-sm text-primary font-bold">
+                    EOS-SOCRATIC v2.8
+                  </div>
+</div>
+<div class="clay-tag px-3 py-1 rounded-full text-primary font-code-sm text-xs font-semibold uppercase mb-2">
+                  Dialectic AI Mentor
+                </div>
+<h3 class="font-headline-sm text-2xl font-bold text-white mb-2">
+                  Meet Your AI Defense Companion
+                </h3>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed mb-4">
+                  The mentor monitors shell input and system calls without ever spoiling solutions. It stimulates critical defense thinking just like a senior security architect looking over your shoulder.
+                </p>
+<div class="w-full p-4 rounded-2xl clay-inset-panel border border-primary/20">
+<div class="text-[11px] font-code-sm text-secondary uppercase font-semibold">Learner Cognitive Gain</div>
+<div class="text-3xl font-extrabold text-white mt-1">+94.6%</div>
+<p class="font-body-sm text-xs text-on-surface-variant mt-1">Retention over passive video course lectures</p>
+</div>
+</div>
+<!-- Interactive Dialogue Shell -->
+<div class="lg:col-span-7 rounded-2xl clay-inset-panel p-space-md font-code-sm text-xs shadow-inner space-y-3">
+<div class="flex items-center justify-between text-on-surface-variant text-[11px] pb-2 border-b border-white/[0.05]">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-semibold text-white">LIVE INCIDENT: MITRE T1071 (App Protocol)</span>
+</div>
+<span class="text-secondary">ENCLAVE_ID: vm-soc-44</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container/70 text-on-surface flex items-start gap-2 border border-white/[0.04]">
+<span class="text-secondary font-bold">DEFENDER:</span>
+<span class="text-white">$ netstat -tlpn | grep LISTEN</span>
+</div>
+<div class="p-3.5 rounded-xl bg-primary/10 border border-primary/25 text-white flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">psychology</span>
+<div class="">
+<span class="text-primary font-bold block mb-1">SOCRATIC AI:</span>
+                    "Good first scan. Now inspect row 3: why is service <code class="text-secondary font-semibold bg-surface-container px-1 py-0.5 rounded">nc.traditional</code> bound to <code class="text-secondary font-semibold bg-surface-container px-1 py-0.5 rounded">0.0.0.0:4444</code> instead of loopback <code class="text-secondary font-semibold bg-surface-container px-1 py-0.5 rounded">127.0.0.1</code>? What security perimeter assumption does that violate?"
+                  </div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container/70 text-on-surface flex items-start gap-2 border border-white/[0.04]">
+<span class="text-secondary font-bold">DEFENDER:</span>
+<span class="text-white">$ kill -9 $(pgrep nc) &amp;&amp; ufw deny 4444/tcp</span>
+</div>
+<div class="p-3.5 rounded-xl bg-primary/10 border border-primary/25 text-white flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">psychology</span>
+<div class="">
+<span class="text-primary font-bold block mb-1">SOCRATIC AI:</span>
+                    "Service halted and port closed. But before marking this complete: what mechanism launched netcat on startup? Check <code class="text-white font-semibold bg-surface-container px-1 py-0.5 rounded">/etc/cron.d</code> or systemd units to prevent re-infection upon reboot."
+                  </div>
+</div>
+<div class="flex items-center justify-between pt-2 text-[11px] text-on-surface-variant border-t border-white/[0.04]">
+<span class="">Incident Response Latency: 1m 24s</span>
+<span class="text-primary font-semibold">Root Cause Identification: In Progress (92%)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STRUCTURED LEARNING TRACKS                                                -->
+<!-- ========================================================================= -->
+<section class="w-full py-space-xl" id="tracks">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-space-md">
+<div>
+<span class="clay-tag inline-block px-3.5 py-1 rounded-full text-primary font-code-sm text-xs font-semibold uppercase tracking-widest mb-3">
+                Progressive Curriculum
+              </span>
+<h2 class="font-headline-lg text-3xl md:text-4xl font-extrabold text-white mt-1">
+                Structured Learning Tracks
+              </h2>
+</div>
+<p class="font-body-md text-base text-on-surface-variant max-w-md">
+              Hands-on microVM labs with progressive complexity, mapped cleanly from baseline web fundamentals to advanced threat hunting.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Track 1 -->
+<div class="p-space-lg rounded-3xl clay-card flex flex-col justify-between hover:border-primary/40 transition-all duration-300">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="clay-tag px-3 py-1 rounded-full text-primary font-code-sm text-xs font-bold">
+                    TRACK 01 // FOUNDATION
+                  </span>
+<span class="font-code-sm text-xs text-on-surface-variant">24 Hands-On Labs</span>
+</div>
+<h3 class="font-headline-sm text-xl font-bold text-white mb-2">
+                  Secure Coding &amp; Web Vulnerability Remediation
+                </h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-space-md leading-relaxed">
+                  Master the OWASP Top 10 vulnerabilities by writing live defensive patches. Dissect SQL injection, Cross-Site Scripting (XSS), CSRF tokens, and Server-Side Request Forgery (SSRF) within full-stack container environments.
+                </p>
+<div class="space-y-2 mb-space-md">
+<div class="flex items-center justify-between font-code-sm text-xs text-on-surface-variant">
+<span class="">Curriculum Completion Rate</span>
+<span class="text-primary font-bold">98.2%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden p-[1px]">
+<div class="h-full bg-primary rounded-full shadow-[0_0_8px_#10b981]" style="width: 98%;"></div>
+</div>
+</div>
+</div>
+<div class="pt-space-md border-t border-white/[0.06] flex items-center justify-between">
+<span class="font-code-sm text-xs text-secondary">Beginner to Intermediate</span>
+<a class="inline-flex items-center gap-1 font-title-md text-sm text-primary font-bold hover:underline" href="#lab-simulation">
+                  Start Track <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Track 2 -->
+<div class="p-space-lg rounded-3xl clay-card flex flex-col justify-between hover:border-secondary/40 transition-all duration-300">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="clay-tag px-3 py-1 rounded-full text-secondary font-code-sm text-xs font-bold">
+                    TRACK 02 // NETWORKING
+                  </span>
+<span class="font-code-sm text-xs text-on-surface-variant">32 Hands-On Labs</span>
+</div>
+<h3 class="font-headline-sm text-xl font-bold text-white mb-2">
+                  Network Traffic Analysis &amp; Incident Response
+                </h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-space-md leading-relaxed">
+                  Dissect raw PCAP captures, isolate rogue ARP caches, craft custom Snort and Suricata network IDS rules, and trace distributed Denial of Service (DDoS) reflection vectors in real-time virtual subnetworks.
+                </p>
+<div class="space-y-2 mb-space-md">
+<div class="flex items-center justify-between font-code-sm text-xs text-on-surface-variant">
+<span class="">Curriculum Completion Rate</span>
+<span class="text-secondary font-bold">91.4%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden p-[1px]">
+<div class="h-full bg-secondary rounded-full shadow-[0_0_8px_#06b6d4]" style="width: 91%;"></div>
+</div>
+</div>
+</div>
+<div class="pt-space-md border-t border-white/[0.06] flex items-center justify-between">
+<span class="font-code-sm text-xs text-secondary">Intermediate</span>
+<a class="inline-flex items-center gap-1 font-title-md text-sm text-secondary font-bold hover:underline" href="#lab-simulation">
+                  Start Track <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Track 3 -->
+<div class="p-space-lg rounded-3xl clay-card flex flex-col justify-between hover:border-tertiary/40 transition-all duration-300">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="clay-tag px-3 py-1 rounded-full text-tertiary font-code-sm text-xs font-bold">
+                    TRACK 03 // CLOUD NATIVE
+                  </span>
+<span class="font-code-sm text-xs text-on-surface-variant">28 Hands-On Labs</span>
+</div>
+<h3 class="font-headline-sm text-xl font-bold text-white mb-2">
+                  Cloud Infrastructure &amp; IAM Hardening
+                </h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-space-md leading-relaxed">
+                  Diagnose overly permissive AWS IAM policies, resolve Kubernetes RBAC privilege bypass vulnerabilities, and configure zero-trust ingress gateways with micro-segmentation policies.
+                </p>
+<div class="space-y-2 mb-space-md">
+<div class="flex items-center justify-between font-code-sm text-xs text-on-surface-variant">
+<span class="">Curriculum Completion Rate</span>
+<span class="text-tertiary font-bold">88.7%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden p-[1px]">
+<div class="h-full bg-tertiary rounded-full shadow-[0_0_8px_#818cf8]" style="width: 88%;"></div>
+</div>
+</div>
+</div>
+<div class="pt-space-md border-t border-white/[0.06] flex items-center justify-between">
+<span class="font-code-sm text-xs text-tertiary">Intermediate to Advanced</span>
+<a class="inline-flex items-center gap-1 font-title-md text-sm text-tertiary font-bold hover:underline" href="#lab-simulation">
+                  Start Track <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Track 4 -->
+<div class="p-space-lg rounded-3xl clay-card flex flex-col justify-between hover:border-primary-fixed/40 transition-all duration-300">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="clay-tag px-3 py-1 rounded-full text-primary-fixed font-code-sm text-xs font-bold">
+                    TRACK 04 // ELITE SOC
+                  </span>
+<span class="font-code-sm text-xs text-on-surface-variant">40 Hands-On Labs</span>
+</div>
+<h3 class="font-headline-sm text-xl font-bold text-white mb-2">
+                  Threat Hunting &amp; Blue Team Defense Ops
+                </h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-space-md leading-relaxed">
+                  Ingest multi-GB live SIEM telemetry, construct complex Splunk &amp; Elastic queries, uncover living-off-the-land binaries (LOLBins), and perform Linux volatility memory dumps under simulated APT attacks.
+                </p>
+<div class="space-y-2 mb-space-md">
+<div class="flex items-center justify-between font-code-sm text-xs text-on-surface-variant">
+<span class="">Curriculum Completion Rate</span>
+<span class="text-primary-fixed font-bold">84.1%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden p-[1px]">
+<div class="h-full bg-primary-fixed rounded-full shadow-[0_0_8px_#34d399]" style="width: 84%;"></div>
+</div>
+</div>
+</div>
+<div class="pt-space-md border-t border-white/[0.06] flex items-center justify-between">
+<span class="font-code-sm text-xs text-primary-fixed">Advanced Practitioner</span>
+<a class="inline-flex items-center gap-1 font-title-md text-sm text-primary-fixed font-bold hover:underline" href="#lab-simulation">
+                  Start Track <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- WHO CYBERGUARDIAN IS BUILT FOR                                            -->
+<!-- ========================================================================= -->
+<section class="w-full py-space-xl bg-surface-container-lowest" id="personas">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="clay-tag inline-block px-3.5 py-1 rounded-full text-primary font-code-sm text-xs font-semibold uppercase tracking-widest mb-3">
+              Tailored Value Paths
+            </span>
+<h2 class="font-headline-lg text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">
+              Engineered for Defenders at Every Stage
+            </h2>
+<p class="font-body-lg text-base md:text-lg text-on-surface-variant">
+              Whether you are entering cybersecurity, writing secure microservices, or training the next cohort of university computer science undergraduates.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Persona 1 -->
+<div class="flex flex-col p-space-lg rounded-3xl clay-card">
+<div class="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[28px]">school</span>
+</div>
+<span class="font-code-sm text-xs text-primary font-semibold">STUDENTS &amp; SWITCHERS</span>
+<h3 class="font-headline-sm text-xl font-bold text-white mt-1.5 mb-space-sm">
+                Build a Verifiable Defense Portfolio
+              </h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-space-md flex-1 leading-relaxed">
+                Replace theoretical certifications with cryptographic proof of real incidents defended. Export lab receipts, patched git commits, and forensic PCAP writeups to prove competence in job interviews.
+              </p>
+<ul class="space-y-2 text-on-surface-variant font-body-sm text-xs pt-space-sm border-t border-white/[0.06]">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  Showcase verified remediation logs
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  No prior high-end hardware needed
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  Instant browser-based terminal access
+                </li>
+</ul>
+</div>
+<!-- Persona 2 -->
+<div class="flex flex-col p-space-lg rounded-3xl clay-card">
+<div class="w-12 h-12 rounded-2xl bg-secondary/15 border border-secondary/30 flex items-center justify-center text-secondary mb-space-md">
+<span class="material-symbols-outlined text-[28px]">code_blocks</span>
+</div>
+<span class="font-code-sm text-xs text-secondary font-semibold">SOFTWARE ENGINEERS</span>
+<h3 class="font-headline-sm text-xl font-bold text-white mt-1.5 mb-space-sm">
+                Stop Shipping Vulnerabilities to Prod
+              </h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-space-md flex-1 leading-relaxed">
+                Understand how malicious actors target your endpoints and APIs. Practice defensive coding paradigms in TypeScript, Go, Python, and Rust to safeguard web services and database queries.
+              </p>
+<ul class="space-y-2 text-on-surface-variant font-body-sm text-xs pt-space-sm border-t border-white/[0.06]">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                  Hands-on sanitization &amp; auth patterns
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                  CI/CD SAST/DAST pipeline integration
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                  Defense architecture test cases
+                </li>
+</ul>
+</div>
+<!-- Persona 3 -->
+<div class="flex flex-col p-space-lg rounded-3xl clay-card">
+<div class="w-12 h-12 rounded-2xl bg-tertiary/15 border border-tertiary/30 flex items-center justify-center text-tertiary mb-space-md">
+<span class="material-symbols-outlined text-[28px]">account_balance</span>
+</div>
+<span class="font-code-sm text-xs text-tertiary font-semibold">HIGHER ED &amp; ACADEMIES</span>
+<h3 class="font-headline-sm text-xl font-bold text-white mt-1.5 mb-space-sm">
+                Turnkey Cyber Labs Without Server Maintenance
+              </h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-space-md flex-1 leading-relaxed">
+                Empower hundreds of students with isolated sandbox containers simultaneously. Track cohort completion, inspect Socratic AI student interaction histories, and grade live defense drills without infrastructure headaches.
+              </p>
+<ul class="space-y-2 text-on-surface-variant font-body-sm text-xs pt-space-sm border-t border-white/[0.06]">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  Zero IT overhead or hardware setups
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  LMS integration via LTI 1.3
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  Automated anti-plagiarism heuristics
+                </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- INTERACTIVE SOCRATIC CHALLENGE WIDGET                                     -->
+<!-- ========================================================================= -->
+<section class="w-full py-space-xl" id="challenge-section">
+<div class="max-w-[1240px] mx-auto px-gutter">
+<div class="rounded-3xl clay-card-glow p-space-lg md:p-space-xl shadow-2xl relative overflow-hidden">
+<div class="max-w-2xl mb-space-lg">
+<span class="clay-tag inline-block px-3.5 py-1 rounded-full text-primary font-code-sm text-xs font-semibold uppercase tracking-widest mb-3">
+                Interactive Micro-Challenge
+              </span>
+<h2 class="font-headline-lg text-2xl md:text-3xl font-extrabold text-white mt-1 mb-2">
+                Try a Live Socratic Defense Scenario
+              </h2>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">
+                Analyze the inbound reverse proxy log below and select the correct defensive remediation strategy. Watch how the dialectic AI engine assesses your operational rationale.
+              </p>
+</div>
+<!-- Terminal Log Card -->
+<div class="rounded-2xl clay-inset-panel p-4 font-code-sm text-xs mb-space-lg">
+<div class="text-on-surface-variant mb-2 flex items-center justify-between text-[11px]">
+<span class="text-white font-medium">INCOMING REVERSE PROXY ACCESS LOG (HAProxy v2.4)</span>
+<span class="text-error font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+                  THREAT LEVEL: HIGH
+                </span>
+</div>
+<p class="text-white font-mono bg-surface-container/60 p-3 rounded-xl border border-white/[0.04] overflow-x-auto">
+                [14:22:01.092] 198.51.100.44 - - "GET /product/view?id=12%20AND%20SLEEP(5)%20-- HTTP/1.1" 200 4812 "-" "Mozilla/5.0"
+              </p>
+</div>
+<!-- Interactive Options Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-md" id="challenge-options">
+<button class="challenge-btn p-4 rounded-2xl clay-card hover:border-secondary/40 text-left transition-all duration-200 group" onclick="handleChallenge(1)">
+<div class="font-title-md text-sm font-bold text-white mb-1.5 flex items-center justify-between">
+<span class="">Option A</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary text-[18px]">radio_button_unchecked</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                  Block the IP <code class="font-mono text-secondary">198.51.100.44</code> permanently via local iptables firewall rule.
+                </p>
+</button>
+<button class="challenge-btn p-4 rounded-2xl clay-card hover:border-primary/40 text-left transition-all duration-200 group" onclick="handleChallenge(2)">
+<div class="font-title-md text-sm font-bold text-white mb-1.5 flex items-center justify-between">
+<span class="">Option B</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary text-[18px]">radio_button_unchecked</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                  Enforce strict integer type cast in router &amp; use parameterized queries for the product ID parameter.
+                </p>
+</button>
+<button class="challenge-btn p-4 rounded-2xl clay-card hover:border-error/40 text-left transition-all duration-200 group" onclick="handleChallenge(3)">
+<div class="font-title-md text-sm font-bold text-white mb-1.5 flex items-center justify-between">
+<span class="">Option C</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-error text-[18px]">radio_button_unchecked</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+                  Deploy a regex string replacer in the application controller to strip the word <code class="font-mono text-error">SLEEP</code>.
+                </p>
+</button>
+</div>
+<!-- AI Response Box -->
+<div class="p-space-md rounded-2xl clay-inset-panel hidden transition-all duration-300" id="ai-response-box">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[26px] mt-0.5" id="ai-feedback-icon">psychology</span>
+<div>
+<div class="font-title-md text-sm font-bold text-white" id="ai-feedback-title">
+                    Socratic AI Evaluation
+                  </div>
+<p class="font-body-md text-xs md:text-sm text-on-surface-variant mt-1 leading-relaxed" id="ai-feedback-desc">
+                    Analyzing defense submission...
+                  </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3D CYBER VAULT & ETHICAL WHITE-HAT CREED (IMAGE_8)                        -->
+<!-- ========================================================================= -->
+<section class="w-full py-space-xl bg-surface-container-lowest" id="vault-creed">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Vault Card with IMAGE_8 -->
+<div class="lg:col-span-5 p-space-lg rounded-3xl clay-card-glow relative overflow-hidden">
+<div class="w-full rounded-2xl clay-inset-panel p-2 mb-space-md flex items-center justify-center">
+<img alt="CyberGuardian AI Cyber Defense Citadel in 3D Claymorphism and Glassmorphism" class="w-full h-auto object-cover max-h-[560px] transform group-hover:scale-[1.01] transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe8QEb36FmuRcDNVXcT-7uIQu3TpPLn-5ITEztWcTnS62Vz_ouE0wcsWlwdvYibuMGrBTlHUN5mLaMVz-pAKwnRmpi3eo3TTL-zrL1Fn2B3aUH97cfVytvdCTNvB1J60xfqw4x-oFWjrCO2Xg6t4Ve-BUIXD4hc8Fzgwb_3b1xNQRb_RLsEJuzhIplyuR7uPAgvjxATKe8dsS1qrV6PIo8ijLLbOWOq0L0OX_kQGyjdwiZy4KZWWDOEw">
+</div>
+<span class="clay-tag px-3 py-1 rounded-full text-primary font-code-sm text-xs font-semibold uppercase">
+                Verifiable Defense Proof
+              </span>
+<h3 class="font-headline-md text-2xl font-bold text-white mt-2 mb-space-sm">
+                Cryptographic Skill Vault
+              </h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-space-md leading-relaxed">
+                CyberGuardian is strictly architected for defense, resilience, and responsible research. Every completed lab generates a tamper-proof cryptographic receipt certifying your empirical patch abilities.
+              </p>
+<div class="space-y-2.5 font-code-sm text-xs text-white">
+<div class="flex items-center gap-2 p-2 rounded-xl clay-inset-panel">
+<span class="material-symbols-outlined text-primary text-[18px]">task_alt</span>
+<span class="">Adherence to Responsible Disclosure Practices</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-xl clay-inset-panel">
+<span class="material-symbols-outlined text-primary text-[18px]">task_alt</span>
+<span class="">Dual-Use Safe Isolation Sandboxing</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-xl clay-inset-panel">
+<span class="material-symbols-outlined text-primary text-[18px]">task_alt</span>
+<span class="">Full Compliance with Computer Fraud &amp; Abuse Laws</span>
+</div>
+</div>
+</div>
+<!-- Real Testimonials -->
+<div class="lg:col-span-7 space-y-space-md">
+<div class="p-space-lg rounded-3xl clay-card">
+<p class="font-body-lg text-sm md:text-base text-white italic mb-space-md leading-relaxed">
+                  "For three semesters I struggled to provide hands-on security labs to 140 CS students without our IT department freezing accounts due to port scans. CyberGuardian spun up safe microVMs instantly and cut grading time by 80% with its Socratic feedback engine."
+                </p>
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-2xl object-cover ring-2 ring-primary/30" data-alt="Professional headshot of Dr. Elena Rostova" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_mt28uVexBbwA8Yx6L93Eopj2MXzWYA77kUITfl_nSW6qZiSkolpPZgIxcsf1xZSduzdwPOGPOKFouj7Awqr1Brs6ra3E1bH-0W31_gB5eu3C1NYz-OWNRHDTj3o8pPOyxGUdRaArMh6jMw8NH2tIW1M8_csqhon1eGF6T16QZZqi72lSOxiKej8xnreIuk_ydWQ-XCMfghPMvUKhJCyHg6SCgYN1KOoabSDqub6uEc-616aenGiZBg">
+<div>
+<h4 class="font-title-md text-sm font-bold text-white">Dr. Elena Rostova</h4>
+<p class="font-code-sm text-[11px] text-on-surface-variant">CHAIR OF COMPUTER SCIENCE, MERIDIAN INSTITUTE OF TECH</p>
+</div>
+</div>
+</div>
+<div class="p-space-lg rounded-3xl clay-card">
+<p class="font-body-lg text-sm md:text-base text-white italic mb-space-md leading-relaxed">
+                  "When hiring junior security analysts, multiple-choice certs are practically useless. When candidates show me their CyberGuardian defense logs, I can see exactly how they think under an active simulated incident."
+                </p>
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-2xl object-cover ring-2 ring-secondary/30" data-alt="Headshot of Marcus Vance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2OK7pm8S8kp11Hi-15W2Jph9fnLTmlYU0yCcnsM-3Ww_WyjA8jJrp90c3c2t2MqGC-fhvF6GHh6Sm5L6rFFttJrLqCO-ArxyTpuQiAX5lUkFs-GwV6m4XaMBsB-DAcmh7dmhAFGJxH8j0H4zJxVgDEoQNU6hF27Oe9YHlyQitI3Crr1xE7htKbSAcWL4M6bERn8GB5WmGMXWQ697T8S8-PlwJ6VNxZtw0qVQjY2vLF5-MKPo0EATVYw">
+<div>
+<h4 class="font-title-md text-sm font-bold text-white">Marcus Vance</h4>
+<p class="font-code-sm text-[11px] text-on-surface-variant">HEAD OF SOC OPERATIONS, STRATA SECURE</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- COMPELLING BOTTOM CTA SECTION                                             -->
+<!-- ========================================================================= -->
+<section class="w-full py-space-xl">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="rounded-3xl clay-card-glow p-space-xl text-center relative overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-transparent pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+<div class="w-16 h-16 rounded-3xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary mb-space-md shadow-[0_8px_20px_rgba(16,185,129,0.3)]">
+<span class="material-symbols-outlined text-[36px]">security</span>
+</div>
+<h2 class="font-headline-lg text-3xl md:text-5xl font-extrabold text-white mb-space-md tracking-tight">
+                Ready to Step Into the Cyber Defense Arena?
+              </h2>
+<p class="font-body-lg text-base md:text-lg text-on-surface-variant mb-space-xl max-w-xl leading-relaxed">
+                Join thousands of defenders, developers, and educators building practical resilience in zero-risk, isolated sandboxes today.
+              </p>
+<div class="flex flex-wrap items-center justify-center gap-space-md mb-space-md">
+<a class="clay-pill-btn inline-flex items-center gap-2 px-8 py-4 rounded-full text-on-primary font-title-md text-base font-bold transition-all shadow-[0_12px_32px_rgba(16,185,129,0.4)]" href="#lab-simulation">
+<span class="material-symbols-outlined text-[22px]">play_arrow</span>
+                  Start Free Hands-On Lab
+                </a>
+<a class="clay-secondary-btn inline-flex items-center gap-2 px-7 py-4 rounded-full text-white font-title-md text-base font-semibold" href="#demo-modal" onclick="document.getElementById('demo-modal').classList.remove('hidden')">
+                  Schedule Academic Demo
+                </a>
+</div>
+<div class="font-code-sm text-xs text-on-surface-variant flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-primary text-[16px]">verified</span>
+                No credit card required • Instant browser-based sandbox access • Zero installation
+              </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- INTERACTIVE GUIDED TOUR MODAL                                             -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 bg-surface/90 backdrop-blur-xl hidden flex items-center justify-center p-4" id="demo-modal">
+<div class="clay-card max-w-xl w-full rounded-3xl p-space-lg shadow-2xl relative border border-white/10">
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-white/[0.08]">
+<div class="flex items-center gap-2 text-primary font-title-md font-bold text-sm">
+<span class="material-symbols-outlined">video_camera_front</span>
+              CyberGuardian 2-Minute Guided Tour
+            </div>
+<button class="w-8 h-8 rounded-full clay-tag flex items-center justify-center text-on-surface-variant hover:text-white transition-colors" onclick="document.getElementById('demo-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="rounded-2xl clay-inset-panel p-6 text-center space-y-4">
+<div class="w-16 h-16 rounded-2xl bg-secondary/15 border border-secondary/30 text-secondary mx-auto flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[36px]">play_circle</span>
+</div>
+<h4 class="font-title-md text-lg font-bold text-white">Browser-Based MicroVM Deployment Engine</h4>
+<p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+              Watch our container daemon instantiate an isolated Linux kernel in under 800 milliseconds, connect the Socratic dialectic telemetry stream, and test real exploits safely without risking host assets.
+            </p>
+<div class="flex justify-center gap-3 pt-2">
+<button class="clay-pill-btn px-6 py-2.5 rounded-full text-on-primary font-title-md text-sm font-bold" onclick="document.getElementById('demo-modal').classList.add('hidden'); document.getElementById('lab-simulation').scrollIntoView({behavior: 'smooth'})">
+                Launch Live Interactive Sandbox
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- CLAY & GLASS FOOTER                                                       -->
+<!-- ========================================================================= -->
+<footer class="w-full bg-surface-container-lowest text-on-surface-variant border-t border-white/[0.06]">
+<div class="w-full max-w-[1520px] mx-auto px-gutter py-space-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-space-lg mb-space-xl">
+<div class="lg:col-span-2 flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-primary to-secondary p-[1px]">
+<div class="w-full h-full bg-surface-container rounded-[11px] flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">shield</span>
+</div>
+</div>
+<span class="font-title-md text-base text-white font-bold">CyberGuardian</span>
+<span class="clay-tag px-2 py-0.5 rounded-full text-primary font-code-sm text-[10px] font-bold uppercase">DEFENSE OS</span>
+</div>
+<p class="font-body-md text-xs text-on-surface-variant max-w-sm leading-relaxed">
+            Pioneering autonomic cyber defense education and high-fidelity adversary simulations through dialectic AI reasoning and verifiable sandboxed architectures.
+          </p>
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<span class="clay-tag inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-code-sm text-[11px] text-secondary font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>NIST SP 800-181 REV 1
+            </span>
+<span class="clay-tag inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-code-sm text-[11px] text-primary font-medium">
+<span class="w-2 h-2 rounded-full bg-primary"></span>SOC2 TYPE II VERIFIED
+            </span>
+</div>
+</div>
+<div class="flex flex-col gap-2 font-body-sm text-xs">
+<span class="font-code-sm text-[11px] uppercase tracking-wider text-white font-bold mb-1">Platform</span>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="learning-tracks" href="#">Learning Tracks</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="isolated-labs" href="#">Isolated Labs</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="ai-socratic-tutor" href="#">AI Socratic Tutor</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="threat-telemetry" href="#">Live Threat Feeds</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="documentation" href="#">Architecture Matrix</a>
+</div>
+<div class="flex flex-col gap-2 font-body-sm text-xs">
+<span class="font-code-sm text-[11px] uppercase tracking-wider text-white font-bold mb-1">Enterprise &amp; Higher Ed</span>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="institutions" href="#">Academic Partnerships</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="institutions" href="#">Enterprise Cohorts</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="institutions" href="#">Curriculum Engine</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="documentation" href="#">API Integration</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="institutions" href="#">Compliance Readiness</a>
+</div>
+<div class="flex flex-col gap-2 font-body-sm text-xs">
+<span class="font-code-sm text-[11px] uppercase tracking-wider text-white font-bold mb-1">Trust &amp; Ethics</span>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="ethical-creed" href="#">White-Hat Oath</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="ethical-creed" href="#">Responsible Disclosure</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="ethical-creed" href="#">Data Sovereign Core</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="ethical-creed" href="#">Dual-Use Safeguards</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="documentation" href="#">Privacy Architecture</a>
+</div>
+<div class="flex flex-col gap-2 font-body-sm text-xs">
+<span class="font-code-sm text-[11px] uppercase tracking-wider text-white font-bold mb-1">Ecosystem</span>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="community" href="#">SOC Defense Guild</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="community" href="#">Red-Team Arena</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="community" href="#">Security Briefings</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" data-path="documentation" href="#">Status &amp; Telemetry</a>
+</div>
+</div>
+<div class="pt-space-lg border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-code-sm text-xs">
+<div class="flex items-center gap-space-md">
+<span class="">© 2025 CYBERGUARDIAN INC.</span>
+<span class="">AUTONOMIC DEFENSE SPEC 2.4</span>
+</div>
+<div class="flex items-center gap-space-lg text-[11px]">
+<a class="hover:text-white transition-colors" data-path="ethical-creed" href="#">CREED OF CONDUCT</a>
+<a class="hover:text-white transition-colors" data-path="documentation" href="#">TELEMETRY INTEGRITY</a>
+<a class="hover:text-white transition-colors" data-path="documentation" href="#">SECURITY POLICIES</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- SCRIPT FOR MINI CHALLENGE LOGIC -->
+<script>
+    function handleChallenge(option) {
+      const box = document.getElementById('ai-response-box');
+      const title = document.getElementById('ai-feedback-title');
+      const desc = document.getElementById('ai-feedback-desc');
+      const icon = document.getElementById('ai-feedback-icon');
+
+      box.classList.remove('hidden');
+
+      if (option === 1) {
+        title.innerText = "Socratic Observation: Fragile Defense (Temporary Band-Aid)";
+        desc.innerText = "IP bans fail against rotating proxies and botnets. The root cause—an unparameterized SQL endpoint—remains entirely open to other addresses. What structural code change removes the vulnerability at the application boundary?";
+        title.className = "font-title-md text-sm font-bold text-secondary";
+        icon.innerText = "info";
+        icon.className = "material-symbols-outlined text-secondary text-[26px]";
+      } else if (option === 2) {
+        title.innerText = "Verified Defense Mastered (100% Correct)";
+        desc.innerText = "Flawless. Type-coercing the parameter guarantees numeric semantics, and parameterized bindings ensure the SQL parser treats untrusted user payload strictly as literal data, preventing syntax injection completely.";
+        title.className = "font-title-md text-sm font-bold text-primary";
+        icon.innerText = "verified";
+        icon.className = "material-symbols-outlined text-primary text-[26px]";
+      } else if (option === 3) {
+        title.innerText = "Socratic Observation: Blacklist Flaw (Bypassable)";
+        desc.innerText = "Blacklisting keyword 'SLEEP' is notoriously fragile. Attackers can evade with casing ('sLeEp'), hex encoding, or alternative time delays like BENCHMARK() or heavy cross-joins. Why rely on reactive word-filtering when parameterization eliminates injection natively?";
+        title.className = "font-title-md text-sm font-bold text-error";
+        icon.innerText = "warning";
+        icon.className = "material-symbols-outlined text-error text-[26px]";
+      }
+    }
+  </script>
+
+
+</body></html>

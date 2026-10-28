@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CyberGuardian // Defense Pathways &amp; Curriculum Explorer</title>
+<!-- Google Fonts: Geist & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#1a1f2e",
+            "on-tertiary-fixed": "#001a42",
+            "on-secondary": "#003640",
+            "surface-container-lowest": "#090e1c",
+            "outline": "#86948a",
+            "surface-tint": "#4edea3",
+            "on-secondary-container": "#00424e",
+            "on-background": "#dee2f6",
+            "outline-variant": "#3c4a42",
+            "on-secondary-fixed-variant": "#004e5c",
+            "tertiary-fixed-dim": "#adc6ff",
+            "on-secondary-fixed": "#001f26",
+            "on-primary-container": "#00422b",
+            "surface-dim": "#0e1321",
+            "primary-fixed-dim": "#4edea3",
+            "on-primary": "#003824",
+            "tertiary-container": "#71a1ff",
+            "surface-container-high": "#252a39",
+            "secondary": "#4cd7f6",
+            "secondary-fixed": "#acedff",
+            "on-tertiary": "#002e6a",
+            "tertiary-fixed": "#d8e2ff",
+            "secondary-fixed-dim": "#4cd7f6",
+            "primary": "#4edea3",
+            "error-container": "#93000a",
+            "on-tertiary-container": "#00367a",
+            "on-tertiary-fixed-variant": "#004395",
+            "inverse-surface": "#dee2f6",
+            "on-primary-fixed": "#002113",
+            "surface-container-highest": "#303444",
+            "on-primary-fixed-variant": "#005236",
+            "on-error-container": "#ffdad6",
+            "on-surface-variant": "#bbcabf",
+            "secondary-container": "#03b5d3",
+            "error": "#ffb4ab",
+            "inverse-primary": "#006c49",
+            "tertiary": "#adc6ff",
+            "inverse-on-surface": "#2b303f",
+            "primary-container": "#10b981",
+            "surface-container-low": "#161b2a",
+            "on-surface": "#dee2f6",
+            "surface-variant": "#303444",
+            "surface-bright": "#343948",
+            "primary-fixed": "#6ffbbe",
+            "background": "#0e1321",
+            "surface": "#0e1321",
+            "on-error": "#690005"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "gutter-sm": "1rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Geist"],
+            "code-sm": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Geist"],
+            "headline-lg": ["Geist"],
+            "headline-sm": ["Geist"],
+            "title-md": ["Geist"],
+            "label-md": ["JetBrains Mono"],
+            "code-md": ["JetBrains Mono"],
+            "body-md": ["Geist"],
+            "label-sm": ["JetBrains Mono"],
+            "body-lg": ["Geist"],
+            "display-lg-mobile": ["Geist"],
+            "display-lg": ["Geist"],
+            "headline-md": ["Geist"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "code-md": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Claymorphism & Frosted Glass tactile effects */
+    .clay-card {
+      background: linear-gradient(135deg, rgba(22, 27, 42, 0.95) 0%, rgba(14, 19, 33, 0.98) 100%);
+      box-shadow: 
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.6),
+        0 8px 32px -4px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+    }
+    .clay-pill-active {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.35),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+        0 0 16px rgba(16, 185, 129, 0.35);
+    }
+    .clay-pill-inactive {
+      background: rgba(22, 27, 42, 0.85);
+      box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.05),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(60, 74, 66, 0.5);
+    }
+    .clay-button-primary {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+        0 0 16px rgba(16, 185, 129, 0.25);
+    }
+    .clay-button-primary:hover {
+      box-shadow: 
+        inset 0 1px 3px rgba(255, 255, 255, 0.4),
+        0 0 24px rgba(16, 185, 129, 0.45);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary min-h-screen flex flex-col justify-between">
+<!-- Top Navigation (Shared Component: TopNavBar Anchor) -->
+<header class="bg-surface-container-low dark:bg-surface-container-low backdrop-blur-md text-primary dark:text-primary docked full-width top-0 border-b border-outline-variant/30 shadow-2xl shadow-surface-container-lowest/50 sticky z-50">
+<div class="w-full px-space-lg max-w-[1600px] mx-auto flex items-center justify-between h-16">
+<!-- Left: Brand Logo & Search Cluster -->
+<div class="flex items-center gap-space-lg">
+<a class="flex items-center gap-space-sm group" href="#">
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center border border-primary/30 shadow-[0_0_12px_rgba(78,222,163,0.25)]">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<span class="text-title-md font-title-md tracking-tight font-bold text-primary dark:text-primary uppercase">CyberGuardian</span>
+</a>
+<!-- Clearance Status Tag -->
+<div class="hidden xl:flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary tracking-wider uppercase">CLEARANCE LEVEL 1 // ENCLAVE AIRGAPPED</span>
+</div>
+<!-- Search Bar (on_left as per TopNavBar schema) -->
+<div class="hidden lg:flex items-center relative w-80 xl:w-96">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-base pointer-events-none">search</span>
+<input class="w-full pl-9 pr-12 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-xl font-code-sm text-code-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Search CLI commands, CVEs, attack vectors, defense modules... [Ctrl+K]" type="text"/>
+<kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container font-code-sm text-label-sm text-outline border border-outline-variant/30">⌘K</kbd>
+</div>
+</div>
+<!-- Center: Navigation Links (Active mapping: Learning Tracks) -->
+<nav class="hidden md:flex items-center gap-space-lg">
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 px-2 py-1 rounded" href="#">Dashboard</a>
+<!-- ACTIVE TAB -->
+<a class="text-primary font-title-md border-b-2 border-primary pb-1 flex items-center gap-1" href="#">
+<span>Learning Tracks</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 px-2 py-1 rounded" href="#">Sandboxes</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 px-2 py-1 rounded" href="#">Credentials</a>
+</nav>
+<!-- Right: Actions & Cadet Profile -->
+<div class="flex items-center gap-space-md">
+<!-- Icon Actions: notifications, terminal -->
+<div class="flex items-center gap-1 border-r border-outline-variant/40 pr-space-md">
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 active:scale-[0.98]" title="Interactive Terminal">
+<span class="material-symbols-outlined text-xl">terminal</span>
+</button>
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 active:scale-[0.98] relative" title="Notifications">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary"></span>
+</button>
+</div>
+<!-- Trailing Primary Action: Resume Lab -->
+<button class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-label-md text-label-md font-semibold clay-button-primary text-surface-container-lowest transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Resume Lab</span>
+</button>
+<!-- Cadet Neo Profile Badge -->
+<div class="flex items-center gap-2 pl-1 bg-surface-container-high/50 p-1 pr-3 rounded-full border border-outline-variant/30">
+<img alt="Agent Neo cadet profile avatar with cyber visor" class="w-7 h-7 rounded-full object-cover border border-primary/40 shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1XrFrbXmou039Veij5vTu9wmTMbvLmmR2-v9kh3k_fpI7FJ0lS1svfEjN8x0XTb9BCSwQaQlhvmQHbIHFlQuX-_FbvdTKsUw_huTXXHeCc8S6RPkW-qXaUODjYsNeuK2za2ld8cl08B20H8pxaaK83ixODNqayaMNNDZKuqawRmYKtcP3rCWIY1A2a8n3EU3qXyUT1RSEIIKcxV2X2cNdMaslR35Hj0madPJGnaPr7MVdUFfD4C4qxlnW0"/>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold leading-tight">Agent Neo · Lvl 1</span>
+<span class="font-code-sm text-label-sm text-primary leading-none">850 XP</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="w-full max-w-[1600px] mx-auto px-space-md md:px-space-lg py-space-lg flex-1 space-y-space-lg">
+<!-- Section 1: Hero Header & System Matrix Overview -->
+<section class="clay-card rounded-full p-space-lg md:p-space-xl relative overflow-hidden">
+<!-- Glow ambient backdrop -->
+<div class="absolute -right-20 -top-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -bottom-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-md">
+<!-- Tactical Matrix Identifier -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="px-2.5 py-0.5 rounded bg-surface-container-lowest border border-primary/30 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary">SYS.CURRICULUM // PATHWAY MATRIX v2.4</span>
+</div>
+<span class="font-code-sm text-label-sm text-outline">ENCLAVE SPEC: RFC-9122 AIRGAP DEFENSE COMPLIANT</span>
+</div>
+<!-- Main Headline & Subtitle -->
+<div class="max-w-4xl space-y-2">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
+            DEFENSE CURRICULUM &amp; CYBER WARFARE PATHWAYS
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+            Zero-risk browser sandboxes guided by Socratic GuardianAI. Choose your defense specialization and forge verifiable blue-team credentials with cryptographic proofs.
+          </p>
+</div>
+<!-- Tactical Quick Stats Strip (Claymorphic frosted pills) -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-sm pt-space-sm">
+<div class="clay-pill-inactive rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">route</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">5</div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Active Pathways</div>
+</div>
+</div>
+<div class="clay-pill-inactive rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">deployed_code</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">32</div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Interactive Sandboxes</div>
+</div>
+</div>
+<div class="clay-pill-inactive rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">14</div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Cryptographic Badges</div>
+</div>
+</div>
+<div class="clay-pill-inactive rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">memory</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">100%</div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Client-Side MicroVMs</div>
+</div>
+</div>
+<div class="clay-pill-inactive rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">security</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">0.0ms</div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Host Exposure Boundary</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Filter & Track Matrix Toolbar -->
+<section class="clay-card rounded-xl p-space-md flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Domain Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
+<button class="clay-pill-active px-3 py-1.5 rounded-lg font-label-md text-label-md text-surface-container-lowest font-semibold whitespace-nowrap active:scale-[0.98]">
+          ALL PATHWAYS (5)
+        </button>
+<button class="clay-pill-inactive px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors">
+          LINUX &amp; SYSTEMS
+        </button>
+<button class="clay-pill-inactive px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors">
+          WEB APPLICATION DEFENSE
+        </button>
+<button class="clay-pill-inactive px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors">
+          NETWORK FORENSICS
+        </button>
+<button class="clay-pill-inactive px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors">
+          SOC INCIDENT RESPONSE
+        </button>
+<button class="clay-pill-inactive px-3 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors">
+          CRYPTOGRAPHY
+        </button>
+</div>
+<!-- Tier Filter & Layout Switches -->
+<div class="flex items-center gap-3 justify-between lg:justify-end border-t lg:border-t-0 border-outline-variant/30 pt-3 lg:pt-0">
+<!-- Difficulty Tier -->
+<div class="flex items-center bg-surface-container-lowest p-1 rounded-lg border border-outline-variant/40">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm text-primary font-semibold bg-surface-container">CADET (T1)</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm text-outline hover:text-on-surface cursor-pointer">SPECIALIST (T2)</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm text-outline hover:text-on-surface cursor-pointer">ELITE (T3)</span>
+</div>
+<!-- Sort indicator -->
+<div class="flex items-center gap-1.5 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span class="hidden sm:inline">SORT: RECOMMENDED</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Two-Column Main Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Column A: Main Pathways (approx 70% width -> 8 cols on lg) -->
+<div class="lg:col-span-8 space-y-space-lg">
+<!-- Track 01: Linux Fundamentals (ACTIVE / PRIMARY FEATURED) -->
+<div class="clay-card rounded-full p-space-lg relative border-primary/40 shadow-[0_0_32px_-4px_rgba(78,222,163,0.15)]">
+<!-- Active Ribbon Indicator -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border-b border-outline-variant/30 pb-space-md mb-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-primary font-bold tracking-wider uppercase">ACTIVE ENROLLMENT // 67% COMPLETE</span>
+</div>
+<div class="flex items-center gap-space-xs font-code-sm text-label-sm text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/40">MITRE ATT&amp;CK MAPPED</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/40">6 MODULES</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/30">100% HANDS-ON</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-space-lg items-start">
+<!-- Badge Icon Image -->
+<div class="w-28 h-28 shrink-0 rounded-2xl bg-surface-container-lowest p-2 border border-primary/30 shadow-inner flex items-center justify-center">
+<img alt="CyberGuardian Root Sentinel cyber defense badge" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W2b0HC19D5HKpYndproChyL-KdmfZdqZiZk0V8lfOToaD1qT4G2w5kYrhDzUIxV1vpKsRq6Eg7k6V6L6YFl-WluZGfbypnJWms-Jcfsx1K1QWm93KPFm0p6ZGni2VSex_YU7FsTM6wciVnGx-kZ7DzMRiH2oGXXT1nlphVb-gWj1WuTPpb6aAIaPivnU53d5gMtXAovbKh8fIUAeD8mPt7UnQiMYAlyFO4dXDtoXlDkHN9alZpzFWFPPHR"/>
+</div>
+<!-- Track Content -->
+<div class="flex-1 space-y-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                  Track 01: Linux Fundamentals for Cyber Defense
+                </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Master kernel memory inspection, POSIX permission architecture, and live forensic CLI triage before advancing to web perimeter exploit mitigation.
+              </p>
+<!-- Progress Bar -->
+<div class="space-y-1.5 pt-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface">Track Completion</span>
+<span class="text-primary font-semibold">4 / 6 Modules (67%) · 650 / 950 XP</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden border border-outline-variant/40">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 67%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Syllabus Drawer Preview -->
+<div class="mt-space-md pt-space-md border-t border-outline-variant/30 space-y-space-sm">
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">checklist</span>
+<span>SYLLABUS BREAKDOWN // ISOLATED MODULE CONTAINERS</span>
+</div>
+<div class="space-y-2">
+<!-- Mod 01 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface">Mod 01: Filesystem Navigation &amp; Path Traversal</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">+100 XP [VERIFIED]</span>
+</div>
+<!-- Mod 02 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface">Mod 02: File Inspection &amp; Binary Headers</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">+150 XP [VERIFIED]</span>
+</div>
+<!-- Mod 03 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface">Mod 03: Permissions, SUID &amp; Access Control</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">+200 XP [VERIFIED]</span>
+</div>
+<!-- Mod 04 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface">Mod 04: Log Grep, Sed &amp; Pipeline Filtering</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">+200 XP [VERIFIED]</span>
+</div>
+<!-- Mod 05 (CURRENT IN PROGRESS) -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container border border-secondary/40 shadow-[0_0_12px_rgba(76,215,246,0.15)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-lg animate-spin">sync</span>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">Mod 05: Process Triage &amp; Malicious Signal Termination</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">[IN PROGRESS - 45%]</span>
+</div>
+<!-- Mod 06 (LOCKED) -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest/40 border border-outline-variant/20 opacity-60">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-lg">lock</span>
+<span class="font-code-sm text-code-sm text-outline">Mod 06: Local Network Recon &amp; Netstat Triage</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">[LOCKED - REQUIRES 950 XP]</span>
+</div>
+</div>
+<!-- Actions Row -->
+<div class="flex flex-wrap items-center gap-3 pt-space-sm">
+<button class="clay-button-primary px-5 py-2.5 rounded-xl font-label-md text-label-md font-semibold text-surface-container-lowest flex items-center gap-2 active:scale-[0.98]">
+<span>ENTER SANDBOX LAB</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+<button class="clay-pill-inactive px-4 py-2.5 rounded-xl font-label-md text-label-md text-on-surface hover:text-primary transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">description</span>
+<span>View Syllabi &amp; PCAPs</span>
+</button>
+<button class="clay-pill-inactive px-4 py-2.5 rounded-xl font-label-md text-label-md text-outline hover:text-on-surface transition-colors flex items-center gap-1.5 ml-auto">
+<span class="material-symbols-outlined text-base">verified</span>
+<span>Download Enclave Proof</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Track 02: Web Application Security -->
+<div class="clay-card rounded-xl p-space-lg flex flex-col md:flex-row gap-space-md items-start justify-between">
+<div class="space-y-space-xs max-w-xl">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm text-secondary bg-secondary/10 border border-secondary/30">ENROLLMENT READY</span>
+<span class="font-code-sm text-label-sm text-outline">8 Hands-On Modules · Badge: Web Shield</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Track 02: Web Application Security &amp; OWASP Top 10</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Tackle SQLi parameterized defense, SSRF egress filtering, JWT tampering remediation, and strict XSS sanitization filters in headless isolated browsers.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-code-sm text-label-sm text-outline border border-outline-variant/30">OWASP:2025</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-code-sm text-label-sm text-outline border border-outline-variant/30">SSRF Containment</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-code-sm text-label-sm text-outline border border-outline-variant/30">JWT HS256/RS256</span>
+</div>
+</div>
+<button class="clay-pill-inactive hover:border-primary px-4 py-2 rounded-xl font-label-md text-label-md text-primary font-semibold shrink-0 transition-colors self-end md:self-center">
+            Start Defense Track
+          </button>
+</div>
+<!-- Track 03: Network Forensics & Packet Triage -->
+<div class="clay-card rounded-xl p-space-lg flex flex-col md:flex-row gap-space-md items-start justify-between">
+<div class="space-y-space-xs max-w-xl">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm text-primary bg-primary/10 border border-primary/30">AVAILABLE</span>
+<span class="font-code-sm text-label-sm text-outline">6 Modules · Badge: Packet Warden</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Track 03: Network Forensics &amp; Packet Triage</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Perform live PCAP disassembly, mitigate rogue ARP cache poisoning, tune Snort/Suricata IDS signatures, and hunt covert DNS tunnel exfiltrations.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-code-sm text-label-sm text-outline border border-outline-variant/30">Suricata IDS</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-code-sm text-label-sm text-outline border border-outline-variant/30">PCAP Dissect</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-code-sm text-label-sm text-outline border border-outline-variant/30">DNS Tunneling</span>
+</div>
+</div>
+<button class="clay-pill-inactive hover:border-primary px-4 py-2 rounded-xl font-label-md text-label-md text-primary font-semibold shrink-0 transition-colors self-end md:self-center">
+            Start Defense Track
+          </button>
+</div>
+<!-- Track 04: SOC Incident Response & Blue Team Ops -->
+<div class="clay-card rounded-xl p-space-lg flex flex-col md:flex-row gap-space-md items-start justify-between">
+<div class="space-y-space-xs max-w-xl">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm text-secondary bg-secondary/10 border border-secondary/30">SPECIALIST TIER</span>
+<span class="font-code-sm text-label-sm text-outline">10 Modules · Badge: Blue Team Aegis</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Track 04: SOC Incident Response &amp; Blue Team Ops</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Engineered for frontline analysts. Build Splunk query pipelines, parse Elastic SIEM alert clusters, perform volatility memory forensics, and neutralize living-off-the-land (LOLBins) persistence.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-code-sm text-label-sm text-outline border border-outline-variant/30">SIEM Pipeline</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-code-sm text-label-sm text-outline border border-outline-variant/30">Volatility RAM</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest font-code-sm text-label-sm text-outline border border-outline-variant/30">LOLBins Containment</span>
+</div>
+</div>
+<button class="clay-pill-inactive hover:border-primary px-4 py-2 rounded-xl font-label-md text-label-md text-primary font-semibold shrink-0 transition-colors self-end md:self-center">
+            Start Defense Track
+          </button>
+</div>
+<!-- Track 05: Applied Cryptography (Features Crypto Vault Image) -->
+<div class="clay-card rounded-xl p-space-lg flex flex-col md:flex-row gap-space-md items-center justify-between border-secondary/20">
+<div class="w-20 h-20 shrink-0 rounded-xl bg-surface-container-lowest p-1.5 border border-secondary/30 shadow-inner flex items-center justify-center">
+<img alt="CyberGuardian encrypted digital cyber vault with glowing key and shield" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U8Qhi0Vu5bPhgBhLD3YegAkORJII3LvtiCc-QApOSPVjeQNeC61OOBFV9StQuW-fnY4qe_vKHsOonJH2r_9bExGLnqS6SCr5GEzYocqWJ3eOzgjt6cq-PnnVSJhf3GPTMyDo81CGLGAW-IrjtTirKTsTW5NtPmC8Pq9Gqb_nJrBR16QcmnBod0esB5_GF-HO4fz-fLpeU248hSa5IV52qLkmPWRlWMOBpY3vu2FeR6dUAk1M4TQr43PHn3"/>
+</div>
+<div class="flex-1 space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm text-outline bg-surface-container border border-outline-variant/40">ADVANCED TIER</span>
+<span class="font-code-sm text-label-sm text-outline">5 Modules · Badge: Crypto Vaultkeeper</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Track 05: Applied Cryptography &amp; Zero-Knowledge Defense</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Construct Public Key Infrastructure (PKI), generate ED25519 signature verification chains, inspect TLS 1.3 handshakes, and defend post-quantum ciphers.
+            </p>
+</div>
+<button class="clay-pill-inactive hover:border-secondary px-4 py-2 rounded-xl font-label-md text-label-md text-secondary font-semibold shrink-0 transition-colors self-end md:self-center">
+            Start Defense Track
+          </button>
+</div>
+</div>
+<!-- Column B: Right Side Panel (approx 30% width -> 4 cols on lg) -->
+<aside class="lg:col-span-4 space-y-space-lg">
+<!-- Panel 1: Cadet Defense Radar & Mastery Matrix -->
+<div class="clay-card rounded-xl p-space-md space-y-space-md">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">analytics</span>
+<span class="font-headline-sm text-title-md font-bold text-on-surface">Cadet Mastery Matrix</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">LVL 1 // CADET</span>
+</div>
+<!-- Multi-axis Progress Bars -->
+<div class="space-y-space-sm">
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Linux &amp; Kernel Systems</span>
+<span class="text-primary font-semibold">85% · Advanced</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-lowest border border-outline-variant/30 overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Network Forensics</span>
+<span class="text-secondary font-semibold">40% · Intermediate</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-lowest border border-outline-variant/30 overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 40%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Web App Defense</span>
+<span class="text-outline font-semibold">25% · Novice</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-lowest border border-outline-variant/30 overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">SOC Operations</span>
+<span class="text-outline font-semibold">15% · Novice</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-lowest border border-outline-variant/30 overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 15%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Cryptography</span>
+<span class="text-outline font-semibold">10% · Initiate</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-lowest border border-outline-variant/30 overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 10%;"></div>
+</div>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 font-code-sm text-label-sm text-outline flex items-center justify-between">
+<span>Overall Clearance Index:</span>
+<span class="text-primary font-bold">42.8 / 100 PTS</span>
+</div>
+</div>
+<!-- Panel 2: Recommended Tactical Mission Launcher -->
+<div class="clay-card rounded-xl p-space-md space-y-space-sm border-secondary/30">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">RECOMMENDED TACTICAL MISSION</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-16 h-16 shrink-0 rounded-xl bg-surface-container-lowest p-1 border border-secondary/30 overflow-hidden">
+<img alt="CyberGuardian isolated microVM sandbox chamber" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WMImON0edGq4v_7uvvmK0jLgXGwh1dmTk_LF-Zbd5j08Pr8pLAo6UeJxxZSqrT3yGnv8PlBC6Vra6hJIvOQcPkWwerYcwnyNv-v-NKimpPUaIpSkgKqvw5hfuy_gIPpImJINiOyx2EipwsVgYjyNq5N5HThM6iY_jF-_jOLf9xHbNMeBDgfd4Sd3YqZJXrWDSaIRj9f1JOiWC9CapHEmnUKGYn7a_wmWKxAHb-qBPpnGwEqjcQUj9hPm4"/>
+</div>
+<div>
+<h4 class="font-title-md text-title-md font-bold text-on-surface leading-tight">Resume Mod 05: Process Triage</h4>
+<p class="font-code-sm text-label-sm text-outline mt-1">Target: Isolate cron-injected reverse netcat spawn</p>
+</div>
+</div>
+<button class="w-full py-2 rounded-xl font-label-md text-label-md font-semibold clay-button-primary text-surface-container-lowest flex items-center justify-center gap-2 mt-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Launch Sandbox Instance</span>
+</button>
+</div>
+<!-- Panel 3: EOS Socratic AI Mentor Debrief -->
+<div class="clay-card rounded-xl p-space-md space-y-space-sm border-primary/20">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-primary/40 overflow-hidden shrink-0">
+<img alt="EOS Socratic AI cybersecurity assistant mentor" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1Xjm7t8L2IhYlXwwFzkOwaX8Ke00DzRYHQPFSU0F3E-6iIde4BQuXvZqjPh0CK5F8NyXh28WV3onLEPf5zvFWB078bOwD1SpPElFBDS1zKpvpHHLBazVk2QChfcde7XSlXreO9ftxhzxVn7D8I_zFMZrF61HPlg6k86b2MjPXuz6ou_HedV-0UrHYiwB6HBF8QXVlaEmrSbBrcukb-OlZmM3GXFXq6NTqhHrvr9b0_IL-X_8G_JZGWw9t0"/>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md font-bold text-primary">EOS // GuardianAI</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+</div>
+<span class="font-code-sm text-label-sm text-outline">Socratic Defense Instructor</span>
+</div>
+</div>
+<!-- Speech bubble -->
+<div class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/40 text-on-surface font-body-md text-body-sm relative">
+<p>
+              "Cadet Neo, excellent progress on pipeline grep. Remember: in sandbox 05, inspect <span class="font-code-sm text-primary">PPID</span> relations before issuing <span class="font-code-sm text-error">kill -9</span> so child daemons cannot respawn. Ready when you are!"
+            </p>
+</div>
+<!-- Prompt query action pills -->
+<div class="flex flex-col gap-1.5 pt-1">
+<button class="w-full text-left px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 font-code-sm text-label-sm text-primary transition-colors flex items-center justify-between">
+<span>Ask Eos about PPID tree</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+<button class="w-full text-left px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 font-code-sm text-label-sm text-on-surface-variant transition-colors flex items-center justify-between">
+<span>Request hint for cron forensics</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Panel 4: Cryptographic Credentials Earned -->
+<div class="clay-card rounded-xl p-space-md space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-title-md font-bold text-on-surface">Verifiable Credentials</span>
+<span class="font-code-sm text-label-sm text-primary">ED25519 CHAIN</span>
+</div>
+<div class="space-y-2">
+<div class="p-2 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="font-code-sm text-label-sm text-on-surface">POSIX Warden Badge</span>
+</div>
+<span class="font-code-sm text-label-sm text-outline">#d8f3..81a0</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">key</span>
+<span class="font-code-sm text-label-sm text-on-surface">Grep Master Proof</span>
+</div>
+<span class="font-code-sm text-label-sm text-outline">#91ae..4b21</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Persistent Bottom Enclave Telemetry Bar -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 py-2.5 px-space-lg text-outline font-code-sm text-label-sm sticky bottom-0 z-40 backdrop-blur-md">
+<div class="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
+<!-- Left side telemetry status -->
+<div class="flex items-center gap-4 flex-wrap">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-semibold">EAL6+ Isolation Enforced</span>
+</div>
+<div class="hidden sm:inline text-outline-variant">•</div>
+<div>Session Hash: <span class="text-on-surface">SHA-256: d8f342ec...81a0e9</span></div>
+<div class="hidden sm:inline text-outline-variant">•</div>
+<div>Client-Side MicroVM Enclave Active: <span class="text-secondary font-semibold">0.1ms Latency</span></div>
+</div>
+<!-- Right side integrity statement -->
+<div class="flex items-center gap-3">
+<span class="text-on-surface-variant">Academic Ethics Creed: <span class="text-primary">White-Hat Verified</span></span>
+<span class="text-outline-variant">•</span>
+<a class="hover:text-primary transition-colors" href="#">Rules of Engagement</a>
+</div>
+</div>
+</footer>
+</body></html>

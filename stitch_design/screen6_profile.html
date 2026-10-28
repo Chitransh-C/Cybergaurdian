@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CyberGuardian // Cadet Profile & Verifiable Credentials</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#0e1321",
+            "on-primary-container": "#00422b",
+            "on-secondary-container": "#00424e",
+            "secondary": "#4cd7f6",
+            "outline-variant": "#3c4a42",
+            "on-tertiary-fixed": "#001a42",
+            "on-primary": "#003824",
+            "on-surface-variant": "#bbcabf",
+            "inverse-surface": "#dee2f6",
+            "surface-variant": "#303444",
+            "primary-fixed": "#6ffbbe",
+            "on-error-container": "#ffdad6",
+            "surface-container": "#1a1f2e",
+            "secondary-container": "#03b5d3",
+            "primary": "#4edea3",
+            "background": "#0e1321",
+            "on-primary-fixed-variant": "#005236",
+            "surface-tint": "#4edea3",
+            "on-error": "#690005",
+            "surface": "#0e1321",
+            "inverse-primary": "#006c49",
+            "tertiary-fixed": "#d8e2ff",
+            "tertiary": "#adc6ff",
+            "error": "#ffb4ab",
+            "surface-container-high": "#252a39",
+            "primary-container": "#10b981",
+            "tertiary-container": "#71a1ff",
+            "on-secondary-fixed": "#001f26",
+            "on-tertiary": "#002e6a",
+            "error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#004395",
+            "on-surface": "#dee2f6",
+            "inverse-on-surface": "#2b303f",
+            "on-primary-fixed": "#002113",
+            "surface-container-lowest": "#090e1c",
+            "on-secondary": "#003640",
+            "on-background": "#dee2f6",
+            "surface-container-low": "#161b2a",
+            "primary-fixed-dim": "#4edea3",
+            "on-tertiary-container": "#00367a",
+            "surface-container-highest": "#303444",
+            "surface-bright": "#343948",
+            "secondary-fixed": "#acedff",
+            "outline": "#86948a",
+            "tertiary-fixed-dim": "#adc6ff",
+            "secondary-fixed-dim": "#4cd7f6",
+            "on-secondary-fixed-variant": "#004e5c"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Geist"],
+            "label-sm": ["JetBrains Mono"],
+            "headline-sm": ["Geist"],
+            "code-sm": ["JetBrains Mono"],
+            "label-md": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Geist"],
+            "headline-lg": ["Geist"],
+            "body-lg": ["Geist"],
+            "body-sm": ["Geist"],
+            "display-lg": ["Geist"],
+            "title-md": ["Geist"],
+            "display-lg-mobile": ["Geist"],
+            "headline-md": ["Geist"],
+            "code-md": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "code-md": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .clay-glow-emerald {
+      box-shadow: 0 12px 30px -8px rgba(16, 185, 129, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.12), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    }
+    .clay-glow-cyan {
+      box-shadow: 0 12px 30px -8px rgba(6, 182, 212, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.15), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    }
+    .tactile-bevel {
+      box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 2px 0 rgba(0, 0, 0, 0.6);
+    }
+    .hud-grid {
+      background-size: 24px 24px;
+      background-image: 
+        linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+    }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.9; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.96); }
+    }
+    .status-pulse {
+      animation: pulse-slow 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container hud-grid">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-50 bg-surface-container-low dark:bg-surface-container-low backdrop-blur-md shadow-2xl shadow-surface-container-lowest/50">
+<div class="w-full px-space-lg max-w-[1600px] mx-auto flex items-center justify-between h-16">
+<!-- Brand & Search cluster -->
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border border-outline-variant/50 flex items-center justify-center text-primary tactile-bevel">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<span class="text-title-md font-title-md tracking-tight font-bold text-primary dark:text-primary uppercase">CyberGuardian</span>
+<span class="hidden xl:inline-block ml-3 px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-secondary border border-secondary/20">CLEARANCE LEVEL 2 // ENCLAVE AIRGAPPED</span>
+</div>
+</div>
+<!-- Left Search bar -->
+<div class="relative hidden lg:block">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[16px]">search</span>
+</div>
+<input class="bg-surface-dim border border-outline-variant/40 rounded-lg pl-9 pr-4 py-1.5 text-code-sm font-code-sm text-on-surface placeholder-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary w-72" placeholder="Query MITRE tactics, telemetry, sandboxes..." type="text"/>
+</div>
+</div>
+<!-- Navigation links (Credentials ACTIVE) -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Learning Tracks</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors" href="#">Sandboxes</a>
+<a class="text-primary font-title-md border-b-2 border-primary pb-1" href="#">Credentials</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center space-x-3">
+<button class="p-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</button>
+<button class="hidden sm:flex items-center space-x-2 bg-primary-container text-on-primary-container px-3.5 py-1.5 rounded-lg font-title-md text-[13px] font-semibold clay-glow-emerald active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+<span>Resume Lab</span>
+</button>
+<div class="flex items-center space-x-2 pl-2 border-l border-outline-variant/30">
+<div class="w-8 h-8 rounded-lg overflow-hidden border border-primary/40 p-0.5 bg-surface-container-high">
+<img alt="Agent Neo cadet profile avatar with cyber visor" class="w-full h-full object-cover rounded-md" src="https://lh3.googleusercontent.com/aida/AEtjO1XrFrbXmou039Veij5vTu9wmTMbvLmmR2-v9kh3k_fpI7FJ0lS1svfEjN8x0XTb9BCSwQaQlhvmQHbIHFlQuX-_FbvdTKsUw_huTXXHeCc8S6RPkW-qXaUODjYsNeuK2za2ld8cl08B20H8pxaaK83ixODNqayaMNNDZKuqawRmYKtcP3rCWIY1A2a8n3EU3qXyUT1RSEIIKcxV2X2cNdMaslR35Hj0madPJGnaPr7MVdUFfD4C4qxlnW0"/>
+</div>
+<span class="text-label-md font-label-md text-on-surface font-medium hidden lg:inline">Agent Neo · Lvl 1</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="max-w-[1600px] mx-auto px-space-md sm:px-space-lg py-space-lg space-y-space-lg">
+<!-- Section 1: Cadet Dossier Hero Header -->
+<section class="relative rounded-2xl bg-surface-container-low/90 backdrop-blur-xl border border-outline-variant/20 p-space-md sm:p-space-lg tactile-bevel shadow-2xl">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg">
+<!-- Cadet Avatar & Identity -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-lg">
+<!-- Tactile Avatar Frame -->
+<div class="relative group">
+<div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-primary-container/40 to-secondary-container/30 blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+<div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-surface-container border-2 border-primary/40 overflow-hidden tactile-bevel p-1 flex items-center justify-center">
+<img alt="Agent Neo cadet profile avatar with cyber visor" class="w-full h-full object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida/AEtjO1XrFrbXmou039Veij5vTu9wmTMbvLmmR2-v9kh3k_fpI7FJ0lS1svfEjN8x0XTb9BCSwQaQlhvmQHbIHFlQuX-_FbvdTKsUw_huTXXHeCc8S6RPkW-qXaUODjYsNeuK2za2ld8cl08B20H8pxaaK83ixODNqayaMNNDZKuqawRmYKtcP3rCWIY1A2a8n3EU3qXyUT1RSEIIKcxV2X2cNdMaslR35Hj0madPJGnaPr7MVdUFfD4C4qxlnW0"/>
+<!-- Reticle Corner Overlays -->
+<div class="absolute top-2 left-2 w-2 h-2 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute top-2 right-2 w-2 h-2 border-t-2 border-r-2 border-primary"></div>
+<div class="absolute bottom-2 left-2 w-2 h-2 border-b-2 border-l-2 border-primary"></div>
+<div class="absolute bottom-2 right-2 w-2 h-2 border-b-2 border-r-2 border-primary"></div>
+</div>
+<!-- Callsign badge -->
+<div class="absolute -bottom-2 -right-2 px-2 py-0.5 rounded bg-primary-container text-on-primary-container text-label-sm font-label-sm font-bold shadow-md">
+              LVL 2
+            </div>
+</div>
+<!-- Cadet Metadata -->
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary status-pulse"></span>
+                ACTIVE DEFENDER
+              </span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant/30">
+                OCT 14, 2024 ENLISTED
+              </span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary/10 text-secondary border border-secondary/30">
+                RANK: SENIOR DEFENDER
+              </span>
+</div>
+<div class="flex items-baseline gap-3">
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight font-bold">Agent-Neo</h1>
+<span class="text-body-sm font-body-sm text-outline font-mono">UID // CG-99420-NEO</span>
+</div>
+<!-- Stats Ticker -->
+<div class="flex flex-wrap items-center gap-y-2 gap-x-5 text-body-sm font-body-sm text-on-surface-variant pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">military_tech</span>
+<span>Standing: <strong class="text-on-surface font-title-md">#42</strong> of 12,890 Cadets</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+<span>Defense XP: <strong class="text-primary font-mono font-semibold">3,450 XP</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-error text-[18px]">local_fire_department</span>
+<span>Streak: <strong class="text-on-surface font-semibold">14 Days</strong> (Streak Shield Active)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 w-full lg:w-auto">
+<button class="flex items-center justify-center space-x-2.5 bg-primary-container text-on-primary-container px-4 py-2.5 rounded-xl font-title-md text-[14px] font-semibold clay-glow-emerald active:scale-[0.98] transition-all border border-primary/40">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>Export Verified Credential</span>
+</button>
+<button class="flex items-center justify-center space-x-2 bg-secondary/10 border border-secondary/30 text-secondary hover:bg-secondary/20 hover:border-secondary/60 px-4 py-2.5 rounded-xl font-title-md text-[14px] font-semibold tactile-bevel transition-all">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Share Portfolio Link</span>
+</button>
+</div>
+</div>
+<!-- Cryptographic Ledger Attestation Bar -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-3 text-label-sm font-label-sm text-outline">
+<div class="flex flex-wrap items-center gap-3">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+            ED25519 SIGNATURE VERIFIED
+          </span>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<span class="font-mono text-on-surface-variant">SHA-256 Public Key: 0x9e8a71...4f7d290b</span>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<span class="text-secondary">STIG / DoD 8570 COMPLIANT</span>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span>Last Block Audit: 4 mins ago</span>
+</div>
+</div>
+</section>
+<!-- Section 2 & 3: Pentagon Skill Radar & Live Telemetry Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left: Tactical Pentagon Skill Radar (5 Cols) -->
+<div class="lg:col-span-5 rounded-2xl bg-surface-container-low/90 backdrop-blur-xl border border-outline-variant/20 p-space-md sm:p-space-lg flex flex-col justify-between shadow-xl">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/15">
+<div class="flex items-center space-x-2">
+<span class="text-code-sm font-code-sm text-primary uppercase font-bold tracking-wider">SKILL.RADAR // V.02</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30">
+            5-AXIS AUDITED
+          </span>
+</div>
+<!-- Geometric Pentagon Radar Display -->
+<div class="relative py-6 flex items-center justify-center">
+<svg class="w-full max-w-[340px] h-[300px]" viewbox="0 0 320 300">
+<!-- Background Radial Webs -->
+<polygon fill="rgba(6, 182, 212, 0.02)" points="160,20 280,105 235,245 85,245 40,105" stroke="rgba(148, 163, 184, 0.12)" stroke-width="1"></polygon>
+<polygon fill="rgba(6, 182, 212, 0.03)" points="160,50 250,115 215,220 105,220 70,115" stroke="rgba(148, 163, 184, 0.18)" stroke-width="1"></polygon>
+<polygon fill="rgba(6, 182, 212, 0.04)" points="160,85 220,130 195,195 125,195 100,130" stroke="rgba(148, 163, 184, 0.2)" stroke-width="1"></polygon>
+<polygon fill="rgba(6, 182, 212, 0.05)" points="160,120 190,140 178,170 142,170 130,140" stroke="rgba(148, 163, 184, 0.22)" stroke-width="1"></polygon>
+<!-- Axis Rays -->
+<line stroke="rgba(148, 163, 184, 0.25)" stroke-dasharray="3 3" x1="160" x2="160" y1="150" y2="20"></line>
+<line stroke="rgba(148, 163, 184, 0.25)" stroke-dasharray="3 3" x1="160" x2="280" y1="150" y2="105"></line>
+<line stroke="rgba(148, 163, 184, 0.25)" stroke-dasharray="3 3" x1="160" x2="235" y1="150" y2="245"></line>
+<line stroke="rgba(148, 163, 184, 0.25)" stroke-dasharray="3 3" x1="160" x2="85" y1="150" y2="245"></line>
+<line stroke="rgba(148, 163, 184, 0.25)" stroke-dasharray="3 3" x1="160" x2="40" y1="150" y2="105"></line>
+<!-- Cadets Data Polygon (90% Linux, 75% Forensics, 60% Web, 45% Threat, 35% Crypto) -->
+<!-- Top: Linux (90% -> y=33) -->
+<!-- Top-Right: Forensics (75% -> x=250, y=116) -->
+<!-- Bot-Right: Web (60% -> x=205, y=207) -->
+<!-- Bot-Left: Triage (45% -> x=126, y=192) -->
+<!-- Top-Left: Crypto (35% -> x=118, y=134) -->
+<polygon class="filter drop-shadow-[0_0_12px_rgba(16,185,129,0.5)]" fill="rgba(16, 185, 129, 0.22)" points="160,33 250,116 205,207 126,192 118,134" stroke="#10b981" stroke-width="2.5"></polygon>
+<!-- Vertex nodes -->
+<circle cx="160" cy="33" fill="#4edea3" r="4.5" stroke="#0e1321" stroke-width="2"></circle>
+<circle cx="250" cy="116" fill="#4edea3" r="4.5" stroke="#0e1321" stroke-width="2"></circle>
+<circle cx="205" cy="207" fill="#4edea3" r="4.5" stroke="#0e1321" stroke-width="2"></circle>
+<circle cx="126" cy="192" fill="#4edea3" r="4.5" stroke="#0e1321" stroke-width="2"></circle>
+<circle cx="118" cy="134" fill="#4edea3" r="4.5" stroke="#0e1321" stroke-width="2"></circle>
+<!-- Axis Labels in SVG -->
+<text fill="#dee2f6" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle" x="160" y="12">LINUX SYS (90%)</text>
+<text fill="#dee2f6" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="start" x="286" y="112">PACKET PCAP (75%)</text>
+<text fill="#dee2f6" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle" x="225" y="265">WEB (60%)</text>
+<text fill="#dee2f6" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle" x="75" y="265">TRIAGE (45%)</text>
+<text fill="#dee2f6" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="end" x="30" y="100">CRYPTO (35%)</text>
+</svg>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-2 border-t border-outline-variant/15 text-body-sm font-body-sm">
+<div class="p-2 rounded-lg bg-surface-container/60 border border-outline-variant/20 flex items-center justify-between">
+<span class="text-on-surface-variant font-mono text-[12px]">SUID Defenses</span>
+<span class="text-primary font-bold font-mono">Expert</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container/60 border border-outline-variant/20 flex items-center justify-between">
+<span class="text-on-surface-variant font-mono text-[12px]">PCAP Dissection</span>
+<span class="text-secondary font-bold font-mono">Adv.</span>
+</div>
+</div>
+</div>
+<!-- Right: Live Telemetry & Threat Metrics (7 Cols) -->
+<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Metric Card 1 -->
+<div class="rounded-2xl bg-surface-container-low/90 backdrop-blur-xl border border-outline-variant/20 p-space-md tactile-bevel relative overflow-hidden group hover:border-primary/40 transition-all duration-300">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all"></div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline mb-2">
+<span>METRIC // 01</span>
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+</div>
+<div class="text-display-lg-mobile sm:text-display-lg font-display-lg text-primary font-bold tracking-tight">24</div>
+<div class="text-title-md font-title-md text-on-surface font-semibold mt-1">CVEs Patched & Verified</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+            Successfully remediated through automated regression testing and live kernel fuzzing pipelines.
+          </p>
+<div class="mt-4 pt-2 border-t border-outline-variant/15 flex items-center justify-between text-code-sm font-code-sm text-outline">
+<span>Latest: CVE-2024-38063</span>
+<span class="text-primary">PASS</span>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="rounded-2xl bg-surface-container-low/90 backdrop-blur-xl border border-outline-variant/20 p-space-md tactile-bevel relative overflow-hidden group hover:border-secondary/40 transition-all duration-300">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-all"></div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline mb-2">
+<span>METRIC // 02</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">terminal</span>
+</div>
+<div class="text-display-lg-mobile sm:text-display-lg font-display-lg text-secondary font-bold tracking-tight">1,420</div>
+<div class="text-title-md font-title-md text-on-surface font-semibold mt-1">CLI Commands Executed</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+            Dispatched across 32 isolated micro-VM defensive sandboxes with zero containment leaks.
+          </p>
+<div class="mt-4 pt-2 border-t border-outline-variant/15 flex items-center justify-between text-code-sm font-code-sm text-outline">
+<span>Environment: Alpine / Debian</span>
+<span class="text-secondary">SANDBOXED</span>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="rounded-2xl bg-surface-container-low/90 backdrop-blur-xl border border-outline-variant/20 p-space-md tactile-bevel relative overflow-hidden group hover:border-primary/40 transition-all duration-300">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all"></div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline mb-2">
+<span>METRIC // 03</span>
+<span class="material-symbols-outlined text-primary text-[18px]">shield_lock</span>
+</div>
+<div class="text-display-lg-mobile sm:text-display-lg font-display-lg text-on-surface font-bold tracking-tight">98.4%</div>
+<div class="text-title-md font-title-md text-on-surface font-semibold mt-1">Zero-Day Containment Score</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+            Rated across synthetic honeypots and heuristic intrusion detection benchmark modules.
+          </p>
+<div class="mt-4 pt-2 border-t border-outline-variant/15 flex items-center justify-between text-code-sm font-code-sm text-outline">
+<span>SLA Mean Reaction: 34s</span>
+<span class="text-primary font-bold">TOP 1%</span>
+</div>
+</div>
+<!-- Metric Card 4 -->
+<div class="rounded-2xl bg-surface-container-low/90 backdrop-blur-xl border border-outline-variant/20 p-space-md tactile-bevel relative overflow-hidden group hover:border-secondary/40 transition-all duration-300">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-all"></div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline mb-2">
+<span>METRIC // 04</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">cell_tower</span>
+</div>
+<div class="text-display-lg-mobile sm:text-display-lg font-display-lg text-secondary font-bold tracking-tight">0.0ms</div>
+<div class="text-title-md font-title-md text-on-surface font-semibold mt-1">Host Exposure Boundary</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+            Complete enclave airgap integrity. Ephemeral networking buffers reset with zero artifacts.
+          </p>
+<div class="mt-4 pt-2 border-t border-outline-variant/15 flex items-center justify-between text-code-sm font-code-sm text-outline">
+<span>Egress Filters: Strict Drop</span>
+<span class="text-primary">SECURE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 4: Cryptographic Badges Armory Grid -->
+<section class="space-y-space-md">
+<!-- Section Header & Filter Pills -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<div class="flex items-center space-x-2">
+<span class="text-code-sm font-code-sm text-primary uppercase font-bold tracking-wider">ARMORY.VAULT // CREDENTIALS</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface font-bold tracking-tight">Cryptographic Defense Badges</h2>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center space-x-2 overflow-x-auto pb-1 sm:pb-0">
+<button class="px-3 py-1.5 rounded-lg text-label-md font-label-md bg-primary-container text-on-primary-container font-semibold whitespace-nowrap shadow-sm">
+            All Armory Badges (6)
+          </button>
+<button class="px-3 py-1.5 rounded-lg text-label-md font-label-md bg-surface-container border border-outline-variant/30 text-on-surface-variant hover:text-on-surface whitespace-nowrap">
+            Unlocked (3)
+          </button>
+<button class="px-3 py-1.5 rounded-lg text-label-md font-label-md bg-surface-container border border-outline-variant/30 text-on-surface-variant hover:text-on-surface whitespace-nowrap">
+            In Progress (1)
+          </button>
+<button class="px-3 py-1.5 rounded-lg text-label-md font-label-md bg-surface-container border border-outline-variant/30 text-on-surface-variant hover:text-on-surface whitespace-nowrap">
+            Locked (2)
+          </button>
+</div>
+</div>
+<!-- Bento Armory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Badge 1: Root Sentinel [UNLOCKED] -->
+<div class="rounded-2xl bg-surface-container-low/95 backdrop-blur-xl border border-primary/30 p-space-md tactile-bevel relative group hover:border-primary/60 transition-all duration-300 shadow-lg">
+<div class="flex items-start justify-between gap-3">
+<div class="w-16 h-16 rounded-xl bg-surface-container border border-primary/40 overflow-hidden tactile-bevel p-1 flex-shrink-0">
+<img alt="Tactile claymorphic cyber shield badge with glowing circuit traces and frosted glass" class="w-full h-full object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida/AEtjO1W2b0HC19D5HKpYndproChyL-KdmfZdqZiZk0V8lfOToaD1qT4G2w5kYrhDzUIxV1vpKsRq6Eg7k6V6L6YFl-WluZGfbypnJWms-Jcfsx1K1QWm93KPFm0p6ZGni2VSex_YU7FsTM6wciVnGx-kZ7DzMRiH2oGXXT1nlphVb-gWj1WuTPpb6aAIaPivnU53d5gMtXAovbKh8fIUAeD8mPt7UnQiMYAlyFO4dXDtoXlDkHN9alZpzFWFPPHR"/>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                UNLOCKED
+              </span>
+<span class="text-code-sm font-code-sm text-outline mt-1">MITRE T1068</span>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Root Sentinel</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-normal">
+              Linux Kernel Mastery & SUID Privilege Escalation Mitigation in containerized environments.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 space-y-1.5 text-code-sm font-code-sm">
+<div class="flex items-center justify-between text-outline">
+<span>Issued: Oct 24, 2024</span>
+<span class="font-mono text-secondary">#ed8f342ec</span>
+</div>
+<div class="flex items-center justify-between text-outline text-[10px]">
+<span class="text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                Verified Ledger
+              </span>
+<span>Sha256 Attested</span>
+</div>
+</div>
+</div>
+<!-- Badge 2: Packet Warden [UNLOCKED] -->
+<div class="rounded-2xl bg-surface-container-low/95 backdrop-blur-xl border border-primary/30 p-space-md tactile-bevel relative group hover:border-primary/60 transition-all duration-300 shadow-lg">
+<div class="flex items-start justify-between gap-3">
+<div class="w-16 h-16 rounded-xl bg-surface-container border border-secondary/40 overflow-hidden tactile-bevel p-1 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-surface-container to-surface-container-high">
+<span class="material-symbols-outlined text-secondary text-[36px]" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                UNLOCKED
+              </span>
+<span class="text-code-sm font-code-sm text-outline mt-1">MITRE T1040</span>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Packet Warden</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-normal">
+              Wireshark PCAP Deep Dissection, C2 Beacon Isolation, and Rogue ARP Poison Neutralization.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 space-y-1.5 text-code-sm font-code-sm">
+<div class="flex items-center justify-between text-outline">
+<span>Issued: Nov 02, 2024</span>
+<span class="font-mono text-secondary">#91ae4b21c</span>
+</div>
+<div class="flex items-center justify-between text-outline text-[10px]">
+<span class="text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                Verified Ledger
+              </span>
+<span>Sha256 Attested</span>
+</div>
+</div>
+</div>
+<!-- Badge 3: Firewall Architect [UNLOCKED] -->
+<div class="rounded-2xl bg-surface-container-low/95 backdrop-blur-xl border border-primary/30 p-space-md tactile-bevel relative group hover:border-primary/60 transition-all duration-300 shadow-lg">
+<div class="flex items-start justify-between gap-3">
+<div class="w-16 h-16 rounded-xl bg-surface-container border border-primary/40 overflow-hidden tactile-bevel p-1 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-surface-container to-surface-container-high">
+<span class="material-symbols-outlined text-primary text-[36px]" style="font-variation-settings: 'FILL' 1;">fence</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                UNLOCKED
+              </span>
+<span class="text-code-sm font-code-sm text-outline mt-1">MITRE T1562</span>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Firewall Architect</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-normal">
+              Stateful IPTables orchestration, nftables scripting & Port Ingress Automated Lockdown.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 space-y-1.5 text-code-sm font-code-sm">
+<div class="flex items-center justify-between text-outline">
+<span>Issued: Nov 12, 2024</span>
+<span class="font-mono text-secondary">#77bf182d0</span>
+</div>
+<div class="flex items-center justify-between text-outline text-[10px]">
+<span class="text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                Verified Ledger
+              </span>
+<span>Sha256 Attested</span>
+</div>
+</div>
+</div>
+<!-- Badge 4: Web Citadel [IN PROGRESS - 65%] -->
+<div class="rounded-2xl bg-surface-container-low/85 backdrop-blur-xl border border-secondary/30 p-space-md tactile-bevel relative group shadow-lg">
+<div class="flex items-start justify-between gap-3">
+<div class="w-16 h-16 rounded-xl bg-surface-container border border-secondary/30 overflow-hidden tactile-bevel p-1 flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[36px]">language</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary/15 text-secondary border border-secondary/30 font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary status-pulse"></span>
+                65% IN PROGRESS
+              </span>
+<span class="text-code-sm font-code-sm text-outline mt-1">MITRE T1190</span>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Web Citadel</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-normal">
+              OWASP Top 10 Defenses, Parameterized SQLi Remediation & Server-Side Request Forgery Filters.
+            </p>
+</div>
+<!-- Progress Bar -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 space-y-2">
+<div class="flex items-center justify-between text-code-sm font-code-sm">
+<span class="text-outline">Lab Progress: 13/20 Modules</span>
+<span class="text-secondary font-mono font-semibold">65%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-1.5 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.6)]" style="width: 65%"></div>
+</div>
+</div>
+</div>
+<!-- Badge 5: Zero-Day Shield [LOCKED - Requires 4,000 XP] -->
+<div class="rounded-2xl bg-surface-container-low/50 backdrop-blur-md border border-outline-variant/15 p-space-md tactile-bevel relative opacity-70 group hover:opacity-90 transition-opacity">
+<div class="flex items-start justify-between gap-3">
+<div class="w-16 h-16 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-outline text-[32px]">lock</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-high text-outline border border-outline-variant/30 font-mono">
+                LOCKED // 4,000 XP
+              </span>
+<span class="text-code-sm font-code-sm text-outline mt-1">MITRE T1212</span>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="text-title-md font-title-md text-on-surface-variant font-bold">Zero-Day Shield</h3>
+<p class="text-body-sm font-body-sm text-outline mt-1 leading-normal">
+              Kernel Heap Exploit Mitigation, Return-Oriented Programming (ROP) Defenses & ASLR Verification.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-code-sm font-code-sm text-outline">
+<span>Required XP: 4,000 XP</span>
+<span class="text-on-surface-variant">Current: 3,450 XP (86%)</span>
+</div>
+</div>
+<!-- Badge 6: Vault Master [LOCKED - Clearance Level 3] -->
+<div class="rounded-2xl bg-surface-container-low/50 backdrop-blur-md border border-outline-variant/15 p-space-md tactile-bevel relative opacity-70 group hover:opacity-90 transition-opacity">
+<div class="flex items-start justify-between gap-3">
+<div class="w-16 h-16 rounded-xl bg-surface-container-lowest border border-outline-variant/30 overflow-hidden tactile-bevel p-1 flex-shrink-0">
+<img alt="Tactile claymorphic cyber vault safe with glowing green neon circuits and security keyhole" class="w-full h-full object-cover rounded-lg filter grayscale contrast-125" src="https://lh3.googleusercontent.com/aida/AEtjO1U8Qhi0Vu5bPhgBhLD3YegAkORJII3LvtiCc-QApOSPVjeQNeC61OOBFV9StQuW-fnY4qe_vKHsOonJH2r_9bExGLnqS6SCr5GEzYocqWJ3eOzgjt6cq-PnnVSJhf3GPTMyDo81CGLGAW-IrjtTirKTsTW5NtPmC8Pq9Gqb_nJrBR16QcmnBod0esB5_GF-HO4fz-fLpeU248hSa5IV52qLkmPWRlWMOBpY3vu2FeR6dUAk1M4TQr43PHn3"/>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container/30 text-error border border-error/30 font-mono">
+                LEVEL 3 CLEARANCE
+              </span>
+<span class="text-code-sm font-code-sm text-outline mt-1">CRYPTO // FIPS-140</span>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="text-title-md font-title-md text-on-surface-variant font-bold">Vault Master</h3>
+<p class="text-body-sm font-body-sm text-outline mt-1 leading-normal">
+              RSA, ECC & Post-Quantum Cryptanalysis, Hardware Security Module (HSM) attestation rituals.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-code-sm font-code-sm text-outline">
+<span>Enclave Requirement:</span>
+<span class="text-error font-mono">Level 3 Pending</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Terminal Activity Heatmap & Mission History -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- 52-Week Glowing Terminal Heatmap (7 Cols) -->
+<div class="lg:col-span-7 rounded-2xl bg-surface-container-low/90 backdrop-blur-xl border border-outline-variant/20 p-space-md sm:p-space-lg tactile-bevel shadow-xl space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-outline-variant/15">
+<div>
+<span class="text-code-sm font-code-sm text-primary uppercase font-bold tracking-wider">TELEMETRY // PERSISTENCE</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">1,420 Terminal Operations Logged</h3>
+</div>
+<span class="text-body-sm font-body-sm text-outline font-mono">Last 52 Calendar Weeks</span>
+</div>
+<!-- Heatmap Grid Canvas -->
+<div class="overflow-x-auto pb-2">
+<div class="min-w-[620px] space-y-1.5">
+<!-- Simulated 52-week activity commit matrix with varying luminescence -->
+<div class="flex gap-1">
+<!-- Week columns loop generated representation -->
+<!-- Block 1 to 52 -->
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/60"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/50"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/60"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/50"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/70"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/60"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/50"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/60"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/80"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/60"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/50"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/70"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/60"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/50"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/60"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/80"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/60"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/50"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/70"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/40"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-code-sm font-code-sm text-outline pt-2">
+<span>Nov 2023</span>
+<span>Mar 2024</span>
+<span>Jul 2024</span>
+<span>Nov 2024</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/15 text-label-sm font-label-sm">
+<span class="text-outline">Intensity scale:</span>
+<div class="flex items-center gap-1.5">
+<span class="text-outline">Less</span>
+<div class="w-2.5 h-2.5 rounded-sm bg-surface-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/20"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary/50"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+<span class="text-outline">More</span>
+</div>
+</div>
+</div>
+<!-- Recent Sandbox Operations Log (5 Cols) -->
+<div class="lg:col-span-5 rounded-2xl bg-surface-container-low/90 backdrop-blur-xl border border-outline-variant/20 p-space-md sm:p-space-lg tactile-bevel shadow-xl space-y-3 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/15">
+<span class="text-code-sm font-code-sm text-secondary uppercase font-bold tracking-wider">LOG // LIVE_REPLAYS</span>
+<span class="text-label-sm font-label-sm text-primary font-mono">4 RECENT OPS</span>
+</div>
+<div class="divide-y divide-outline-variant/15 mt-2">
+<!-- Op 1 -->
+<div class="py-2.5 group">
+<div class="flex items-start justify-between gap-2">
+<span class="text-title-md font-title-md text-on-surface font-semibold text-[13px] leading-tight group-hover:text-primary transition-colors">
+                  Op: SSH Brute-Force Log Analysis & Subnet Extraction
+                </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
+                  ZERO-LEAK
+                </span>
+</div>
+<div class="flex items-center justify-between text-code-sm font-code-sm text-outline mt-1 font-mono">
+<span>Oct 28, 2024</span>
+<span class="text-on-surface-variant">48 CLI inputs</span>
+</div>
+</div>
+<!-- Op 2 -->
+<div class="py-2.5 group">
+<div class="flex items-start justify-between gap-2">
+<span class="text-title-md font-title-md text-on-surface font-semibold text-[13px] leading-tight group-hover:text-primary transition-colors">
+                  Op: Reverse Netcat Spawn & Cron Triage
+                </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
+                  ZERO-LEAK
+                </span>
+</div>
+<div class="flex items-center justify-between text-code-sm font-code-sm text-outline mt-1 font-mono">
+<span>Nov 04, 2024</span>
+<span class="text-on-surface-variant">36 CLI inputs</span>
+</div>
+</div>
+<!-- Op 3 -->
+<div class="py-2.5 group">
+<div class="flex items-start justify-between gap-2">
+<span class="text-title-md font-title-md text-on-surface font-semibold text-[13px] leading-tight group-hover:text-primary transition-colors">
+                  Op: SQL Injection Union Payload Defusal
+                </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
+                  ZERO-LEAK
+                </span>
+</div>
+<div class="flex items-center justify-between text-code-sm font-code-sm text-outline mt-1 font-mono">
+<span>Nov 10, 2024</span>
+<span class="text-on-surface-variant">29 CLI inputs</span>
+</div>
+</div>
+<!-- Op 4 -->
+<div class="py-2.5 group">
+<div class="flex items-start justify-between gap-2">
+<span class="text-title-md font-title-md text-on-surface font-semibold text-[13px] leading-tight group-hover:text-primary transition-colors">
+                  Op: Memory Dump Volatility Carving
+                </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
+                  ZERO-LEAK
+                </span>
+</div>
+<div class="flex items-center justify-between text-code-sm font-code-sm text-outline mt-1 font-mono">
+<span>Nov 14, 2024</span>
+<span class="text-on-surface-variant">52 CLI inputs</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container hover:bg-surface-container-high text-on-surface text-code-sm font-code-sm rounded-lg border border-outline-variant/30 flex items-center justify-center space-x-1.5 transition-all">
+<span>Inspect Full Terminal Audit Log</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Section 6: Socratic AI Mentor Review & Endorsement -->
+<section class="rounded-2xl bg-surface-container-low/95 backdrop-blur-xl border border-secondary/30 p-space-md sm:p-space-lg tactile-bevel shadow-2xl relative overflow-hidden">
+<!-- Glow ambient backdrop -->
+<div class="absolute -top-16 -right-16 w-64 h-64 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg relative z-10">
+<!-- Mentor Avatar & Endorsement Quote -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-md">
+<div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-surface-container border-2 border-secondary/50 overflow-hidden tactile-bevel p-1 flex-shrink-0 clay-glow-cyan">
+<img alt="GuardianAI EOS Socratic AI Mentor robot avatar" class="w-full h-full object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida/AEtjO1Xjm7t8L2IhYlXwwFzkOwaX8Ke00DzRYHQPFSU0F3E-6iIde4BQuXvZqjPh0CK5F8NyXh28WV3onLEPf5zvFWB078bOwD1SpPElFBDS1zKpvpHHLBazVk2QChfcde7XSlXreO9ftxhzxVn7D8I_zFMZrF61HPlg6k86b2MjPXuz6ou_HedV-0UrHYiwB6HBF8QXVlaEmrSbBrcukb-OlZmM3GXFXq6NTqhHrvr9b0_IL-X_8G_JZGWw9t0"/>
+</div>
+<div class="space-y-1.5 max-w-3xl">
+<div class="flex items-center space-x-2">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary/15 text-secondary border border-secondary/30 font-semibold">
+                GUARDIAN.AI // SOCRATIC EOS
+              </span>
+<span class="text-label-sm font-label-sm text-outline">NEURAL DIALECTIC REVIEW</span>
+</div>
+<blockquote class="text-body-lg font-body-lg text-on-surface font-medium italic leading-relaxed">
+              “Agent Neo demonstrates exceptional defensive instinct in process inspection and pipeline redirection. Quickly isolated cron-injected payloads without destructive resets. Strongly recommend advancing to live memory forensics and kernel ring-0 monitoring.”
+            </blockquote>
+<div class="text-code-sm font-code-sm text-outline">
+              Attested by <span class="text-secondary font-semibold">GuardianAI EOS (Model v4.2)</span> · Cryptographically Signed Endorsement
+            </div>
+</div>
+</div>
+<!-- Socratic Dialectic Score Pill -->
+<div class="flex-shrink-0 w-full md:w-auto p-4 rounded-xl bg-surface-container border border-secondary/30 tactile-bevel flex md:flex-col items-center justify-between text-center min-w-[150px]">
+<div class="text-label-sm font-label-sm text-outline uppercase">DIALECTIC SCORE</div>
+<div class="text-headline-lg font-headline-lg text-secondary font-bold font-mono tracking-tight my-1">
+            94<span class="text-headline-sm font-headline-sm text-outline">/100</span>
+</div>
+<div class="text-[11px] font-mono text-primary font-medium">Independent Mastery</div>
+</div>
+</div>
+</section>
+<!-- Section 7: Bottom Enclave Telemetry Bar -->
+<footer class="py-4 border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-3 text-label-sm font-label-sm text-outline">
+<div class="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-1">
+<span class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary status-pulse"></span>
+          Airgapped Educational Defense Environment
+        </span>
+<span class="hidden md:inline">•</span>
+<span>Hardware TPM 2.0 Attested</span>
+<span class="hidden md:inline">•</span>
+<span>SHA-256 Verified Ledger</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-mono">
+<span class="material-symbols-outlined text-[15px] text-primary">verified</span>
+<span>Code of White-Hat Ethics Pledged // MIT License Labs</span>
+</div>
+</footer>
+</main>
+</body></html>

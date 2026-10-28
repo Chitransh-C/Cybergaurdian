@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CyberGuardian // Cadet Authentication &amp; Clearance Portal</title>
+<!-- Material Symbols Outlined Font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Geist & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-bright": "#343948",
+            "on-tertiary-fixed-variant": "#004395",
+            "tertiary-fixed": "#d8e2ff",
+            "on-error": "#690005",
+            "surface-variant": "#303444",
+            "inverse-surface": "#dee2f6",
+            "surface-container-lowest": "#090e1c",
+            "secondary-fixed": "#acedff",
+            "tertiary-container": "#71a1ff",
+            "on-secondary-fixed-variant": "#004e5c",
+            "secondary-container": "#03b5d3",
+            "on-surface-variant": "#bbcabf",
+            "background": "#0e1321",
+            "error-container": "#93000a",
+            "on-tertiary-fixed": "#001a42",
+            "outline-variant": "#3c4a42",
+            "on-primary-fixed-variant": "#005236",
+            "on-primary-container": "#00422b",
+            "on-secondary-container": "#00424e",
+            "on-secondary-fixed": "#001f26",
+            "surface-container-low": "#161b2a",
+            "surface-container-high": "#252a39",
+            "outline": "#86948a",
+            "on-surface": "#dee2f6",
+            "error": "#ffb4ab",
+            "secondary-fixed-dim": "#4cd7f6",
+            "inverse-on-surface": "#2b303f",
+            "surface-tint": "#4edea3",
+            "primary": "#4edea3",
+            "on-tertiary": "#002e6a",
+            "primary-container": "#10b981",
+            "on-secondary": "#003640",
+            "surface-container": "#1a1f2e",
+            "surface": "#0e1321",
+            "tertiary-fixed-dim": "#adc6ff",
+            "surface-container-highest": "#303444",
+            "primary-fixed-dim": "#4edea3",
+            "inverse-primary": "#006c49",
+            "tertiary": "#adc6ff",
+            "on-background": "#dee2f6",
+            "primary-fixed": "#6ffbbe",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#0e1321",
+            "on-tertiary-container": "#00367a",
+            "on-primary": "#003824",
+            "secondary": "#4cd7f6",
+            "on-primary-fixed": "#002113"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Geist"],
+            "label-sm": ["JetBrains Mono"],
+            "headline-md": ["Geist"],
+            "label-md": ["JetBrains Mono"],
+            "body-sm": ["Geist"],
+            "headline-lg": ["Geist"],
+            "body-lg": ["Geist"],
+            "code-sm": ["JetBrains Mono"],
+            "display-lg-mobile": ["Geist"],
+            "headline-lg-mobile": ["Geist"],
+            "code-md": ["JetBrains Mono"],
+            "title-md": ["Geist"],
+            "headline-sm": ["Geist"],
+            "body-md": ["Geist"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "code-md": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom Tactile Claymorphism & Micro Glass Glows */
+    .clay-surface {
+      background: linear-gradient(135deg, rgba(26, 31, 46, 0.85) 0%, rgba(14, 19, 33, 0.95) 100%);
+      box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.12),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.5),
+        0 12px 36px -8px rgba(0, 0, 0, 0.7);
+    }
+    .clay-pill-active {
+      background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+      box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.35),
+        inset 0 -2px 4px rgba(0, 66, 43, 0.7),
+        0 4px 16px rgba(16, 185, 129, 0.35);
+    }
+    .clay-card-inset {
+      background: #090e1c;
+      box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.6),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.05);
+    }
+    .glass-sheen {
+      position: relative;
+      overflow: hidden;
+    }
+    .glass-sheen::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(78, 222, 163, 0.08), transparent);
+      transform: skewX(-25deg);
+      transition: 0.75s;
+    }
+    .glass-sheen:hover::after {
+      left: 150%;
+    }
+    /* Grid Background Telemetry Pattern */
+    .bg-defense-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between bg-defense-grid overflow-x-hidden relative">
+<!-- Ambient Tactical Atmospheric Glows -->
+<div class="pointer-events-none fixed top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-primary/10 blur-[130px] -z-10"></div>
+<div class="pointer-events-none fixed bottom-[-10%] right-[-5%] w-[700px] h-[700px] rounded-full bg-secondary-container/10 blur-[150px] -z-10"></div>
+<!-- Shared TopNavBar Execution (Strict adherence to JSON and transactional context header) -->
+<header class="w-full bg-surface-container-low backdrop-blur-md border-b border-outline-variant/30 shadow-2xl shadow-surface-container-lowest/50 sticky top-0 z-50">
+<div class="w-full px-space-lg max-w-[1600px] mx-auto flex items-center justify-between h-16">
+<!-- Brand Logo & Gate Context Anchor -->
+<div class="flex items-center gap-space-md">
+<a class="flex items-center gap-space-sm group" href="#">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high border border-primary/30 flex items-center justify-center shadow-[inset_0_1px_2px_rgba(78,222,163,0.3)] group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<span class="text-title-md font-title-md tracking-tight font-bold text-primary uppercase">CyberGuardian</span>
+</a>
+<div class="h-4 w-px bg-outline-variant/40 hidden sm:block"></div>
+<div class="hidden sm:flex items-center gap-2 px-space-sm py-0.5 rounded-full bg-surface-container-lowest/80 border border-outline-variant/30 text-label-sm font-label-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>CLEARANCE PROTOCOL V2.4 // ONLINE</span>
+</div>
+</div>
+<!-- Navigation Links from Shared Components JSON -->
+<nav class="hidden lg:flex items-center gap-space-lg">
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors flex items-center gap-1.5 hover:text-primary hover:bg-surface-container-high/40 px-2.5 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined text-base">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors flex items-center gap-1.5 hover:text-primary hover:bg-surface-container-high/40 px-2.5 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined text-base">route</span>
+<span>Learning Tracks</span>
+</a>
+<a class="text-on-surface-variant font-body-md hover:text-on-surface transition-colors flex items-center gap-1.5 hover:text-primary hover:bg-surface-container-high/40 px-2.5 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined text-base">deployed_code</span>
+<span>Sandboxes</span>
+</a>
+<a class="text-primary font-title-md border-b-2 border-primary pb-1 flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>Credentials</span>
+</a>
+</nav>
+<!-- Trailing Primary & Secondary Actions + Tactical Utilities -->
+<div class="flex items-center gap-space-md">
+<!-- Return Anchor -->
+<a class="hidden md:flex items-center gap-1.5 text-on-surface-variant hover:text-primary font-body-sm text-body-sm transition-colors mr-2" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span>Back to Command Center</span>
+</a>
+<!-- Trailing Icon Actions -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150 relative" title="Notifications">
+<span class="material-symbols-outlined text-lg">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-secondary-container rounded-full ring-2 ring-surface-container-low"></span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 transition-all duration-150" title="Terminal CLI">
+<span class="material-symbols-outlined text-lg">terminal</span>
+</button>
+</div>
+<!-- Trailing Secondary Action (User Profile Pill) -->
+<div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-xl bg-surface-container border border-outline-variant/30 text-label-md font-label-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-medium text-xs">Agent Neo · Lvl 1</span>
+</div>
+<!-- Trailing Primary Action -->
+<button class="bg-primary-container text-on-primary-container font-headline-sm text-body-md font-semibold px-3.5 py-1.5 rounded-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)] hover:brightness-110 active:scale-[0.98] transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>Resume Lab</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Hero Authentication Clearance Canvas -->
+<main class="w-full max-w-[1600px] mx-auto px-space-md lg:px-space-lg py-space-lg flex-1 flex flex-col justify-center">
+<!-- Section Heading / Telemetry Bar -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-space-lg">
+<div>
+<div class="flex items-center gap-2 mb-1.5">
+<span class="font-code-sm text-code-sm text-secondary uppercase tracking-widest bg-secondary-container/10 border border-secondary-container/20 px-2 py-0.5 rounded">
+            SYS.GATE // AUTH.SECTOR-09
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ENCLAVE: ZERO-TRUST EAL6+</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface font-extrabold tracking-tight">
+          Cadet Security Clearance &amp; Tactical Authentication
+        </h1>
+</div>
+<!-- Quick Telemetry Badges -->
+<div class="flex items-center gap-2.5 font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-sm">shield</span>
+<span>Airgapped Enclave Active</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface-variant font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-secondary text-sm">speed</span>
+<span>LATENCY: 0.2ms</span>
+</div>
+</div>
+</div>
+<!-- Centered Split Authentication Console (Hero Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT SIDE: Cadet Identity Verification Console Card (Cols 7) -->
+<div class="lg:col-span-7 clay-surface rounded-xl border border-outline-variant/30 p-space-lg backdrop-blur-xl relative overflow-hidden">
+<!-- Subtle Top Edge Highlight -->
+<div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+<!-- Header & Claymorphic Switcher -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-md border-b border-outline-variant/20 gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">badge</span>
+<div>
+<h2 class="text-title-md font-title-md text-on-surface">Identity Gateway Verification</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Validate biometric token, institutional key or cadet credentials</p>
+</div>
+</div>
+<!-- Tactile Clay Switcher -->
+<div class="inline-flex p-1 bg-surface-container-lowest/80 rounded-xl border border-outline-variant/40 shadow-inner">
+<button class="px-3.5 py-1.5 rounded-lg font-label-md text-label-md font-semibold text-on-primary-container clay-pill-active transition-all" id="btn-login-tab">
+              CADET LOGIN
+            </button>
+<button class="px-3.5 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" id="btn-signup-tab">
+              ENLIST NEW RECRUIT
+            </button>
+</div>
+</div>
+<form class="mt-space-md space-y-space-md" onsubmit="event.preventDefault();">
+<!-- Clearance Tier Selector: Tactile Clay Radio Cards -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 font-medium">
+              1. ASSIGNED DEFENSE SPECIALIZATION TIER
+            </label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+<!-- Tier 1 Radio Card -->
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" name="clearance_tier" type="radio" value="tier1"/>
+<div class="p-3 rounded-xl border border-outline-variant/40 bg-surface-container/60 peer-checked:border-primary peer-checked:bg-primary-container/10 peer-checked:shadow-[inset_0_1px_2px_rgba(78,222,163,0.3)] transition-all">
+<div class="flex items-center justify-between mb-1">
+<span class="font-code-sm text-code-sm font-bold text-primary">TIER 01</span>
+<span class="w-2 h-2 rounded-full bg-primary/40 peer-checked:bg-primary"></span>
+</div>
+<div class="font-title-md text-title-md text-on-surface font-semibold text-xs leading-4">Junior Cadet</div>
+<div class="text-[11px] text-on-surface-variant mt-0.5 leading-tight">Fundamentals &amp; Micro-Sandboxes</div>
+</div>
+</label>
+<!-- Tier 2 Radio Card -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="clearance_tier" type="radio" value="tier2"/>
+<div class="p-3 rounded-xl border border-outline-variant/40 bg-surface-container/60 peer-checked:border-secondary-container peer-checked:bg-secondary-container/10 peer-checked:shadow-[inset_0_1px_2px_rgba(3,181,211,0.3)] transition-all">
+<div class="flex items-center justify-between mb-1">
+<span class="font-code-sm text-code-sm font-bold text-secondary">TIER 02</span>
+<span class="w-2 h-2 rounded-full bg-outline-variant peer-checked:bg-secondary"></span>
+</div>
+<div class="font-title-md text-title-md text-on-surface font-semibold text-xs leading-4">SOC Analyst</div>
+<div class="text-[11px] text-on-surface-variant mt-0.5 leading-tight">Live Threat Triage &amp; Incident Resp.</div>
+</div>
+</label>
+<!-- Tier 3 Radio Card -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="clearance_tier" type="radio" value="tier3"/>
+<div class="p-3 rounded-xl border border-outline-variant/40 bg-surface-container/60 peer-checked:border-tertiary-container peer-checked:bg-tertiary-container/10 peer-checked:shadow-[inset_0_1px_2px_rgba(113,161,255,0.3)] transition-all">
+<div class="flex items-center justify-between mb-1">
+<span class="font-code-sm text-code-sm font-bold text-tertiary">TIER 03</span>
+<span class="w-2 h-2 rounded-full bg-outline-variant peer-checked:bg-tertiary"></span>
+</div>
+<div class="font-title-md text-title-md text-on-surface font-semibold text-xs leading-4">Zero-Day Spec.</div>
+<div class="text-[11px] text-on-surface-variant mt-0.5 leading-tight">Binary Headers &amp; Kernel Defense</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Tactile Clay Inset Input Fields -->
+<div class="space-y-3">
+<!-- Callsign / Tactical Handle -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="font-label-md text-label-md text-on-surface-variant" for="callsign">TACTICAL HANDLE / CALLSIGN</label>
+<span class="font-code-sm text-code-sm text-primary">SECURE PROTOCOL</span>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">terminal</span>
+</div>
+<input class="w-full pl-10 pr-4 py-2.5 clay-card-inset border border-outline-variant/40 rounded-xl font-code-md text-code-md text-primary placeholder-on-surface-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" id="callsign" placeholder="e.g. Agent-Valkyrie_09" type="text" value="Agent-Valkyrie_09"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Institutional Email -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="font-label-md text-label-md text-on-surface-variant" for="email">ACADEMIC / ENTERPRISE CLEARANCE EMAIL</label>
+<span class="font-code-sm text-code-sm text-on-surface-variant">GOV / EDU ENCLAVE</span>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">mail_lock</span>
+</div>
+<input class="w-full pl-10 pr-4 py-2.5 clay-card-inset border border-outline-variant/40 rounded-xl font-code-md text-code-md text-on-surface placeholder-on-surface-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" id="email" placeholder="cadet@cyberguard.academy" type="email" value="cadet@cyberguard.academy"/>
+</div>
+</div>
+<!-- Defense Passkey -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="font-label-md text-label-md text-on-surface-variant" for="passkey">DEFENSE CIPHER PASSKEY</label>
+<a class="font-label-sm text-label-sm text-secondary hover:underline" href="#">Forgot Cipher?</a>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">password</span>
+</div>
+<input class="w-full pl-10 pr-10 py-2.5 clay-card-inset border border-outline-variant/40 rounded-xl font-code-md text-code-md text-on-surface placeholder-on-surface-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" id="passkey" placeholder="Enter alphanumeric passkey" type="password" value="••••••••••••••••"/>
+<button class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-on-surface-variant hover:text-on-surface transition-colors" title="Toggle visibility" type="button">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+</div>
+</div>
+<!-- Simulated Biometric / FIDO2 Key Verification Pill Button -->
+<div class="pt-1">
+<button class="w-full py-2 px-3.5 rounded-xl border border-secondary-container/40 bg-secondary-container/10 hover:bg-secondary-container/20 flex items-center justify-between text-secondary transition-all active:scale-[0.99] group" type="button">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-lg bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-base">fingerprint</span>
+</div>
+<span class="font-label-md text-label-md font-semibold">Touch YubiKey or Authenticate WebAuthn</span>
+</div>
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant group-hover:text-secondary">
+<span>FIDO2 / PASSKEY READY</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Session Checkbox & Blast Radius Protection -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 font-body-sm text-body-sm">
+<label class="inline-flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded border-outline-variant/40 bg-surface-container-lowest text-primary-container focus:ring-primary focus:ring-offset-surface" type="checkbox"/>
+<span class="text-on-surface">Remember defense terminal session (8h)</span>
+</label>
+<div class="flex items-center gap-1.5 text-primary text-xs font-code-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>Enforce Zero-Blast Radius</span>
+</div>
+</div>
+<!-- Primary Defense Action Button -->
+<div class="pt-2">
+<button class="w-full py-3 px-6 rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-title-md font-bold shadow-[inset_0_1px_3px_rgba(255,255,255,0.4),0_8px_24px_rgba(16,185,129,0.35)] hover:brightness-105 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group" type="submit">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>AUTHENTICATE &amp; ENTER DEFENSE NETWORK</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+<!-- Tactical Social SSO Gateways -->
+<div class="pt-3 border-t border-outline-variant/20">
+<div class="flex items-center justify-center gap-2 mb-3">
+<span class="h-px w-10 bg-outline-variant/30"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">OR FEDERATED CLEARANCE</span>
+<span class="h-px w-10 bg-outline-variant/30"></span>
+</div>
+<div class="grid grid-cols-3 gap-2.5">
+<button class="py-2 px-3 rounded-xl bg-surface-container/80 hover:bg-surface-container-high border border-outline-variant/40 flex items-center justify-center gap-2 text-on-surface font-label-md text-label-md transition-all active:scale-[0.98] shadow-sm" type="button">
+<span class="material-symbols-outlined text-base">terminal</span>
+<span>GitHub SSO</span>
+</button>
+<button class="py-2 px-3 rounded-xl bg-surface-container/80 hover:bg-surface-container-high border border-outline-variant/40 flex items-center justify-center gap-2 text-on-surface font-label-md text-label-md transition-all active:scale-[0.98] shadow-sm" type="button">
+<span class="material-symbols-outlined text-base">shield_with_house</span>
+<span>DefCon SSO</span>
+</button>
+<button class="py-2 px-3 rounded-xl bg-surface-container/80 hover:bg-surface-container-high border border-outline-variant/40 flex items-center justify-center gap-2 text-on-surface font-label-md text-label-md transition-all active:scale-[0.98] shadow-sm" type="button">
+<span class="material-symbols-outlined text-base">account_tree</span>
+<span>Google IAM</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+<!-- RIGHT SIDE: Holographic Defense Clearance Badge & Live Telemetry Preview Card (Cols 5) -->
+<div class="lg:col-span-5 space-y-space-md">
+<!-- Live Badge Clay Card -->
+<div class="clay-surface rounded-xl border border-primary/30 p-space-md backdrop-blur-xl relative overflow-hidden shadow-[0_12px_36px_rgba(0,0,0,0.6)]">
+<!-- Top Hologram Laser Bar -->
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/25">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">military_tech</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary">CADET DOSSIER // VERIFIED IDENT</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/25 font-label-sm text-label-sm text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span>LIVE TRANSMISSION</span>
+</div>
+</div>
+<!-- Hero Clay Avatar Showcase -->
+<div class="my-4 flex flex-col items-center text-center relative">
+<div class="relative w-44 h-44 rounded-2xl p-1 bg-gradient-to-b from-primary/30 via-outline-variant/30 to-surface-container-lowest shadow-[0_8px_32px_rgba(78,222,163,0.18)]">
+<img class="w-full h-full object-cover rounded-xl border border-primary/40 shadow-[inset_0_2px_4px_rgba(255,255,255,0.2)]" data-alt="A 3D tactile claymorphic cybersecurity cadet avatar wearing a futuristic slate and emerald helmet with a translucent glowing holographic cyber visor, displayed on a high-tech midnight obsidian backdrop with glowing cyan digital circuit telemetry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9ZgoAFOUbBk66KYKl_B_wSj2SHxHL8B1ilSpewIXFF6twPNmogMb1q-iWGpF9ZBe0Z1IghgeK0aXSDTWxV_pTvts_f7Ixhu-MaNSNJPwsaGAdyu4pAIurhHJXLu6tBn2zCFv-BxjQfga73Z2USoVtmxuYF1lR6BEyWX7_Rp5RRbvQCy7rwOcrQ5nXrPKT-wpRcaQ0hQWMJd6-mFpfQu44hYkoDhW5FGblb-j8MqcRgjzJgrXPn5_pXoB4A0r2r-7pQP-YyZZCe1RY"/>
+<!-- Corner Decorative Accents -->
+<div class="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-primary rounded-tl"></div>
+<div class="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-primary rounded-tr"></div>
+<div class="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-primary rounded-bl"></div>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-primary rounded-br"></div>
+</div>
+<!-- Identity HUD Readout -->
+<div class="mt-3">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">AGENT NEO</div>
+<div class="font-code-md text-code-md text-primary font-semibold flex items-center justify-center gap-1 mt-0.5">
+<span>CADET ID: CG-8492-DELTA</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">SECURITY CLEARANCE: TIER 1 // SANDBOX CERTIFIED</div>
+</div>
+</div>
+<!-- Cryptographic Seal Stamp -->
+<div class="p-3 rounded-xl clay-card-inset border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">enhanced_encryption</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">SHA-256 IDENT CRYPTOSEAL</div>
+<div class="font-code-sm text-code-sm text-on-surface font-semibold">0x9e8a71..4f7d290b</div>
+</div>
+</div>
+<span class="px-2 py-1 rounded bg-primary/10 text-primary border border-primary/30 font-label-sm text-label-sm font-bold">
+              STIG VALID
+            </span>
+</div>
+<!-- Defense Readiness Telemetry Meters -->
+<div class="mt-3 grid grid-cols-3 gap-2 text-center">
+<div class="p-2 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="font-label-sm text-label-sm text-on-surface-variant">INTEGRITY</div>
+<div class="font-code-md text-code-md font-bold text-primary">100%</div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="font-label-sm text-label-sm text-on-surface-variant">SANDBOX</div>
+<div class="font-code-md text-code-md font-bold text-secondary">ISOLATED</div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="font-label-sm text-label-sm text-on-surface-variant">DEFENSE CREED</div>
+<div class="font-code-md text-code-md font-bold text-tertiary">PLEDGED</div>
+</div>
+</div>
+</div>
+<!-- Socratic AI Mentor Speech Bubble (Tactile Clay Companion) -->
+<div class="clay-surface rounded-xl border border-secondary/30 p-space-md backdrop-blur-xl relative">
+<div class="flex items-start gap-3">
+<!-- Mentor Avatar Image -->
+<div class="w-12 h-12 rounded-xl flex-shrink-0 p-0.5 bg-secondary-container/20 border border-secondary/40 shadow-sm">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A charming claymorphic miniature robotic cybersecurity mentor named Eos with a glowing mint visor displaying digital defense shields, sitting calmly on a sleek obsidian tactical pedestal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxEeZJ8EuXqzX1IKFIZF87uVQomSryz2LqovHzJ9RQTD1z1AEmtCsQ-AZEAvRXFUjIu-yddrfjJFke_j_1Wqd3lOLYRFRZ1pwNgwsJ2vg-0K2shtIooA5KjlEMSyuKORtvKRjw9sC0iplzBcDdasEEkVS9BgawlTU44udcKmmAJfppOGekJ-Nd3_iJJ8uJ7QyiHS9Xq0uxvA-v6_RZtkXXJO6IKPoklvEgsVPPQu9DjEX-whDeJFJw2QNeC_eR_KFNzcbk7Lv6NhWR"/>
+</div>
+<!-- Socratic Guidance -->
+<div class="flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="font-title-md text-title-md font-semibold text-secondary text-xs">EOS // DEFENSE MENTOR AI</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">TACTICAL ADVICE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed italic bg-surface-container-lowest/60 p-2.5 rounded-lg border border-outline-variant/20">
+                “Every defender begins at the terminal. Secure your perimeter, question every packet, and leave no system exposed.”
+              </p>
+</div>
+</div>
+</div>
+<!-- Second Auxiliary Badge: Hardware Defense Token Status -->
+<div class="p-3 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>HARDWARE SECURE ENCLAVE (TPM 2.0 ATTESTED)</span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary">CHIP ID: 0xFD42</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Telemetry Bar / Footer -->
+<footer class="w-full bg-surface-container-lowest/90 border-t border-outline-variant/20 backdrop-blur-md py-3 px-space-md mt-space-lg">
+<div class="w-full max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-on-surface-variant font-code-sm text-code-sm">
+<!-- Security Protocol Compliance Line -->
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span>EAL6+ ISOLATION ENFORCED</span>
+</span>
+<span class="text-outline-variant">|</span>
+<span>SHA-256 SESSION: c82b...841f</span>
+<span class="text-outline-variant hidden md:inline">|</span>
+<span class="hidden md:inline text-on-surface-variant/80">AIRGAPPED EDUCATIONAL DEFENSE ENVIRONMENT</span>
+</div>
+<!-- Links & Socket Status -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 text-primary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>ENCRYPTED WSS SOCKET ACTIVE</span>
+</div>
+<a class="hover:text-primary transition-colors" href="#">Incident Disclosure</a>
+<a class="hover:text-primary transition-colors" href="#">Academy Rules of Engagement</a>
+</div>
+</div>
+</footer>
+<!-- Light Vanilla Script for Interactive Micro-States -->
+<script>
+    const btnLogin = document.getElementById('btn-login-tab');
+    const btnSignup = document.getElementById('btn-signup-tab');
+    
+    if (btnLogin && btnSignup) {
+      btnLogin.addEventListener('click', () => {
+        btnLogin.className = "px-3.5 py-1.5 rounded-lg font-label-md text-label-md font-semibold text-on-primary-container clay-pill-active transition-all";
+        btnSignup.className = "px-3.5 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all";
+      });
+
+      btnSignup.addEventListener('click', () => {
+        btnSignup.className = "px-3.5 py-1.5 rounded-lg font-label-md text-label-md font-semibold text-on-primary-container clay-pill-active transition-all";
+        btnLogin.className = "px-3.5 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all";
+      });
+    }
+  </script>
+</body></html>
